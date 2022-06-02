@@ -45,6 +45,7 @@ public class UmsAdminController {
 
 	@ResponseBody // 返回值为 ResponseBody 的内容
 	@PostMapping("/login") // 因为在类前注释了“@RequestMapping("/admin")”，只需要写 /admin 之后的路径
+	
 	public Response login(@RequestBody LoginParam param) { // 传入参数为 RequestBody （在文档中标识为 body）
 		if (param.getPassword().equals("123") && param.getUsername().equals("abc")) {
 			logger.info("User " + param.getUsername() + " logged in.");
