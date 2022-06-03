@@ -16,16 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-<<<<<<< Upstream, based on main
 import com.mall.model.pms.PmsProduct;
 import com.mall.model.response.CommonPagePmsProduct;
 import com.mall.model.response.CommonResult;
 import com.mall.repository.pms.PmsProductRepository;
-=======
-import com.mall.controller.UmsAdminController.Response;
-import com.mall.model.PmsProduct;
-import com.mall.repository.PmsProductRepository;
->>>>>>> 76c9887 提交修改代码测试分支是否好用
 
 @RequestMapping("/product")
 @Controller
@@ -40,7 +34,6 @@ public class PmsProductController {
 	private static final Logger logger = LoggerFactory.getLogger(PmsProductController.class);
 
 	@ResponseBody
-<<<<<<< Upstream, based on main
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public CommonResult createProduct(@RequestBody PmsProduct param) {
 		logger.info("接收成功");
@@ -65,10 +58,14 @@ public class PmsProductController {
 
 			logger.info("Product {} 添加成功", param.getName());
 			return new CommonResult(200, null, "Succeed");
-=======
-	@PostMapping("/create") //
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public Response createProduct(@RequestBody PmsProduct param) {
-		if (!param.getName().isEmpty() && param.getOriginalPrice() > 0) { // 价格类型为Number，判断条件">0"显示报错
+		
+		logger.info("收到来自前端的参数："+param.toString());
+		
+		if (!param.getName().isEmpty() && !param.getProductCategoryName().isEmpty()//
+				&&!param.getSubTitle().isEmpty()//
+				&&!param.getBrandName().isEmpty()) { // 价格类型为Number，判断条件">0"显示报错
 			
 			PmsProduct pmsProduct = PmsProduct.builder()//
 					.albumPics(param.getAlbumPics())//
@@ -91,8 +88,30 @@ public class PmsProductController {
 					.originalPrice(param.getOriginalPrice())//
 					.pic(param.getPic())//
 					.previewStatus(param.getPreviewStatus())//
+					.price(param.getPrice())//
+					.productAttributeCategoryId(param.getProductAttributeCategoryId())//
+					.productCategoryId(param.getProductCategoryId())//
+					.productCategoryName(param.getProductCategoryName())//
+					.productSn(param.getProductSn())//
+					.promotionEndTime(param.getPromotionEndTime())//
+					.promotionPerLimit(param.getPromotionPerLimit())//
+					.promotionPrice(param.getPromotionPrice())//
+					.promotionStartTime(param.getPromotionStartTime())//
+					.promotionType(param.getPromotionType())//
+					.publishStatus(param.getPublishStatus())//
+					.recommandStatus(param.getRecommandStatus())//
+					.sale(param.getSale())//
+					.serviceIds(param.getServiceIds())//
+					.sort(param.getSort())//
 					.productLadderList(param.getProductLadderList())//
+					.stock(param.getStock())//
+					.subTitle(param.getSubTitle())//
+					.unit(param.getUnit())//
+					.usePointLimit(param.getUsePointLimit())//
+					.verifyStatus(param.getVerifyStatus())//
+					.weight(param.getWeight())//
 					.build();
+		
 			pmsProductRepository.save(pmsProduct);
 			logger.info("Product " + param.getName() + "添加成功");
 			return new Response(200, null, "Succeed");
