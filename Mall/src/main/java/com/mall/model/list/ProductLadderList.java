@@ -1,7 +1,5 @@
 package com.mall.model.list;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,9 +16,9 @@ import lombok.Data;
 @Entity
 @Table(name = "product_ladder")
 @Data
-public class ProductLadderList implements Serializable {
+public class ProductLadderList  {
 	
-	private static final long serialVersionUID = 1L;
+	
 
 	@Id
 	@GeneratedValue

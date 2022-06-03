@@ -1,11 +1,16 @@
 package com.mall.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import com.mall.model.list.ProductLadderList;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,9 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class PmsProduct implements Serializable{
-
-	private static final long serialVersionUID = 1L;
+public class PmsProduct {
 
 	@Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +36,7 @@ public class PmsProduct implements Serializable{
 	 @Column(name ="品牌编号")
 	 private Long brandId;
 	 
-	 @Column(name ="品牌名称")
+	 @Column(name ="商品品牌")
 	 private String brandName;
 	 
 	 @Column(name ="删除状态")
@@ -78,7 +81,7 @@ public class PmsProduct implements Serializable{
 	 @Column(name ="")
 	 private String note;
 
-	 @Column(name ="市场价")
+	 @Column(name ="商品原价")
 	 private double originalPrice;
 
 	 @Column(name ="")
@@ -87,8 +90,8 @@ public class PmsProduct implements Serializable{
 	 @Column(name ="是否为预告商品")
 	 private int previewStatus;
 
-	 @Column(name ="")
-	 private Number price;
+	 @Column(name ="商品价格")
+	 private double price;
 
 	 @Column(name ="")
 	 private Long productAttributeCategoryId;
@@ -96,7 +99,7 @@ public class PmsProduct implements Serializable{
 	 @Column(name ="")
 	 private Long productCategoryId;
 
-	 @Column(name ="商品分类名称")
+	 @Column(name ="商品分类")
 	 private String productCategoryName;
 
 	 @Column(name ="货号")
@@ -131,9 +134,27 @@ public class PmsProduct implements Serializable{
 
 	 @Column(name ="排序")
 	 private int sort;
-		
-	 @OneToMany(cascade = CascadeType.ALL,mappedBy = "pmsProduct",orphanRemoval = true)
-	 private List<ProductLadderList> productLadderList = new ArrayList<>();
+	 
+	 @Column(name = "库存")
+	 private int stock;
+
+	 @Column(name = "副标题")
+	 private String subTitle;
+
+	 @Column(name = "单位")
+	 private String unit;
+
+	 @Column(name = "限制使用的积分数")
+	 private int usePointLimit;
+	 @Column(name = "审核状态")
+	 private int verifyStatus;
+
+	 @Column(name = "商品重量，默认为克")
+	 private Number weight;
+
+	
+	 @OneToMany(mappedBy = "pmsProduct")
+	 private List<ProductLadderList> productLadderList;
 	
 }
 
