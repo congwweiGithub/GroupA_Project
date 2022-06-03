@@ -16,10 +16,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+<<<<<<< Upstream, based on main
 import com.mall.model.pms.PmsProduct;
 import com.mall.model.response.CommonPagePmsProduct;
 import com.mall.model.response.CommonResult;
 import com.mall.repository.pms.PmsProductRepository;
+=======
+import com.mall.controller.UmsAdminController.Response;
+import com.mall.model.PmsProduct;
+import com.mall.repository.PmsProductRepository;
+>>>>>>> 76c9887 提交修改代码测试分支是否好用
 
 @RequestMapping("/product")
 @Controller
@@ -34,6 +40,7 @@ public class PmsProductController {
 	private static final Logger logger = LoggerFactory.getLogger(PmsProductController.class);
 
 	@ResponseBody
+<<<<<<< Upstream, based on main
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public CommonResult createProduct(@RequestBody PmsProduct param) {
 		logger.info("接收成功");
@@ -58,6 +65,38 @@ public class PmsProductController {
 
 			logger.info("Product {} 添加成功", param.getName());
 			return new CommonResult(200, null, "Succeed");
+=======
+	@PostMapping("/create") //
+	public Response createProduct(@RequestBody PmsProduct param) {
+		if (!param.getName().isEmpty() && param.getOriginalPrice() > 0) { // 价格类型为Number，判断条件">0"显示报错
+			
+			PmsProduct pmsProduct = PmsProduct.builder()//
+					.albumPics(param.getAlbumPics())//
+					.icon(param.getIcon())//
+					.brandId(param.getBrandId()).brandName(param.getBrandName())//
+					.deleteStatus(param.getDeleteStatus())//
+					.description(param.getDescription())//
+					.detailDesc(param.getDetailDesc())//
+					.detailHtml(param.getDetailHtml())//
+					.detailMobileHtml(param.getDetailMobileHtml())//
+					.detailTitle(param.getDetailTitle())//
+					.feightTemplateId(param.getFeightTemplateId())//
+					.giftGrowth(param.getGiftGrowth())//
+					.giftPoint(param.getGiftPoint())//
+					.keyWords(param.getKeyWords())//
+					.lowStock(param.getLowStock())//
+					.name(param.getName())//
+					.newStatus(param.getNewStatus())//
+					.note(param.getNote())//
+					.originalPrice(param.getOriginalPrice())//
+					.pic(param.getPic())//
+					.previewStatus(param.getPreviewStatus())//
+					.productLadderList(param.getProductLadderList())//
+					.build();
+			pmsProductRepository.save(pmsProduct);
+			logger.info("Product " + param.getName() + "添加成功");
+			return new Response(200, null, "Succeed");
+>>>>>>> 76c9887 提交修改代码测试分支是否好用
 		} else {
 			logger.warn("Produc {} 添加失败", param.getName());
 			return new CommonResult(404, null, "Fail");
