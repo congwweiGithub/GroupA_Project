@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mall.controller.UmsAdminController.Response;
+
 import com.mall.model.PmsProduct;
+import com.mall.model.response.ProductResponse;
 import com.mall.repository.PmsProductRepository;
 
 @RequestMapping("/product")
@@ -23,15 +24,16 @@ public class PmsProductController {
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public Response createProduct(@RequestBody PmsProduct param) {
+	public ProductResponse createProduct(@RequestBody PmsProduct param) {
 		
-		logger.info("收到来自前端的参数："+param.toString());
+		System.out.println("222222222222222222222222");
 		
 		if (!param.getName().isEmpty() && !param.getProductCategoryName().isEmpty()//
 				&&!param.getSubTitle().isEmpty()//
 				&&!param.getBrandName().isEmpty()) { // 价格类型为Number，判断条件">0"显示报错
 			
 			PmsProduct pmsProduct = PmsProduct.builder()//
+					.id(param.getId())
 					.albumPics(param.getAlbumPics())//
 					.icon(param.getIcon())//
 					.brandId(param.getBrandId()).brandName(param.getBrandName())//
@@ -67,21 +69,27 @@ public class PmsProductController {
 					.sale(param.getSale())//
 					.serviceIds(param.getServiceIds())//
 					.sort(param.getSort())//
-					.productLadderList(param.getProductLadderList())//
 					.stock(param.getStock())//
 					.subTitle(param.getSubTitle())//
 					.unit(param.getUnit())//
 					.usePointLimit(param.getUsePointLimit())//
 					.verifyStatus(param.getVerifyStatus())//
 					.weight(param.getWeight())//
+					.cmsPrefrenceAreaProductRelation(param.getCmsPrefrenceAreaProductRelation())//
+					.cmsSubjectProductRelation(param.getCmsSubjectProductRelation())//
+					.pmsMemberPrice(param.getPmsMemberPrice())//
+					.pmsProductAttributeValue(param.getPmsProductAttributeValue())//
+					.pmsProductFullReduction(param.getPmsProductFullReduction())//
+					.pmsProductLadder(param.getPmsProductLadder())//
+					.pmsSkuStock(param.getPmsSkuStock())//
 					.build();
 		
 			pmsProductRepository.save(pmsProduct);
 			logger.info("Product " + param.getName() + "添加成功");
-			return new Response(200, null, "Succeed");
+			return new ProductResponse(200, null, "Succeed");
 		} else {
 			logger.warn("Produc" + param.getName() + " 添加失败");
-			return new Response(404, null, "Fail");
+			return new ProductResponse(404, null, "Fail");
 		}
 	}
 
