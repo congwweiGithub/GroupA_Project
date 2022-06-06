@@ -1,4 +1,4 @@
-package com.mall.model.list;
+package com.GroupAMall.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,8 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-//@Entity
-//@Table(name = "member_price")
+@Entity
+@Table(name = "member_price")
 @Data
 public class PmsMenberPrice {
 	

@@ -1,4 +1,4 @@
-package com.GroupAMall.Controller;
+package com.GroupAMall.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.GroupAMall.response.Responce.Response;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 @RequestMapping("/admin") // 所有本类中方法的请求路径都以 /admin 开头
 @Controller
 public class UmsAdminController {
@@ -23,8 +23,7 @@ public class UmsAdminController {
 	private static final Logger logger = LoggerFactory.getLogger(UmsAdminController.class);
 
 	// 创建 API 中规定的 umsAdminLoginParam 所具有的类型
-	@Getter
-	@Setter
+	@Data
 	@NoArgsConstructor
 	@AllArgsConstructor
 	public static class LoginParam {
@@ -32,16 +31,6 @@ public class UmsAdminController {
 		private String username;
 	}
 
-	// 创建 API 中规定的 response 所具有的类型
-	@Getter
-	@Setter
-	@NoArgsConstructor
-	@AllArgsConstructor
-	public static class Response {
-		private long code;
-		private Object data;
-		private String message;
-	}
 
 	@ResponseBody // 返回值为 ResponseBody 的内容
 	@PostMapping("/login") // 因为在类前注释了“@RequestMapping("/admin")”，只需要写 /admin 之后的路径

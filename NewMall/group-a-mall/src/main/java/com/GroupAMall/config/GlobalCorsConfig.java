@@ -1,4 +1,4 @@
-package com.GroupAMall.Config;
+package com.GroupAMall.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

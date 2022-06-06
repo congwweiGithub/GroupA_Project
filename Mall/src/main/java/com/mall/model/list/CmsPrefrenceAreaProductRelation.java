@@ -13,9 +13,9 @@ import lombok.Data;
 
 @Entity
 @Data
-public class PmsProductFullReduction {
+public class CmsPrefrenceAreaProductRelation {
 
-	// JPA多对一
+	//JPA多对一
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "pms_product_id")
 	private PmsProduct pmsProduct;
@@ -24,10 +24,8 @@ public class PmsProductFullReduction {
 	@GeneratedValue
 	private Long id;
 
-	private double fullPrice;
+	private Long prefrenceAreaId;
 
 	private Long productId;
-
-	private double reducePrice;
 
 }

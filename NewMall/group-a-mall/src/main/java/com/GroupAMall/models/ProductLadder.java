@@ -1,4 +1,4 @@
-package com.mall.model.list;
+package com.GroupAMall.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-//@Table(name = "product_ladder")
+@Table(name = "product_ladder")
 @Data
 public class ProductLadder {
 	

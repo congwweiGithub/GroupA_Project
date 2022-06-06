@@ -1,4 +1,4 @@
-package com.mall.model.list;
+package com.GroupAMall.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,8 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-//@Entity
-//@Table(name = "sku_stock")
+@Entity
+@Table(name = "sku_stock")
 @Data
 public class SkuStock {
 	
@@ -45,5 +45,6 @@ public class SkuStock {
 
 	@Column(name ="库存")
 	private int stock;
+	
 
 }

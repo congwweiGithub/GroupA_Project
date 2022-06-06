@@ -6,14 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 import com.mall.model.PmsProduct;
 
 import lombok.Data;
 
 @Entity
 @Data
-public class PmsProductFullReduction {
+public class PmsProductLadder {
 
 	// JPA多对一
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -24,10 +23,15 @@ public class PmsProductFullReduction {
 	@GeneratedValue
 	private Long id;
 
-	private double fullPrice;
+	// @Column(name = "满足的商品数量")
+	private int count;
+
+	// @Column(name = "折扣")
+	private double discount;
+
+	// @Column(name = "折后价格")
+	private double price;
 
 	private Long productId;
-
-	private double reducePrice;
 
 }
