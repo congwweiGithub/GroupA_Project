@@ -9,7 +9,7 @@ import com.mall.model.param.PmsProductParam;
 
 @Repository
 public interface PmsProductRepository extends JpaRepository<PmsProduct,Long> { 
-	 PmsProductParam findByName(String name);
+	 PmsProduct findByName(String name);
 
 	void save(PmsProductParam pmsProductParam);
 

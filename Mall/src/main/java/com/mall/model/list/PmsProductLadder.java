@@ -23,13 +23,13 @@ public class PmsProductLadder {
 	@GeneratedValue
 	private Long id;
 
-	// @Column(name = "满足的商品数量")
+	// 满足的商品数量
 	private int count;
 
-	// @Column(name = "折扣")
+	// 折扣
 	private double discount;
 
-	// @Column(name = "折后价格")
+	// 折后价格
 	private double price;
 
 	private Long productId;
