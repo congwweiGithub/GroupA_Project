@@ -6,7 +6,10 @@ import lombok.NoArgsConstructor;
 
 /**
  * 创建 API 中规定的 umsAdminLoginParam 所具有的类型
+<<<<<<< Upstream, based on main
  * 
+=======
+>>>>>>> ae0914a 完善代码，添加功能
  * @author aki
  *
  */

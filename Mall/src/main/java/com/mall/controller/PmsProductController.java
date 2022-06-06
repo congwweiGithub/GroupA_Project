@@ -16,10 +16,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+<<<<<<< Upstream, based on main
 import com.mall.model.pms.PmsProduct;
 import com.mall.model.response.CommonPagePmsProduct;
 import com.mall.model.response.CommonResult;
 import com.mall.repository.pms.PmsProductRepository;
+=======
+
+import com.mall.model.PmsProduct;
+import com.mall.model.response.ProductResponse;
+import com.mall.repository.PmsProductRepository;
+>>>>>>> ae0914a 完善代码，添加功能
 
 @RequestMapping("/product")
 @Controller
@@ -35,6 +42,7 @@ public class PmsProductController {
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
+<<<<<<< Upstream, based on main
 	public CommonResult createProduct(@RequestBody PmsProduct param) {
 		logger.info("接收成功");
 		if (!param.getName().isEmpty() && !param.getProductCategoryName().isEmpty()//
@@ -60,14 +68,18 @@ public class PmsProductController {
 			return new CommonResult(200, null, "Succeed");
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public Response createProduct(@RequestBody PmsProduct param) {
+=======
+	public ProductResponse createProduct(@RequestBody PmsProduct param) {
+>>>>>>> ae0914a 完善代码，添加功能
 		
-		logger.info("收到来自前端的参数："+param.toString());
+		System.out.println("222222222222222222222222");
 		
 		if (!param.getName().isEmpty() && !param.getProductCategoryName().isEmpty()//
 				&&!param.getSubTitle().isEmpty()//
 				&&!param.getBrandName().isEmpty()) { // 价格类型为Number，判断条件">0"显示报错
 			
 			PmsProduct pmsProduct = PmsProduct.builder()//
+					.id(param.getId())
 					.albumPics(param.getAlbumPics())//
 					.icon(param.getIcon())//
 					.brandId(param.getBrandId()).brandName(param.getBrandName())//
@@ -103,22 +115,37 @@ public class PmsProductController {
 					.sale(param.getSale())//
 					.serviceIds(param.getServiceIds())//
 					.sort(param.getSort())//
-					.productLadderList(param.getProductLadderList())//
 					.stock(param.getStock())//
 					.subTitle(param.getSubTitle())//
 					.unit(param.getUnit())//
 					.usePointLimit(param.getUsePointLimit())//
 					.verifyStatus(param.getVerifyStatus())//
 					.weight(param.getWeight())//
+					.cmsPrefrenceAreaProductRelation(param.getCmsPrefrenceAreaProductRelation())//
+					.cmsSubjectProductRelation(param.getCmsSubjectProductRelation())//
+					.pmsMemberPrice(param.getPmsMemberPrice())//
+					.pmsProductAttributeValue(param.getPmsProductAttributeValue())//
+					.pmsProductFullReduction(param.getPmsProductFullReduction())//
+					.pmsProductLadder(param.getPmsProductLadder())//
+					.pmsSkuStock(param.getPmsSkuStock())//
 					.build();
 		
 			pmsProductRepository.save(pmsProduct);
 			logger.info("Product " + param.getName() + "添加成功");
+<<<<<<< Upstream, based on main
 			return new Response(200, null, "Succeed");
 >>>>>>> 76c9887 提交修改代码测试分支是否好用
+=======
+			return new ProductResponse(200, null, "Succeed");
+>>>>>>> ae0914a 完善代码，添加功能
 		} else {
+<<<<<<< Upstream, based on main
 			logger.warn("Produc {} 添加失败", param.getName());
 			return new CommonResult(404, null, "Fail");
+=======
+			logger.warn("Produc" + param.getName() + " 添加失败");
+			return new ProductResponse(404, null, "Fail");
+>>>>>>> ae0914a 完善代码，添加功能
 		}
 	}
 

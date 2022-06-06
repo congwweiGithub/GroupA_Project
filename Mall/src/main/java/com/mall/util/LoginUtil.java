@@ -12,8 +12,13 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
+<<<<<<< Upstream, based on main
 import com.mall.model.ums.UmsMenu;
 import com.mall.repository.ums.UmsMenuRepository;
+=======
+import com.mall.model.UmsMenu;
+import com.mall.repository.UmsMenuRepository;
+>>>>>>> ae0914a 完善代码，添加功能
 
 @Component
 public class LoginUtil {

@@ -35,7 +35,11 @@ public class UmsAdminController {
 			log.info("User {} logged in.", param.getUsername());
 			return CommonResult.success(tokenMap);
 		} else {
+<<<<<<< Upstream, based on main
 			log.warn("User {} failed to log in.", param.getUsername());
+=======
+			log.warn("User {} failed to log in.",param.getUsername());
+>>>>>>> ae0914a 完善代码，添加功能
 			return new CommonResult(404, null, "Fail");
 		}
 	}

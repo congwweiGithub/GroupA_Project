@@ -1,6 +1,7 @@
 package com.mall.controller;
 
 <<<<<<< Upstream, based on main
+<<<<<<< Upstream, based on main
 //import static org.junit.Assert.assertEquals;
 //import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -23,7 +24,16 @@ import com.mall.model.pms.PmsProduct;
 =======
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+=======
+//import static org.junit.Assert.assertEquals;
+//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+>>>>>>> ae0914a 完善代码，添加功能
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -213,44 +223,143 @@ public class PmsProductITest {
 =======
 		ObjectMapper requsetBody = new ObjectMapper();		
 		PmsProduct pmsProduct = PmsProduct.builder()//
-				.name("name")//
-				.productCategoryName("productCategoryName")//
-				.subTitle("subTitle")//
+				.id(2l)
+				.albumPics("albumPics")//
+				.icon("icon")//
+				.brandId(2l)//
 				.brandName("brandName")//
+				.deleteStatus(1)//
+				.description("description")//
+				.detailDesc("detailDesc")//
+				.detailHtml("detailHtml")//
+				.detailMobileHtml("detailMobileHtml")//
+				.detailTitle("detailTitle")//
+				.feightTemplateId(2l)//
+				.giftGrowth(1)//
+				.giftPoint(1)//
+				.keyWords("keyWords")//
+				.lowStock(1)//
+				.name("name")//
+				.newStatus(1)//
+				.note("note")//
+				.originalPrice(1.00)//
+				.pic("pic")//
+				.previewStatus(1)//
+				.price(1.0)//
+				.productAttributeCategoryId(2l)//
+				.productCategoryId(2l)//
+				.productCategoryName("productCategoryName")//
+				.productSn("productSn")//
+				.promotionEndTime(new Timestamp(new Date().getTime()))//
+				.promotionPerLimit(1)//
+				.promotionPrice(1.0)//
+				.promotionStartTime(new Timestamp(new Date().getTime()))//
+				.promotionType(1)//
+				.publishStatus(1)//
+				.recommandStatus(1)//
+				.sale(1)//
+				.serviceIds("serviceIds")//
+				.sort(1)//
+				.stock(1)//
+				.subTitle("subTitle")//
+				.unit("unit")//
+				.usePointLimit(1)//
+				.verifyStatus(1)//
+				.weight(1.0)//
+				.cmsPrefrenceAreaProductRelation(new ArrayList<>())//
+				.cmsSubjectProductRelation(new ArrayList<>())//
+				.pmsMemberPrice(new ArrayList<>())//
+				.pmsProductAttributeValue(new ArrayList<>())//
+				.pmsProductFullReduction(new ArrayList<>())//
+				.pmsProductLadder(new ArrayList<>())//
+				.pmsSkuStock(new ArrayList<>())//				
 				.build();
 
 		RequestBuilder request = MockMvcRequestBuilders//
-				.post("/product/create")//
-				.content(requsetBody.writeValueAsBytes(pmsProduct))//
-//				.param("name", pmsProduct.getName())//
-//				.param("productCategoryName", pmsProduct.getProductCategoryName())//
-//				.param("subTitle", pmsProduct.getSubTitle())//
-//				.param("brandName", pmsProduct.getBrandName())//
+				.post("http://localhost:8080/product/create")//
+				.content(requsetBody.writeValueAsString(pmsProduct))//	
+				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON);
 
 		String json = responseBody.writeValueAsString(pmsProduct);
+		
+		mockMvc.perform(request).andExpect(status().isOk());		
+//		assertEquals(json, request.toString());  // 过后再写
+//		mockMvc.perform(request).andExpect(content().string(json));
 
-		mockMvc.perform(request).andExpect(content().string(json));//准备个json    jackson
-
-		ResultActions resultActions = mockMvc.perform(request);
-		System.out.println("1111111111111111111111");
-		System.out.println(resultActions.andReturn().getResponse().getContentAsString());
+//		ResultActions resultActions = mockMvc.perform(request);
+//		System.out.println("1111111111111111111111");
+//		System.out.println(resultActions);
+//		System.out.println(resultActions.andReturn().getResponse().getContentAsString());
 
 	}
 
 	@Test // 待修改
-	public void testCreateProduct_Failed1() throws Exception {
-		PmsProduct pmsProduct = new PmsProduct();
+	public void testCreateProduct_Failed_NameisEmpyt() throws Exception {
+		ObjectMapper responseBody = new ObjectMapper();
+		ObjectMapper requsetBody = new ObjectMapper();		
+		PmsProduct pmsProduct = PmsProduct.builder()//
+				.id(1l)
+				.albumPics("albumPics")//
+				.icon("icon")//
+				.brandId(1l)//
+				.brandName("brandName")//
+				.deleteStatus(1)//
+				.description("description")//
+				.detailDesc("detailDesc")//
+				.detailHtml("detailHtml")//
+				.detailMobileHtml("detailMobileHtml")//
+				.detailTitle("detailTitle")//
+				.feightTemplateId(1l)//
+				.giftGrowth(1)//
+				.giftPoint(1)//
+				.keyWords("keyWords")//
+				.lowStock(1)//
+				.name(null)//
+				.newStatus(1)//
+				.note("note")//
+				.originalPrice(1.00)//
+				.pic("pic")//
+				.previewStatus(1)//
+				.price(1.0)//
+				.productAttributeCategoryId(1l)//
+				.productCategoryId(1l)//
+				.productCategoryName("productCategoryName")//
+				.productSn("productSn")//
+				.promotionEndTime(new Timestamp(new Date().getTime()))//
+				.promotionPerLimit(1)//
+				.promotionPrice(1.0)//
+				.promotionStartTime(new Timestamp(new Date().getTime()))//
+				.promotionType(1)//
+				.publishStatus(1)//
+				.recommandStatus(1)//
+				.sale(1)//
+				.serviceIds("serviceIds")//
+				.sort(1)//
+				.stock(1)//
+				.subTitle("subTitle")//
+				.unit("unit")//
+				.usePointLimit(1)//
+				.verifyStatus(1)//
+				.weight(1.0)//
+				.cmsPrefrenceAreaProductRelation(new ArrayList<>())//
+				.cmsSubjectProductRelation(new ArrayList<>())//
+				.pmsMemberPrice(new ArrayList<>())//
+				.pmsProductAttributeValue(new ArrayList<>())//
+				.pmsProductFullReduction(new ArrayList<>())//
+				.pmsProductLadder(new ArrayList<>())//
+				.pmsSkuStock(new ArrayList<>())//				
+				.build();
+
 		RequestBuilder request = MockMvcRequestBuilders//
-				.post("/create")//
-				.param("name", "")//
-				.param("productCategoryName", pmsProduct.getProductCategoryName())//
-				.param("subTitle", pmsProduct.getSubTitle())//
-				.param("brandName", pmsProduct.getBrandName())//
+				.post("http://localhost:8080/product/create")//
+				.content(requsetBody.writeValueAsString(pmsProduct))//	
+				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON);
 
-		mockMvc.perform(request).andExpect(view().name("createFailed"));
-
+//		String json = responseBody.writeValueAsString(pmsProduct);
+		
+		mockMvc.perform(request).andExpect(status().isBadRequest());
 	}
 
 	@Test // 待修改

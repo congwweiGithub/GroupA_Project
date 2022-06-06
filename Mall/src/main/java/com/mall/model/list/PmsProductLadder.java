@@ -16,7 +16,7 @@ import lombok.Data;
 @Entity
 @Table(name = "product_ladder")
 @Data
-public class ProductLadderList  {
+public class PmsProductLadder  {
 	
 	
 
@@ -24,13 +24,13 @@ public class ProductLadderList  {
 	@GeneratedValue
 	private Long id;
 	
-	@Column(name ="满足的商品数量")
+//	@Column(name ="满足的商品数量")
 	private int count;
 	
-	@Column(name ="折扣")
+//	@Column(name ="折扣")
 	private Number discount;
 
-	@Column(name ="折后价格")
+//	@Column(name ="折后价格")
 	private Number price;
 	
 	private Long productId;
