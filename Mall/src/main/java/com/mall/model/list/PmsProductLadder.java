@@ -1,9 +1,9 @@
 package com.mall.model.list;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,17 +21,17 @@ public class PmsProductLadder  {
 	
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 //	@Column(name ="满足的商品数量")
 	private int count;
 	
 //	@Column(name ="折扣")
-	private Number discount;
+	private double discount;
 
 //	@Column(name ="折后价格")
-	private Number price;
+	private double price;
 	
 	private Long productId;
 	
@@ -40,3 +40,4 @@ public class PmsProductLadder  {
     private PmsProduct pmsProduct;
 
 }
+

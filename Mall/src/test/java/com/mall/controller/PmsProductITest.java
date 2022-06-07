@@ -1,11 +1,9 @@
 package com.mall.controller;
 
 <<<<<<< Upstream, based on main
-<<<<<<< Upstream, based on main
 //import static org.junit.Assert.assertEquals;
 //import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -21,14 +19,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mall.model.pms.PmsProduct;
-=======
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-=======
-//import static org.junit.Assert.assertEquals;
-//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
->>>>>>> ae0914a 完善代码，添加功能
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import java.sql.Timestamp;
@@ -42,7 +32,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -60,7 +49,6 @@ public class PmsProductITest {
 	public void testCreateProduct_Succcess() throws Exception {
 
 		ObjectMapper responseBody = new ObjectMapper();
-<<<<<<< Upstream, based on main
 		ObjectMapper requsetBody = new ObjectMapper();
 		PmsProduct pmsProduct = PmsProduct.builder()//
 				.id(2l).albumPics("albumPics")//
@@ -220,10 +208,9 @@ public class PmsProductITest {
 	}
 
 	@Test // TODO
-=======
 		ObjectMapper requsetBody = new ObjectMapper();		
 		PmsProduct pmsProduct = PmsProduct.builder()//
-				.id(2l)
+				
 				.albumPics("albumPics")//
 				.icon("icon")//
 				.brandId(2l)//
@@ -281,7 +268,7 @@ public class PmsProductITest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON);
 
-		String json = responseBody.writeValueAsString(pmsProduct);
+//		String json = responseBody.writeValueAsString(pmsProduct);
 		
 		mockMvc.perform(request).andExpect(status().isOk());		
 //		assertEquals(json, request.toString());  // 过后再写
