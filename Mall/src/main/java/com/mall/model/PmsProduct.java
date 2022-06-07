@@ -33,7 +33,7 @@ import lombok.NoArgsConstructor;
 public class PmsProduct{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	//@Column(name = "画册图片")
@@ -49,7 +49,7 @@ public class PmsProduct{
 	private String brandName;
 
 	//@Column(name = "删除状态")
-	private int deleteStatus;
+	private Integer deleteStatus;
 
 	//@Column(name = "商品描述")
 	private String description;
@@ -68,22 +68,22 @@ public class PmsProduct{
 	private Long feightTemplateId;
 
 	//@Column(name = "赠送的成长值")
-	private int giftGrowth;
+	private Integer giftGrowth;
 
 	//@Column(name = "赠送的积分")
-	private int giftPoint;
+	private Integer giftPoint;
 
 	//@Column(name = "关键字")
 	private String keyWords;
 
 	//@Column(name = "库存预警值")
-	private int lowStock;
+	private Integer lowStock;
 
 	//@Column(name = "商品名称")
 	private String name;
 
 	//@Column(name = "新旧状态")
-	private int newStatus;
+	private Integer newStatus;
 
 	private String note;
 
@@ -93,7 +93,7 @@ public class PmsProduct{
 	private String pic;
 
 	//@Column(name = "是否为预告商品")
-	private int previewStatus;
+	private Integer previewStatus;
 
 	private double price;
 
@@ -111,7 +111,7 @@ public class PmsProduct{
 	private Timestamp promotionEndTime;
 
 	//@Column(name = "活动限购数量")
-	private int promotionPerLimit;
+	private Integer promotionPerLimit;
 
 	//@Column(name = "促销价格")
 	private double promotionPrice;
@@ -120,25 +120,25 @@ public class PmsProduct{
 	private Timestamp promotionStartTime;
 
 	//@Column(name = "促销类型")
-	private int promotionType;
+	private Integer promotionType;
 
 	//@Column(name = "上架状态")
-	private int publishStatus;
+	private Integer  publishStatus;
 
 	//@Column(name = "推荐状态")
-	private int recommandStatus;
+	private Integer recommandStatus;
 
 	//@Column(name = "销量")
-	private int sale;
+	private Integer sale;
 
 	//@Column(name = "以逗号分割的产品服务")
 	private String serviceIds;
 
 	//@Column(name = "排序")
-	private int sort;
+	private Integer sort;
 
 	//@Column(name = "库存")
-	private int stock;
+	private Integer stock;
 
 	//@Column(name = "副标题")
 	private String subTitle;
@@ -147,10 +147,10 @@ public class PmsProduct{
 	private String unit;
 
 	//@Column(name = "限制使用的积分数")
-	private int usePointLimit;
+	private Integer usePointLimit;
 
 	//@Column(name = "审核状态")
-	private int verifyStatus;
+	private Integer verifyStatus;
 
 	//@Column(name = "商品重量，默认为克")
 	private double weight;
