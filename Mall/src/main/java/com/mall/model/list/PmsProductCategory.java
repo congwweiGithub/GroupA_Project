@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import com.mall.model.PmsProductCategoryWithChildrenltem;
+import com.mall.model.PmsProductCategoryWithChildrenItem;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,12 +19,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name = "pms_product_category_with_children_item")
+@Table(name ="pms_product_category")
 public class PmsProductCategory {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long childrenId;
 	
 	private String description;
    
@@ -32,13 +32,12 @@ public class PmsProductCategory {
 	
 	private String keywords;
 	
-	private Integer leve;
+	private Integer level;
 	
 	private String name;
 	
 	private Integer navStatus;
-		
-	
+			
 	private Integer productCount;
 	
 	private Integer productUnit;
@@ -48,9 +47,10 @@ public class PmsProductCategory {
 	private Integer sort;
 	
 	private Long  parentId;
-	
+			
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "pms_product_category_with_children_item_id")
-	private PmsProductCategoryWithChildrenltem pmsProductCategoryWithChildrenltem;
-	
+    @JoinColumn(name = "product_category_id")
+    private PmsProductCategoryWithChildrenItem item;
+			
 }
+
