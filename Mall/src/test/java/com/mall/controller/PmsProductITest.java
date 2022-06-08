@@ -81,7 +81,8 @@ public class PmsProductITest {
 				.pmsMemberPrice(new ArrayList<>())//
 				.pmsProductAttributeValue(new ArrayList<>())//
 				.pmsProductFullReduction(new ArrayList<>())//
-				.pmsProductLadder(new ArrayList<>())//
+				//.pmsProductLadder(new ArrayList<>())//
+				.pmsProductLadder(new ArrayList<>())
 				.pmsSkuStock(new ArrayList<>())//				
 				.build();
 

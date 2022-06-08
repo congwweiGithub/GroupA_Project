@@ -1,6 +1,7 @@
 package com.mall.model;
 
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,12 +19,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name = "pms_product_category_with_children_item")
-public class PmsProductCategoryWithChildrenltem {
+@Table(name ="pms_product_category_with_children_item")
+public class PmsProductCategoryWithChildrenItem {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long productCategoryId;
 	
 	private String description;
    
@@ -31,14 +32,12 @@ public class PmsProductCategoryWithChildrenltem {
 	
 	private String keywords;
 	
-	private Integer leve;
+	private Integer level;
 	
 	private String name;
 	
 	private Integer navStatus;
-	
-	private Long  parentId;
-	
+			
 	private Integer productCount;
 	
 	private Integer productUnit;
@@ -47,8 +46,8 @@ public class PmsProductCategoryWithChildrenltem {
 	
 	private Integer sort;
 	
-	@OneToMany(mappedBy = "pmsProductCategoryWithChildrenltem")
-	private List<PmsProductCategory> pmsProductCategory;
-	      	    	          	        
+	private Long  parentId;
+			
+	@OneToMany(mappedBy = "item")
+	private List<PmsProductCategory> children;
 }
-

@@ -35,3 +35,11 @@ INSERT INTO ums_menu (id, parent_id, create_time, title, level, sort, name, icon
 INSERT INTO ums_menu (id, parent_id, create_time, title, level, sort, name, icon, hidden) VALUES ('23', '21', '2020-02-07 16:30:13', '角色列表', '1', '0', 'role', 'ums-role', '0');
 INSERT INTO ums_menu (id, parent_id, create_time, title, level, sort, name, icon, hidden) VALUES ('24', '21', '2020-02-07 16:30:53', '菜单列表', '1', '0', 'menu', 'ums-menu', '0');
 INSERT INTO ums_menu (id, parent_id, create_time, title, level, sort, name, icon, hidden) VALUES ('25', '21', '2020-02-07 16:31:13', '资源列表', '1', '0', 'resource', 'ums-resource', '0');
+
+TRUNCATE TABLE pms_product_category_with_children_item CASCADE;
+INSERT INTO pms_product_category_with_children_item (product_category_id,description,icon,keywords,level,name,nav_status,product_count,product_unit,show_status,sort,parent_id) 
+VALUES ('20','手机数码','icon','国产','1','name','1','1','1','1','1','1');
+
+TRUNCATE TABLE pms_product_category;
+INSERT INTO pms_product_category (children_id,description,icon,keywords,level,name,nav_status,product_count,product_unit,show_status,sort,parent_id,product_category_id) 
+VALUES ('20','手机','icon','国产','1','name','1','1','1','1','1','1','20');
