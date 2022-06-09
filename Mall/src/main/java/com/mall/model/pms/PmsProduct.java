@@ -1,30 +1,27 @@
-package com.mall.model.param;
+package com.mall.model.pms;
 
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import com.mall.model.cms.CmsPrefrenceAreaProductRelation;
 import com.mall.model.cms.CmsSubjectProductRelation;
-import com.mall.model.pms.PmsMemberPrice;
-import com.mall.model.pms.PmsProductAttributeValue;
-import com.mall.model.pms.PmsProductFullReduction;
-import com.mall.model.pms.PmsProductLadder;
-import com.mall.model.pms.PmsSkuStock;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class PmsProductParam {
+public class PmsProduct {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
