@@ -1,22 +1,14 @@
 package com.mall.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mall.model.PmsProductCategoryWithChildrenItem;
-import com.mall.model.param.CommonPmsProductCategory;
-import com.mall.model.response.ProductResponse;
-import com.mall.repository.PmsProductCategoryWithChildrenRepository;
+import com.mall.model.pms.PmsProductCategoryWithChildrenItem;
+import com.mall.model.response.CommonResult;
+import com.mall.repository.pms.PmsProductCategoryWithChildrenRepository;
 
 @RequestMapping("/productCategory")
 @Controller
@@ -56,30 +48,31 @@ public class PmsProductCategoryController {
 	
 	@ResponseBody
 	@GetMapping("/list/withChildren")
-	public ProductResponse list (PmsProductCategoryWithChildrenItem pmsproductCategoryWithChildren) {
-//		BeanUtils.copyProperties(pmsproductCategoryWithChildren, pmsProductCategoryRepository);
-		System.out.println(pmsproductCategoryWithChildren.getChildren());
+	public CommonResult list (PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildrenItem) {
+		
+//		BeanUtils.copyProperties(pmsproductCategoryWithChildrenItem, pmsProductCategoryWithChildrenRepository);	
+		
 		PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildren = PmsProductCategoryWithChildrenItem.builder()//
 			
-				.description(pmsproductCategoryWithChildren.getDescription())//
-				.icon(pmsproductCategoryWithChildren.getIcon())//
-				.keywords(pmsproductCategoryWithChildren.getKeywords()) //
-				.level(pmsproductCategoryWithChildren.getLevel()) //
-				.name(pmsproductCategoryWithChildren.getName()) //
-				.navStatus(pmsproductCategoryWithChildren.getNavStatus())//
-				.productCount(pmsproductCategoryWithChildren.getProductCount())//
-				.productUnit(pmsproductCategoryWithChildren.getProductUnit())//
-				.showStatus(pmsproductCategoryWithChildren.getShowStatus())//
-				.sort(pmsproductCategoryWithChildren.getSort())//
-				.parentId(pmsproductCategoryWithChildren.getParentId())//				
-				.children(pmsproductCategoryWithChildren.getChildren())//
+				.description(pmsProductCategoryWithChildrenItem.getDescription())//
+				.icon(pmsProductCategoryWithChildrenItem.getIcon())//
+				.keywords(pmsProductCategoryWithChildrenItem.getKeywords()) //
+				.level(pmsProductCategoryWithChildrenItem.getLevel()) //
+				.name(pmsProductCategoryWithChildrenItem.getName()) //
+				.navStatus(pmsProductCategoryWithChildrenItem.getNavStatus())//
+				.productCount(pmsProductCategoryWithChildrenItem.getProductCount())//
+				.productUnit(pmsProductCategoryWithChildrenItem.getProductUnit())//
+				.showStatus(pmsProductCategoryWithChildrenItem.getShowStatus())//
+				.sort(pmsProductCategoryWithChildrenItem.getSort())//
+				.parentId(pmsProductCategoryWithChildrenItem.getParentId())//				
+				.children(pmsProductCategoryWithChildrenItem.getChildren())//
 				.build();
-		pmsProductCategoryWithChildrenRepository.save(pmsProductCategoryWithChildren);
-		PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildrenItem = 
-				pmsProductCategoryWithChildrenRepository.findByProductCategoryId(pmsproductCategoryWithChildren.getProductCategoryId());
+		pmsProductCategoryWithChildrenRepository.save(pmsProductCategoryWithChildrenItem);
+//		PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildrenitem = 
+//				pmsProductCategoryWithChildrenRepository.findByProductCategoryId(pmsProductCategoryWithChildren.getProductCategoryId());
 		
-		System.out.println(pmsproductCategoryWithChildren.getChildren());
+		System.out.println(pmsProductCategoryWithChildrenItem.toString());
 		
-		return new ProductResponse(200, pmsProductCategoryWithChildrenItem, "ok");
+		return new CommonResult(200, pmsProductCategoryWithChildrenItem, "ok");
 	}
 }

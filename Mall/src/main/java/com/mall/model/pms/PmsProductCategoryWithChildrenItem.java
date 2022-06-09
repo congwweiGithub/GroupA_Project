@@ -1,4 +1,4 @@
-package com.mall.model;
+package com.mall.model.pms;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import com.mall.model.list.PmsProductCategory;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

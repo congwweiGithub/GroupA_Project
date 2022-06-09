@@ -2,7 +2,7 @@ package com.mall.model.param;
 
 import java.util.List;
 
-import com.mall.model.PmsProductCategoryWithChildrenItem;
+import com.mall.model.pms.PmsProductCategoryWithChildrenItem;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

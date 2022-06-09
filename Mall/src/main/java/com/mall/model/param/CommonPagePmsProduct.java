@@ -1,7 +1,7 @@
 package com.mall.model.param ;
 
 import java.util.List;
-import com.mall.model.PmsProduct;
+import com.mall.model.pms.PmsProduct;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
