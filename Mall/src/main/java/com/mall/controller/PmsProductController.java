@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mall.model.PmsProduct;
 import com.mall.model.response.CommonPagePmsProduct;
 import com.mall.model.response.CommonResult;
-import com.mall.repository.PmsProductRepository;
+import com.mall.repository.pms.PmsProductRepository;
 
 @RequestMapping("/product")
 @Controller

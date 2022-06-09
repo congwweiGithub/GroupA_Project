@@ -17,7 +17,7 @@ import com.mall.model.PmsBrand;
 import com.mall.model.PmsProduct;
 import com.mall.model.response.CommonResult;
 import com.mall.model.response.ProductResponse;
-import com.mall.repository.PmsBrandRepository;
+import com.mall.repository.pms.PmsBrandRepository;
 
 @RequestMapping("/brand")
 @Controller
