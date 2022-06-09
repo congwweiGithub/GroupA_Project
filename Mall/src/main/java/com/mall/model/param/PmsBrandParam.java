@@ -1,6 +1,5 @@
 package com.mall.model.param;
 
-<<<<<<< Upstream, based on main
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,91 +12,38 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class PmsBrandParam {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-
-	private String bigPic;
-	// 专区大图
-
-	private String brandStory;
-	// 品牌故事
-
-	private Integer factoryStatus;
-	// 是否为品牌制造商：0->不是；1->是
-
-	private String firstLetter;
-	// 首字母
-
-	private String logo;
-	// 品牌logo
-
-	private String name;
-
-	private Integer productCommentCount;
-	// 产品评论数量
-
-	private Integer productCount;
-	// 产品数量
-
-	private Integer showStatus;
-
-	private Integer sort;
-
-}
-=======
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-
-@Entity
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
-@Table(name = "pms_brand")
 public class PmsBrandParam {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private String bigPic;
 	//专区大图
-
-	private String brandStory;
+	private String bigPic;
+	
 	//品牌故事
-
-	private Integer factoryStatus;
+	private String brandStory;
+	
 	//是否为品牌制造商：0->不是；1->是
-
-	private String firstLetter;
+	private Integer factoryStatus;
+	
 	//首字母
-
-	private String logo;
+	private String firstLetter;
+	
 	//品牌logo
-
+	private String logo;
+	
 	private String name;
 	
-	private Integer productCommentCount;
 	//产品评论数量
-
-	private Integer productCount;
+	private Integer productCommentCount;
+	
 	//产品数量
+	private Integer productCount;
 
 	private Integer showStatus;
 	
 	private Integer sort;
 
 }
->>>>>>> 5aabae6 统一项目包目录

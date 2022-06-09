@@ -1,6 +1,5 @@
 package com.mall.model.oms;
 
-<<<<<<< Upstream, based on main
 import java.util.Date;
 import java.util.List;
 

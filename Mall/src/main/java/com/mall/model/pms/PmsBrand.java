@@ -1,6 +1,5 @@
 package com.mall.model.pms;
 
-<<<<<<< Upstream, based on main
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,8 +46,5 @@ public class PmsBrand {
 	private Integer showStatus;
 
 	private Integer sort;
-=======
-public class PmsBrand {
->>>>>>> 5aabae6 统一项目包目录
 
 }
