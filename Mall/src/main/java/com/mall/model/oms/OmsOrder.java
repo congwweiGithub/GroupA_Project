@@ -158,8 +158,4 @@ public class OmsOrder {
 	// JPA oneToMany Match
 	@OneToMany(mappedBy = "omsOrder")
 	private List<OmsOrderOperateHistory> omsOrderOperateHistory;
-=======
-public class OmsOrder {
->>>>>>> 5aabae6 统一项目包目录
-
 }

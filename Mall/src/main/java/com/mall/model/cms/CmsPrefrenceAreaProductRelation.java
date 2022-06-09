@@ -13,11 +13,7 @@ import lombok.Data;
 @Data
 public class CmsPrefrenceAreaProductRelation {
 
-<<<<<<< Upstream, based on main
-	// JPA多对一
-=======
 	//JPA多对一
->>>>>>> 5aabae6 统一项目包目录
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "pms_product_id")
 	private PmsProduct pmsProduct;
