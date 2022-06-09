@@ -1,4 +1,4 @@
-package com.mall.model;
+package com.mall.model.pms;
 
 
 import java.sql.Timestamp;
@@ -11,13 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.mall.model.list.CmsPrefrenceAreaProductRelation;
-import com.mall.model.list.CmsSubjectProductRelation;
-import com.mall.model.list.PmsMemberPrice;
-import com.mall.model.list.PmsProductAttributeValue;
-import com.mall.model.list.PmsProductFullReduction;
-import com.mall.model.list.PmsProductLadder;
-import com.mall.model.list.PmsSkuStock;
+import com.mall.model.cms.CmsPrefrenceAreaProductRelation;
+import com.mall.model.cms.CmsSubjectProductRelation;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

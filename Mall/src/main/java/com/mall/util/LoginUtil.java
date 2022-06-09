@@ -12,8 +12,9 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
-import com.mall.model.UmsMenu;
-import com.mall.repository.UmsMenuRepository;
+import com.mall.model.ums.UmsMenu;
+import com.mall.repository.ums.UmsMenuRepository;
+
 
 @Component
 public class LoginUtil {

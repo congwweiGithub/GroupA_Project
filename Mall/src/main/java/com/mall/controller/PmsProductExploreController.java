@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mall.model.PmsProduct;
+import com.mall.model.pms.PmsProduct;
 import com.mall.model.param.CommonPagePmsProduct;
-import com.mall.model.response.ProductResponse;
-import com.mall.repository.PmsProductRepository;
+import com.mall.model.response.CommonResult;
+import com.mall.repository.pms.PmsProductRepository;
 
 @RequestMapping("/product")
 @Controller
@@ -25,7 +25,7 @@ public class PmsProductExploreController {
 			
 	@ResponseBody
 	@GetMapping("/list")
-	public ProductResponse list (HttpServletRequest request) {
+	public CommonResult list (HttpServletRequest request) {
 		
 		PmsProduct pmsProduct = PmsProduct.builder()//
 				.brandId(request.getParameter("brandId") == null ? null : Long.valueOf(request.getParameter("brandId")))//
@@ -48,6 +48,6 @@ public class PmsProductExploreController {
 		}
 		//TODO 式样不清楚 暂时设定为0
 		CommonPagePmsProduct cppp = new CommonPagePmsProduct(products, 0, 0, 0l, 0);
-		return new ProductResponse(200, cppp, "ok");
+		return new CommonResult(200, cppp, "ok");
 	}
 }

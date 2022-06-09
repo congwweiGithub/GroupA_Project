@@ -1,4 +1,4 @@
-package com.mall.model;
+package com.mall.model.oms;
 
 public class OmsOrder {
 

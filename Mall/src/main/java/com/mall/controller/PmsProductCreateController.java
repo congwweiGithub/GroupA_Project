@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mall.model.PmsProduct;
-import com.mall.model.response.ProductResponse;
-import com.mall.repository.PmsProductRepository;
+import com.mall.model.pms.PmsProduct;
+import com.mall.model.response.CommonResult;
+import com.mall.repository.pms.PmsProductRepository;
 
 @RequestMapping("/product")
 @Controller
@@ -24,7 +24,7 @@ public class PmsProductCreateController {
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ProductResponse createProduct(@RequestBody PmsProduct param) {
+	public CommonResult createProduct(@RequestBody PmsProduct param) {
 		
 		System.out.println("222222222222222222222222");
 	
@@ -89,12 +89,9 @@ public class PmsProductCreateController {
 //					.build();								
 			
 			pmsProductRepository.save(param);
-			logger.info("Product " + param.getName() + "添加成功");
-			return new ProductResponse(200, null, "Succeed");
-		} else {
-			logger.warn("Produc" + param.getName() + " 添加失败");
-			return new ProductResponse(404, null, "Fail");
-		}
+			logger.info("Product " + param.getName() + "添加成功");			
+		} 
+		return new CommonResult(200, null, "Succeed");
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.mall.model.list;
+package com.mall.model.pms;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.mall.model.PmsProduct;
+import com.mall.model.pms.PmsProduct;
 
 import lombok.Data;
 

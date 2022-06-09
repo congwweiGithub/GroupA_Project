@@ -1,4 +1,4 @@
-package com.mall.repository;
+package com.mall.repository.oms;
 
 public class OmsOrderRepository {
 
