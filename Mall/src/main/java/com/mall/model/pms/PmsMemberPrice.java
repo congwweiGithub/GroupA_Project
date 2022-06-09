@@ -27,7 +27,7 @@ public class PmsMemberPrice {
 	private String memberLevelName;
 
 	// @Column(name ="会员价格")
-	private double memberPrice;
+	private Double memberPrice;
 
 	private Long productId;
 

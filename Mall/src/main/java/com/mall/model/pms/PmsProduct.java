@@ -83,14 +83,14 @@ public class PmsProduct {
 	private String note;
 
 	//@Column(name = "市场价")
-	private double originalPrice;
+	private Double originalPrice;
 
 	private String pic;
 
 	//@Column(name = "是否为预告商品")
 	private Integer previewStatus;
 
-	private double price;
+	private Double price;
 
 	private Long productAttributeCategoryId;
 
@@ -109,7 +109,7 @@ public class PmsProduct {
 	private Integer promotionPerLimit;
 
 	//@Column(name = "促销价格")
-	private double promotionPrice;
+	private Double promotionPrice;
 
 	//@Column(name = "促销开始时间")
 	private Timestamp promotionStartTime;
@@ -148,7 +148,7 @@ public class PmsProduct {
 	private Integer verifyStatus;
 
 	//@Column(name = "商品重量，默认为克")
-	private double weight;
+	private Double weight;
 
 	
 	//JPA oneToMany Match

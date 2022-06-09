@@ -31,15 +31,15 @@ public class PmsSkuStock {
 	// @Column(name ="展示图片")
 	private String pic;
 
-	private double price;
+	private Double price;
 
 	private Long productId;
 
 	// @Column(name ="单品促销价格")
-	private double promotionPrice;
+	private Double promotionPrice;
 
 	// @Column(name ="销量")
-	private int sale;
+	private Integer sale;
 
 	// @Column(name ="sku编码")
 	private Integer skuCode;
