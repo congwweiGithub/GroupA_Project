@@ -5,14 +5,12 @@ import java.util.List;
 import com.mall.model.pms.PmsProduct;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
 public class CommonPagePmsProduct {
 
 	private List<PmsProduct> list;

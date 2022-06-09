@@ -22,32 +22,32 @@ public class PmsSkuStock {
 	@GeneratedValue
 	private Long id;
 
-	// @Column(name ="锁定库存")
+	// 锁定库存
 	private Integer lockStock;
 
-	// @Column(name ="预警库存")
+	// 预警库存
 	private Integer lowStock;
 
-	// @Column(name ="展示图片")
+	// 展示图片
 	private String pic;
 
-	private double price;
+	private Double price;
 
 	private Long productId;
 
-	// @Column(name ="单品促销价格")
-	private double promotionPrice;
+	// 单品促销价格
+	private Double promotionPrice;
 
-	// @Column(name ="销量")
-	private int sale;
+	// 销量
+	private Integer sale;
 
-	// @Column(name ="sku编码")
+	// sku编码
 	private Integer skuCode;
 
-	// @Column(name ="商品销售属性，json格式")
+	// 商品销售属性，json格式
 	private Integer spData;
 
-	// @Column(name ="库存")
+	// 库存
 	private Integer stock;
 
 }

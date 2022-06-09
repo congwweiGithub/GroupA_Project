@@ -22,10 +22,10 @@ public class PmsProductFullReduction {
 	@GeneratedValue
 	private Long id;
 
-	private double fullPrice;
+	private Double fullPrice;
 
 	private Long productId;
 
-	private double reducePrice;
+	private Double reducePrice;
 
 }

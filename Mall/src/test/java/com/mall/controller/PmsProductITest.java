@@ -8,8 +8,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -17,7 +15,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,10 +31,9 @@ public class PmsProductITest {
 	public void testCreateProduct_Succcess() throws Exception {
 
 		ObjectMapper responseBody = new ObjectMapper();
-		ObjectMapper requsetBody = new ObjectMapper();		
+		ObjectMapper requsetBody = new ObjectMapper();
 		PmsProduct pmsProduct = PmsProduct.builder()//
-				.id(2l)
-				.albumPics("albumPics")//
+				.id(2l).albumPics("albumPics")//
 				.icon("icon")//
 				.brandId(2l)//
 				.brandName("brandName")//
@@ -85,35 +81,26 @@ public class PmsProductITest {
 				.pmsProductAttributeValue(new ArrayList<>())//
 				.pmsProductFullReduction(new ArrayList<>())//
 				.pmsProductLadder(new ArrayList<>())//
-				.pmsSkuStock(new ArrayList<>())//				
+				.pmsSkuStock(new ArrayList<>())//
 				.build();
 
 		RequestBuilder request = MockMvcRequestBuilders//
 				.post("http://localhost:8080/product/create")//
-				.content(requsetBody.writeValueAsString(pmsProduct))//	
-				.contentType(MediaType.APPLICATION_JSON)
-				.accept(MediaType.APPLICATION_JSON);
+				.content(requsetBody.writeValueAsString(pmsProduct))//
+				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
 
 		String json = responseBody.writeValueAsString(pmsProduct);
-		
-		mockMvc.perform(request).andExpect(status().isOk());		
-//		assertEquals(json, request.toString());  // 过后再写
-//		mockMvc.perform(request).andExpect(content().string(json));
 
-//		ResultActions resultActions = mockMvc.perform(request);
-//		System.out.println("1111111111111111111111");
-//		System.out.println(resultActions);
-//		System.out.println(resultActions.andReturn().getResponse().getContentAsString());
+		mockMvc.perform(request).andExpect(status().isOk());
 
 	}
 
-	@Test // 待修改
+	@Test // TODO
 	public void testCreateProduct_Failed_NameisEmpyt() throws Exception {
 		ObjectMapper responseBody = new ObjectMapper();
-		ObjectMapper requsetBody = new ObjectMapper();	
+		ObjectMapper requsetBody = new ObjectMapper();
 		PmsProduct pmsProduct = PmsProduct.builder()//
-				.id(1l)
-				.albumPics("albumPics")//
+				.id(1l).albumPics("albumPics")//
 				.icon("icon")//
 				.brandId(1l)//
 				.brandName("brandName")//
@@ -161,21 +148,18 @@ public class PmsProductITest {
 				.pmsProductAttributeValue(new ArrayList<>())//
 				.pmsProductFullReduction(new ArrayList<>())//
 				.pmsProductLadder(new ArrayList<>())//
-				.pmsSkuStock(new ArrayList<>())//				
+				.pmsSkuStock(new ArrayList<>())//
 				.build();
 
 		RequestBuilder request = MockMvcRequestBuilders//
 				.post("http://localhost:8080/product/create")//
-				.content(requsetBody.writeValueAsString(pmsProduct))//	
-				.contentType(MediaType.APPLICATION_JSON)
-				.accept(MediaType.APPLICATION_JSON);
+				.content(requsetBody.writeValueAsString(pmsProduct))//
+				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
 
-//		String json = responseBody.writeValueAsString(pmsProduct);
-		
 		mockMvc.perform(request).andExpect(status().isBadRequest());
 	}
 
-	@Test // 待修改
+	@Test // TODO
 	public void testCreateProduct_Failed2() throws Exception {
 		PmsProduct pmsProduct = new PmsProduct();
 		RequestBuilder request = MockMvcRequestBuilders//
@@ -190,7 +174,7 @@ public class PmsProductITest {
 
 	}
 
-	@Test // 待修改
+	@Test // TODO
 	public void testCreateProduct_Failed3() throws Exception {
 		PmsProduct pmsProduct = new PmsProduct();
 		RequestBuilder request = MockMvcRequestBuilders//
@@ -205,7 +189,7 @@ public class PmsProductITest {
 
 	}
 
-	@Test // 待修改
+	@Test // TODO
 	public void testCreateProduct_Failed4() throws Exception {
 		PmsProduct pmsProduct = new PmsProduct();
 		RequestBuilder request = MockMvcRequestBuilders//

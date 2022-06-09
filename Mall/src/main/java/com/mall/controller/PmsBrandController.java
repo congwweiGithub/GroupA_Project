@@ -28,10 +28,11 @@ import com.mall.repository.pms.PmsBrandRepository;
 public class PmsBrandController {
 
 	@Autowired
+	CommonResultPmsBrand commonResultPmsBrand;
 	PmsBrandRepository pmsBrandRepository;
 	PmsBrandRepository pmsBrandParam;
 	private static final Logger logger = LoggerFactory.getLogger(PmsProductController.class);
-	
+
 	// 创建品牌
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -44,12 +45,12 @@ public class PmsBrandController {
 	}
 
 	// get商品品牌下拉栏
-	//CommonResultPmsBrand
+	// CommonResultPmsBrand
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public CommonResult brandList(@RequestParam PmsBrand param) {
 		// logger.info("get brand request {}", request);
-		List<PmsBrand> PmsBrandList = pmsBrandParam.findAll();
+		List<PmsBrand> pmsBrandList = pmsBrandParam.findAll();
 		logger.info("get brand repository {}", pmsBrandParam);
 		// TODO 把数据传到添加商品的品牌选项下拉栏
 		// logger.info("get brand repository {}", pmsBrandRepository);
@@ -58,8 +59,17 @@ public class PmsBrandController {
 //					.brandId(request.getParameter("brandId") == null ? null : Long.valueOf(request.getParameter("brandId")))//
 //					.brandName(request.getParameter("brandName") == null ? null : String.valueOf(request.getParameter("brandName"))).build();
 //			CommonPagePmsProduct cppp = new CommonPagePmsProduct(products, 0, 0, 0l, 0);
-
-		CommonResultPmsBrand commonResultPmsBrand = new CommonResultPmsBrand<>();
+		PmsBrandParam pmsBrandParam;
+		
+		//TODO if 页码的if判断
+//		if(pageSize * pageNum < products.size()) { 
+//			products = products.subList(pageNum * pageSize -  pageSize, pageNum * pageSize);
+//		} 
+//		if(pageNum * pageSize >= products.size() && pageNum * pageSize - pageSize != 0 && products.size() > pageNum * pageSize - pageSize) {
+//			products = products.subList(pageNum * pageSize -  pageSize, products.size());
+//		}
+		
+		CommonResultPmsBrand commonResultPmsBrand = new CommonResultPmsBrand<>((pmsBrandList, pageNum, pageSize, total, totalPage));
 		return new CommonResult(200, commonResultPmsBrand, "ok");
 	}
 
