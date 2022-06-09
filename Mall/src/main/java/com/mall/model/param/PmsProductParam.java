@@ -1,14 +1,12 @@
 package com.mall.model.param;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import com.mall.model.cms.CmsPrefrenceAreaProductRelation;
 import com.mall.model.cms.CmsSubjectProductRelation;
 import com.mall.model.pms.PmsMemberPrice;
@@ -26,7 +24,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name = "pms_product")
 public class PmsProductParam {
 
 	@Id
@@ -105,7 +102,7 @@ public class PmsProductParam {
 	private String productSn;
 
 	// 促销结束时间
-	private Timestamp promotionEndTime;
+	private Date promotionEndTime;
 
 	// 活动限购数量
 	private Integer promotionPerLimit;
@@ -114,7 +111,7 @@ public class PmsProductParam {
 	private Double promotionPrice;
 
 	// 促销开始时间
-	private Timestamp promotionStartTime;
+	private Date promotionStartTime;
 
 	// 促销类型
 	private Integer promotionType;

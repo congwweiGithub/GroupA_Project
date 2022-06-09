@@ -22,14 +22,14 @@ public class OmsOrderItem {
 	@GeneratedValue
 	private Long id;
 
-	private double couponAmount;
+	private Double couponAmount;
 	// 优惠券优惠分解金额
 
-	private int giftGrowth;
+	private Integer giftGrowth;
 
-	private int giftIntegration;
+	private Integer giftIntegration;
 
-	private double integrationAmount;
+	private Double integrationAmount;
 	// 积分优惠分解金额
 
 	private Long orderId;
@@ -53,10 +53,10 @@ public class OmsOrderItem {
 
 	private String productPic;
 
-	private double productPrice;
+	private Double productPrice;
 	// 销售价格
 
-	private int productQuantity;
+	private Integer productQuantity;
 	// 购买数量
 
 	private String productSkuCode;
@@ -67,13 +67,13 @@ public class OmsOrderItem {
 
 	private String productSn;
 
-	private double promotionAmount;
+	private Double promotionAmount;
 	// 商品促销分解金额
 
 	private String promotionName;
 	// 商品促销名称
 
-	private double realAmount;
+	private Double realAmount;
 	// 该商品经过优惠后的分解金额
 
 }

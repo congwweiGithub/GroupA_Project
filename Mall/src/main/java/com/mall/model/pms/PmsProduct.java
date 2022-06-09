@@ -1,6 +1,6 @@
 package com.mall.model.pms;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import com.mall.model.cms.CmsPrefrenceAreaProductRelation;
 import com.mall.model.cms.CmsSubjectProductRelation;
 
@@ -23,7 +21,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name = "pms_product")
 public class PmsProduct {
 
 	@Id
@@ -102,7 +99,7 @@ public class PmsProduct {
 	private String productSn;
 
 	// 促销结束时间
-	private Timestamp promotionEndTime;
+	private Date promotionEndTime;
 
 	// 活动限购数量
 	private Integer promotionPerLimit;
@@ -111,7 +108,7 @@ public class PmsProduct {
 	private Double promotionPrice;
 
 	// 促销开始时间
-	private Timestamp promotionStartTime;
+	private Date promotionStartTime;
 
 	// 促销类型
 	private Integer promotionType;
