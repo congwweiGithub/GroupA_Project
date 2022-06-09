@@ -3,18 +3,13 @@ package com.mall.util;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
-
 import com.mall.model.ums.UmsMenu;
 import com.mall.repository.ums.UmsMenuRepository;
-
 
 @Component
 public class LoginUtil {

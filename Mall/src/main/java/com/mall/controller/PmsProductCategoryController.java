@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.mall.model.pms.PmsProductCategoryWithChildrenItem;
 import com.mall.model.response.CommonResult;
 import com.mall.repository.pms.PmsProductCategoryWithChildrenRepository;
@@ -13,10 +12,10 @@ import com.mall.repository.pms.PmsProductCategoryWithChildrenRepository;
 @RequestMapping("/productCategory")
 @Controller
 public class PmsProductCategoryController {
-
+	
 	@Autowired
 	private PmsProductCategoryWithChildrenRepository pmsProductCategoryWithChildrenRepository;
-			
+	//TODO(COMPARE)
 //	@ResponseBody
 //	@GetMapping("/list/withChildren")
 //	public ProductResponse list (HttpServletRequest request) {
@@ -45,15 +44,15 @@ public class PmsProductCategoryController {
 //		
 //		return new ProductResponse(200, commonPmsProductCategory, "ok");
 //	}
-	
+
 	@ResponseBody
 	@GetMapping("/list/withChildren")
-	public CommonResult list (PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildrenItem) {
-		
+	public CommonResult list(PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildrenItem) {
+
 //		BeanUtils.copyProperties(pmsproductCategoryWithChildrenItem, pmsProductCategoryWithChildrenRepository);	
-		
+		//TODO
 		PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildren = PmsProductCategoryWithChildrenItem.builder()//
-			
+
 				.description(pmsProductCategoryWithChildrenItem.getDescription())//
 				.icon(pmsProductCategoryWithChildrenItem.getIcon())//
 				.keywords(pmsProductCategoryWithChildrenItem.getKeywords()) //
@@ -64,15 +63,15 @@ public class PmsProductCategoryController {
 				.productUnit(pmsProductCategoryWithChildrenItem.getProductUnit())//
 				.showStatus(pmsProductCategoryWithChildrenItem.getShowStatus())//
 				.sort(pmsProductCategoryWithChildrenItem.getSort())//
-				.parentId(pmsProductCategoryWithChildrenItem.getParentId())//				
+				.parentId(pmsProductCategoryWithChildrenItem.getParentId())//
 				.children(pmsProductCategoryWithChildrenItem.getChildren())//
 				.build();
 		pmsProductCategoryWithChildrenRepository.save(pmsProductCategoryWithChildrenItem);
 //		PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildrenitem = 
 //				pmsProductCategoryWithChildrenRepository.findByProductCategoryId(pmsProductCategoryWithChildren.getProductCategoryId());
-		
+
 		System.out.println(pmsProductCategoryWithChildrenItem.toString());
-		
+
 		return new CommonResult(200, pmsProductCategoryWithChildrenItem, "ok");
 	}
 }

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.mall.model.pms.PmsProduct;
 import com.mall.model.response.CommonResult;
 import com.mall.repository.pms.PmsProductRepository;
@@ -32,61 +31,8 @@ public class PmsProductCreateController {
 				&& !param.getProductCategoryName().isEmpty()//
 				&&!param.getSubTitle().isEmpty()//
 				&&!param.getBrandName().isEmpty()) { 
-			
-			
-			BeanUtils.copyProperties(param, pmsProductRepository);
-			
-//			PmsProduct pmsProduct = PmsProduct.builder()//					
-//					.albumPics(param.getAlbumPics())//
-//					.icon(param.getIcon())//
-//					.brandId(param.getBrandId())
-//					.brandName(param.getBrandName())//下拉菜单
-//					.deleteStatus(param.getDeleteStatus())//
-//					.description(param.getDescription())//
-//					.detailDesc(param.getDetailDesc())//
-//					.detailHtml(param.getDetailHtml())//
-//					.detailMobileHtml(param.getDetailMobileHtml())//
-//					.detailTitle(param.getDetailTitle())//
-//					.feightTemplateId(param.getFeightTemplateId())//
-//					.giftGrowth(param.getGiftGrowth())//
-//					.giftPoint(param.getGiftPoint())//
-//					.keyWords(param.getKeyWords())//
-//					.lowStock(param.getLowStock())//
-//					.name(param.getName())//
-//					.newStatus(param.getNewStatus())//
-//					.note(param.getNote())//
-//					.originalPrice(param.getOriginalPrice())//
-//					.pic(param.getPic())//
-//					.previewStatus(param.getPreviewStatus())//
-//					.price(param.getPrice())//
-//					.productAttributeCategoryId(param.getProductAttributeCategoryId())//
-//					.productCategoryId(param.getProductCategoryId())//
-//					.productCategoryName(param.getProductCategoryName())//下拉菜单
-//					.productSn(param.getProductSn())//
-//					.promotionEndTime(param.getPromotionEndTime())//
-//					.promotionPerLimit(param.getPromotionPerLimit())//
-//					.promotionPrice(param.getPromotionPrice())//
-//					.promotionStartTime(param.getPromotionStartTime())//
-//					.promotionType(param.getPromotionType())//
-//					.publishStatus(param.getPublishStatus())//
-//					.recommandStatus(param.getRecommandStatus())//
-//					.sale(param.getSale())//
-//					.serviceIds(param.getServiceIds())//
-//					.sort(param.getSort())//
-//					.stock(param.getStock())//
-//					.subTitle(param.getSubTitle())//
-//					.unit(param.getUnit())//
-//					.usePointLimit(param.getUsePointLimit())//
-//					.verifyStatus(param.getVerifyStatus())//
-//					.weight(param.getWeight())//
-//					.cmsPrefrenceAreaProductRelation(param.getCmsPrefrenceAreaProductRelation())//
-//					.cmsSubjectProductRelation(param.getCmsSubjectProductRelation())//
-//					.pmsMemberPrice(param.getPmsMemberPrice())//
-//					.pmsProductAttributeValue(param.getPmsProductAttributeValue())//
-//					.pmsProductFullReduction(param.getPmsProductFullReduction())//
-//					.pmsProductLadder(param.getPmsProductLadder())//
-//					.pmsSkuStock(param.getPmsSkuStock())//
-//					.build();								
+						
+			BeanUtils.copyProperties(param, pmsProductRepository);									
 			
 			pmsProductRepository.save(param);
 			logger.info("Product " + param.getName() + "添加成功");			

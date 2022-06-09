@@ -6,9 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import com.mall.model.pms.PmsProduct;
-
 import lombok.Data;
 
 @Entity

@@ -1,9 +1,7 @@
 package com.mall.model.response;
 
 import java.util.List;
-
 import com.mall.model.pms.PmsProductCategoryWithChildrenItem;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
