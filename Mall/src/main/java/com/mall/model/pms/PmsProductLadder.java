@@ -20,28 +20,25 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PmsProductLadder  {
-	
-	
+public class PmsProductLadder {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 //	@Column(name ="满足的商品数量")
 	private Integer count;
-	
+
 //	@Column(name ="折扣")
 	private Double discount;
 
 //	@Column(name ="折后价格")
 	private Double price;
-	
-	private Long productId;
-	
-	@ManyToOne
-    @JoinColumn(name = "pms_product_id")
-    private PmsProduct pmsProduct;
 
-	
+	private Long productId;
+
+	@ManyToOne
+	@JoinColumn(name = "pms_product_id")
+	private PmsProduct pmsProduct;
+
 }
