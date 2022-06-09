@@ -1,4 +1,4 @@
-package com.mall.model;
+package com.mall.model.pms;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class PmsMemberPrice {
+public class PmsProductFullReduction {
 
 	// JPA多对一
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -22,13 +22,10 @@ public class PmsMemberPrice {
 	@GeneratedValue
 	private Long id;
 
-	private Long memberLevelId;
-
-	private String memberLevelName;
-
-	// @Column(name ="会员价格")
-	private double memberPrice;
+	private double fullPrice;
 
 	private Long productId;
+
+	private double reducePrice;
 
 }

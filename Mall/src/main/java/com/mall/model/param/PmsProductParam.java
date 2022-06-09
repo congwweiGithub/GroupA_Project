@@ -11,13 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.mall.model.CmsPrefrenceAreaProductRelation;
-import com.mall.model.CmsSubjectProductRelation;
-import com.mall.model.PmsMemberPrice;
-import com.mall.model.PmsProductAttributeValue;
-import com.mall.model.PmsProductFullReduction;
-import com.mall.model.PmsProductLadder;
-import com.mall.model.PmsSkuStock;
+import com.mall.model.cms.CmsPrefrenceAreaProductRelation;
+import com.mall.model.cms.CmsSubjectProductRelation;
+import com.mall.model.pms.PmsMemberPrice;
+import com.mall.model.pms.PmsProductAttributeValue;
+import com.mall.model.pms.PmsProductFullReduction;
+import com.mall.model.pms.PmsProductLadder;
+import com.mall.model.pms.PmsSkuStock;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

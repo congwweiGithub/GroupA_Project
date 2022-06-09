@@ -2,7 +2,7 @@ package com.mall.model.response;
 
 import java.util.List;
 
-import com.mall.model.PmsProduct;
+import com.mall.model.pms.PmsProduct;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

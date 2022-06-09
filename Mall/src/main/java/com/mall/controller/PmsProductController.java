@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mall.model.PmsProduct;
+import com.mall.model.pms.PmsProduct;
 import com.mall.model.response.CommonPagePmsProduct;
 import com.mall.model.response.CommonResult;
 import com.mall.repository.pms.PmsProductRepository;
@@ -27,7 +27,10 @@ public class PmsProductController {
 
 	@Autowired
 	private PmsProductRepository pmsProductRepository;
+	
+	//TODO 测试用
 	// private PmsProductLadderRepository pmsProductLadderRepository;
+	
 	private static final Logger logger = LoggerFactory.getLogger(PmsProductController.class);
 
 	@ResponseBody

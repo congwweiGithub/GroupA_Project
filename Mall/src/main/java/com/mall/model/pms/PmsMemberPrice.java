@@ -1,4 +1,4 @@
-package com.mall.model;
+package com.mall.model.pms;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,22 +11,24 @@ import lombok.Data;
 
 @Entity
 @Data
-public class PmsProductAttributeValue {
-	
+public class PmsMemberPrice {
+
 	// JPA多对一
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "pms_product_id")
 	private PmsProduct pmsProduct;
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	private Long productAttributeId;
-	
-	private Long productId;
 
-	//@Column(name ="手动添加规格或参数的值，参数单值，规格有多个时以逗号隔开")
-	private String value;
+	private Long memberLevelId;
+
+	private String memberLevelName;
+
+	// @Column(name ="会员价格")
+	private double memberPrice;
+
+	private Long productId;
 
 }
