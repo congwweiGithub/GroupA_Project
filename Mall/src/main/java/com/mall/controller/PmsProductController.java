@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mall.model.PmsProduct;
 import com.mall.model.response.CommonPagePmsProduct;
-import com.mall.model.response.ProductResponse;
+import com.mall.model.response.CommonResult;
 import com.mall.repository.PmsProductRepository;
 
 @RequestMapping("/product")
@@ -32,16 +32,16 @@ public class PmsProductController {
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ProductResponse createProduct(@RequestBody PmsProduct param) {
+	public CommonResult createProduct(@RequestBody PmsProduct param) {
 		logger.info("接收成功");
 		if (!param.getName().isEmpty() && !param.getProductCategoryName().isEmpty()//
 				&& !param.getSubTitle().isEmpty()//
 				&& !param.getBrandName().isEmpty()) { // 价格类型为Number，判断条件">0"显示报错
 
+			// TODO 测试用
 			// @RequestBody List<PmsProductLadder> pmsProductLadder
 			// for ()
 			// BeanUtils.copyProperties(param.getPmsProductLadder(), param);
-
 			// pmsProductRepository.save(pmsProductLadder);
 			// BeanUtils.copyProperties(param.getPmsProductLadder(), param);
 
@@ -49,19 +49,21 @@ public class PmsProductController {
 			pmsProductRepository.save(param);
 
 			logger.info("param的值:{}", param.toString());
+
+			// TODO 测试用
 			// logger.info("Ladder的值{}", param.getPmsProductLadder().toString());
 
 			logger.info("Product {} 添加成功", param.getName());
-			return new ProductResponse(200, null, "Succeed");
+			return new CommonResult(200, null, "Succeed");
 		} else {
 			logger.warn("Produc {} 添加失败", param.getName());
-			return new ProductResponse(404, null, "Fail");
+			return new CommonResult(404, null, "Fail");
 		}
 	}
 
 	@ResponseBody
 	@GetMapping("/list")
-	public ProductResponse list(HttpServletRequest request) {
+	public CommonResult list(HttpServletRequest request) {
 
 		PmsProduct pmsProduct = PmsProduct.builder()//
 				.brandId(request.getParameter("brandId") == null ? null : Long.valueOf(request.getParameter("brandId")))//
@@ -88,67 +90,7 @@ public class PmsProductController {
 		}
 		// TODO 式样不清楚 暂时设定为0
 		CommonPagePmsProduct cppp = new CommonPagePmsProduct(products, 0, 0, 0l, 0);
-		return new ProductResponse(200, cppp, "ok");
+		return new CommonResult(200, cppp, "ok");
 	}
 
 }
-
-//PmsProduct pmsProduct = PmsProduct.builder()//
-//.id(param.getId())
-//.albumPics(param.getAlbumPics())//
-//.icon(param.getIcon())//
-//.brandId(param.getBrandId()).brandName(param.getBrandName())//
-//.deleteStatus(param.getDeleteStatus())//
-//.description(param.getDescription())//
-//.detailDesc(param.getDetailDesc())//
-//.detailHtml(param.getDetailHtml())//
-//.detailMobileHtml(param.getDetailMobileHtml())//
-//.detailTitle(param.getDetailTitle())//
-//.feightTemplateId(param.getFeightTemplateId())//
-//.giftGrowth(param.getGiftGrowth())//
-//.giftPoint(param.getGiftPoint())//
-//.keyWords(param.getKeyWords())//
-//.lowStock(param.getLowStock())//
-//.name(param.getName())//
-//.newStatus(param.getNewStatus())//
-//.note(param.getNote())//
-//.originalPrice(param.getOriginalPrice())//
-//.pic(param.getPic())//
-//.previewStatus(param.getPreviewStatus())//
-//.price(param.getPrice())//
-//.productAttributeCategoryId(param.getProductAttributeCategoryId())//
-//.productCategoryId(param.getProductCategoryId())//
-//.productCategoryName(param.getProductCategoryName())//
-//.productSn(param.getProductSn())//
-//.promotionEndTime(param.getPromotionEndTime())//
-//.promotionPerLimit(param.getPromotionPerLimit())//
-//.promotionPrice(param.getPromotionPrice())//
-//.promotionStartTime(param.getPromotionStartTime())//
-//.promotionType(param.getPromotionType())//
-//.publishStatus(param.getPublishStatus())//
-//.recommandStatus(param.getRecommandStatus())//
-//.sale(param.getSale())//
-//.serviceIds(param.getServiceIds())//
-//.sort(param.getSort())//
-//.stock(param.getStock())//
-//.subTitle(param.getSubTitle())//
-//.unit(param.getUnit())//
-//.usePointLimit(param.getUsePointLimit())//
-//.verifyStatus(param.getVerifyStatus())//
-//.weight(param.getWeight())//
-//.cmsPrefrenceAreaProductRelation(param.getCmsPrefrenceAreaProductRelation())//
-//.cmsSubjectProductRelation(param.getCmsSubjectProductRelation())//
-//.pmsMemberPrice(param.getPmsMemberPrice())//
-//.pmsProductAttributeValue(param.getPmsProductAttributeValue())//
-//.pmsProductFullReduction(param.getPmsProductFullReduction())//
-//.pmsProductLadder(param.getPmsProductLadder())//
-//.pmsSkuStock(param.getPmsSkuStock())//
-//.build();
-
-//CmsPrefrenceAreaProductRelation cmsPrefrenceAreaProductRelation = new CmsPrefrenceAreaProductRelation();
-//CmsSubjectProductRelation cmsSubjectProductRelation = new CmsSubjectProductRelation();
-//PmsMemberPrice pmsMemberPrice = new PmsMemberPrice();
-//PmsProductAttributeValue pmsProductAttributeValue = new PmsProductAttributeValue();
-//PmsProductFullReduction pmsProductFullReduction = new PmsProductFullReduction();
-//PmsProductLadder pmsProductLadder = new PmsProductLadder();
-//PmsSkuStock pmsSkuStock = new PmsSkuStock();

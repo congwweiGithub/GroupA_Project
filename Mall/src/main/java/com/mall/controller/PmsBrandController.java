@@ -15,45 +15,47 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mall.model.PmsBrand;
 import com.mall.model.PmsProduct;
+import com.mall.model.response.CommonResult;
 import com.mall.model.response.ProductResponse;
 import com.mall.repository.PmsBrandRepository;
 
 @RequestMapping("/brand")
 @Controller
 public class PmsBrandController {
-	
+
 	@Autowired
 	PmsBrandRepository pmsBrandRepository;
-	
-	
+
 	// 创建品牌
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ProductResponse createBrand(@RequestBody PmsBrand param) {
-		
+	public CommonResult createBrand(@RequestBody PmsBrand param) {
+
 		BeanUtils.copyProperties(param, pmsBrandRepository);
 		pmsBrandRepository.save(param);
-		return new ProductResponse(200, null, "Succeed");
-	
+		return new CommonResult(200, null, "Succeed");
+
 	}
-	
-	//get商品品牌下拉栏
-		@ResponseBody
-		@RequestMapping(value = "/list", method = RequestMethod.GET)
-		public ProductResponse listBrand (HttpServletRequest request) {
-			//logger.info("get brand request {}", request);
-			
-//			Example<PmsBrand> PmsBrandExample = Example.of(pmsBrand);
-//			List<pmsBrand> PmsBrandList = pmsBrandRepository.findAll(PmsBrandExample);
-			//BeanUtils.copyProperties(PmsBrandList, request);
-			//logger.info("get brand repository {}", pmsBrandRepository);
-			//logger.info("get copied brand request {}", request);
+
+	// get商品品牌下拉栏
+	@ResponseBody
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public CommonResult listBrand(HttpServletRequest request) {
+		// logger.info("get brand request {}", request);
+
+		Example<PmsBrand> PmsBrandExample = Example.of(pmsBrand);
+		List<pmsBrand> PmsBrandList = pmsBrandRepository.findAll(PmsBrandExample);
+		BeanUtils.copyProperties(PmsBrandList, request);
+
+		// TODO 把数据传到添加商品的品牌选项下拉栏
+		// logger.info("get brand repository {}", pmsBrandRepository);
+		// logger.info("get copied brand request {}", request);
 //			PmsBrand pmsBrand = PmsBrand.builder()//
 //					.brandId(request.getParameter("brandId") == null ? null : Long.valueOf(request.getParameter("brandId")))//
 //					.brandName(request.getParameter("brandName") == null ? null : String.valueOf(request.getParameter("brandName"))).build();
 //			CommonPagePmsProduct cppp = new CommonPagePmsProduct(products, 0, 0, 0l, 0);
-					
-			return new ProductResponse(200, request, "ok");
-		}
+
+		return new CommonResult(200, request, "ok");
+	}
 
 }
