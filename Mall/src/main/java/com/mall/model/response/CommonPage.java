@@ -11,12 +11,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class CommonPage <T> {
-	
+public class CommonPage<T> {
+
 	private List<T> list;
-	private Integer pageNum; 
+	private Integer pageNum;
 	private Integer pageSize;
 	private Long total;
 	private Integer totalPage;
-	
+
 }

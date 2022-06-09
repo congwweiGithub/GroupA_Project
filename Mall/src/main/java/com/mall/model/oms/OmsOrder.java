@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 public class OmsOrder {
 	@Id
 	private Long id;
-	
-	private Integer autoConfirmDay; 
+
+	private Integer autoConfirmDay;
 	private String billContent;
 	private String billHeader;
 	private String billReceiverEmail;
