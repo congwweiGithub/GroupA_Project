@@ -43,13 +43,23 @@ public class ProductController {  //今天有内容需确认，明天确认后�
 				.keyWords(request.getParameter("keyword"))//
 				.productCategoryId(request.getParameter("productCategoryId") == null ? null : Long.valueOf(request.getParameter("productCategoryId")))//
 				.publishStatus(request.getParameter("publishStatus") == null ? null : Integer.valueOf(request.getParameter("publishStatus")))//
-//				.verifyStatus(request.getParameter("verifyStatus") == null ? null : Integer.valueOf(request.getParameter("verifyStatus")))//
+				.verifyStatus(request.getParameter("verifyStatus") == null ? null : Integer.valueOf(request.getParameter("verifyStatus")))//
 				.productSn(request.getParameter("productSn")).build();
 		
 		Example<PmsProduct> example = Example.of(pmsProduct);
-		List<PmsProduct> list = pmsProductRepository.findAll(example);
-		//TODO 仕样不清楚 暂时设定为0
-		CommonPagePmsProduct cpp = new CommonPagePmsProduct(list, 0, 0, 0l, 0);
-		return new Response(0, cpp, "ok");
+		List<PmsProduct> products = pmsProductRepository.findAll(example);
+		
+		int pageNum = Integer.valueOf(request.getParameter("pageNum"));
+		int pageSize = Integer.valueOf(request.getParameter("pageSize"));
+		if(pageSize * pageNum < products.size()) { 
+			products = products.subList(pageNum * pageSize -  pageSize, pageNum * pageSize);
+		} 
+		if(pageNum * pageSize >= products.size() && pageNum * pageSize - pageSize != 0 && products.size() > pageNum * pageSize - pageSize) {
+			products = products.subList(pageNum * pageSize -  pageSize, products.size());
+		}
+		//TODO 式样尚不明确 暂时设定为0
+		CommonPagePmsProduct cppp = new CommonPagePmsProduct(products, 0, 0, 0l, 0);
+//		CommonPage<PmsProduct> commonPage = new CommonPage<>(products, 0, 0, 0l, 0);
+		return new Response(200, cppp, "ok");
 	}
 }

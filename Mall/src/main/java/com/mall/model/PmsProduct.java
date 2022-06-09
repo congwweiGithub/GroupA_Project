@@ -134,6 +134,8 @@ public class PmsProduct {
 
 	 @Column(name ="排序")
 	 private int sort;
+	 
+	 private Integer verifyStatus;
 	
 	 @OneToMany
 	 private List<ProductLadder> productLadderList;
