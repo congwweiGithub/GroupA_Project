@@ -38,7 +38,7 @@ public class OmsOrderContrtollerList {
 		if(receiverKeyword == null) {
 			order = OmsOrder.builder().createTime(createTime).orderSn(orderSn)//
 					.orderType(orderType).sourceType(sourceType).status(status).build();
-		} else if (receiverKeyword != null && receiverKeyword.matches("[0-9]{10,}")) {
+		} else if (receiverKeyword.matches("[0-9]{10,}")) {
 			order = OmsOrder.builder().createTime(createTime).orderSn(orderSn)//
 				.orderType(orderType).sourceType(sourceType).status(status)//
 				.receiverPhone(receiverKeyword).build();
