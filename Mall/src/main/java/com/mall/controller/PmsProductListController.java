@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mall.model.pms.PmsProduct;
-import com.mall.model.param.CommonPagePmsProduct;
+import com.mall.model.response.CommonPagePmsProduct;
 import com.mall.model.response.CommonResult;
 import com.mall.repository.pms.PmsProductRepository;
 
 @RequestMapping("/product")
 @Controller
-public class PmsProductExploreController {
+public class PmsProductListController {
 	
 	@Autowired
 	private PmsProductRepository pmsProductRepository;

@@ -1,4 +1,4 @@
-package com.mall.model.param;
+package com.mall.model.response;
 
 import java.util.List;
 
