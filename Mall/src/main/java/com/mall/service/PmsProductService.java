@@ -15,7 +15,6 @@ public class PmsProductService {
 	@Autowired
 	PmsProductRepository product;
 	
-	//换成接口加@Transactional？？？
 
 }
 	
