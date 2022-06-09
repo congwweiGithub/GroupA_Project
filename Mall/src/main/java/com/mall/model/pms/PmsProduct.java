@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.mall.model.CmsPrefrenceAreaProductRelation;
-import com.mall.model.CmsSubjectProductRelation;
+import com.mall.model.cms.CmsPrefrenceAreaProductRelation;
+import com.mall.model.cms.CmsSubjectProductRelation;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

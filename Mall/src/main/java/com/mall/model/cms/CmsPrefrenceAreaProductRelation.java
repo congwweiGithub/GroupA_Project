@@ -1,4 +1,4 @@
-package com.mall.model;
+package com.mall.model.cms;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,9 +13,9 @@ import lombok.Data;
 
 @Entity
 @Data
-public class CmsSubjectProductRelation {
+public class CmsPrefrenceAreaProductRelation {
 
-	// JPA多对一
+	//JPA多对一
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "pms_product_id")
 	private PmsProduct pmsProduct;
@@ -24,8 +24,8 @@ public class CmsSubjectProductRelation {
 	@GeneratedValue
 	private Long id;
 
-	private Long productId;
+	private Long prefrenceAreaId;
 
-	private Long subjectId;
+	private Long productId;
 
 }

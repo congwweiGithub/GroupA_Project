@@ -1,4 +1,4 @@
-package com.mall.repository;
+package com.mall.repository.ums;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
