@@ -18,49 +18,10 @@ import com.mall.repository.OmsOrderRepository;
 
 @RequestMapping("/order")
 @Controller
-public class OmsOrderContrtoller {
+public class OmsOrderContrtollerList {
 	
 	@Autowired
 	private OmsOrderRepository omsOrderRepository;
-	
-//	@ResponseBody
-//	@GetMapping("/list")
-//	public Response list(@RequestParam(name = "createTime", required = false)String createTime,//
-//			@RequestParam(name = "orderSn", required = false)String orderSn,//
-//			@RequestParam(name = "orderType", required = false)Integer orderType,//
-//			@RequestParam(name = "sourceType", required = false)Integer sourceType,//
-//			@RequestParam(name = "status", required = false)Integer status,//
-//			@RequestParam(name = "pageNum", required = false, defaultValue = "1")Integer pageNum,//
-//			@RequestParam(name = "pageSize", required = false, defaultValue = "5")Integer pageSize,//
-//			@RequestParam(name = "receiverKeyword", required = false)String receiverKeyword) {
-//		
-//		OmsOrder order;
-//		if(receiverKeyword == null) {
-//			order = OmsOrder.builder().createTime(createTime).orderSn(orderSn)//
-//					.orderType(orderType).sourceType(sourceType).status(status).build();
-//		} else if (receiverKeyword != null && receiverKeyword.matches("[0-9]{10,}")) {
-//			order = OmsOrder.builder().createTime(createTime).orderSn(orderSn)//
-//				.orderType(orderType).sourceType(sourceType).status(status)//
-//				.receiverPhone(receiverKeyword).build();
-//		} else {
-//			order = OmsOrder.builder().createTime(createTime).orderSn(orderSn)//
-//					.orderType(orderType).sourceType(sourceType).status(status)//
-//					.receiverName(receiverKeyword).build();
-//		}
-//		
-//		Example<OmsOrder> example = Example.of(order);
-//		List<OmsOrder> orders = omsOrderRepository.findAll(example);
-//		
-//		
-//		if(pageSize * pageNum < orders.size()) { 
-//			orders = orders.subList(pageNum * pageSize -  pageSize, pageNum * pageSize);
-//		} 
-//		if(pageNum * pageSize >= orders.size() && pageNum * pageSize - pageSize != 0 && orders.size() > pageNum * pageSize - pageSize) {
-//			orders = orders.subList(pageNum * pageSize -  pageSize, orders.size());
-//		}
-//		CommonPage<OmsOrder> commonPage = new CommonPage<>(orders, 0, 0, 0l, 0);
-//		return new Response(200, commonPage, "ok");
-//	}
 	
 	@ResponseBody
 	@GetMapping("/list")
