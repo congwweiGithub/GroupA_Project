@@ -1,4 +1,4 @@
-package com.mall.repository.productListRepositories;
+package com.mall.repository.pms;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
