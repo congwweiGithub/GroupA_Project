@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-<<<<<<< Upstream, based on main
 import lombok.Data;
 
 @Entity

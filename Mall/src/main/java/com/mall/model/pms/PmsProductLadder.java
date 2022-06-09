@@ -61,13 +61,13 @@ public class PmsProductLadder  {
 	private Long id;
 	
     //满足的商品数量
-	private int count;
+	private Integer count;
 	
     //折扣
-	private double discount;
+	private Double discount;
 
     //折后价格
-	private double price;
+	private Double price;
 	
 	private Long productId;
 	
