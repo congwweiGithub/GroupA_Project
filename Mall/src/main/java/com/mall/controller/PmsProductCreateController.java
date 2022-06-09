@@ -25,7 +25,7 @@ public class PmsProductCreateController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public CommonResult createProduct(@RequestBody PmsProduct param) {
 		
-		System.out.println("222222222222222222222222");
+		System.out.println("测试push分支是否好用222222222222222222222222");
 	
 		if (!param.getName().isEmpty() 
 				&& !param.getProductCategoryName().isEmpty()//
