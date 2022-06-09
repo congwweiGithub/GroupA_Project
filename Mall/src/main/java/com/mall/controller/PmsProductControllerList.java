@@ -2,8 +2,6 @@ package com.mall.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Controller;
@@ -12,31 +10,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mall.controller.UmsAdminController.Response;
 import com.mall.model.PmsProduct;
 import com.mall.model.response.CommonPage;
-import com.mall.model.response.CommonPagePmsProduct;
+import com.mall.model.response.CommonResult;
 import com.mall.repository.PmsProductRepository;
 
 
 @RequestMapping("/product")
 @Controller
-public class ProductController {  
+public class PmsProductControllerList {  
 	
 	@Autowired
 	private PmsProductRepository pmsProductRepository;
 	
-//	@ResponseBody
-//	@PostMapping("/create")
-//	public Response create(@RequestBody ProductParam productParam) {
-//		pmsProductRepository.save(productParam.getPmsProduct());
-//		return new Response(0, null, "ok");
-//	}
-	
-
 	@ResponseBody
 	@GetMapping("/list")
-	public Response list (@RequestParam(name = "brandId", required = false)Long brandId,//
+	public CommonResult list (@RequestParam(name = "brandId", required = false)Long brandId,//
 			@RequestParam(name = "keyword", required = false)String keyword,//
 			@RequestParam(name = "productCategoryId", required = false)Long productCategoryId,//
 			@RequestParam(name = "publishStatus", required = false)Integer publishStatus,//
@@ -64,6 +53,6 @@ public class ProductController {
 		}
 		//TODO 式样尚不明确 暂时设定为0
 		CommonPage<PmsProduct> commonPage = new CommonPage<>(products, 0, 0, 0l, 0);
-		return new Response(200, commonPage, "ok");
+		return new CommonResult(200, commonPage, "ok");
 	}
 }
