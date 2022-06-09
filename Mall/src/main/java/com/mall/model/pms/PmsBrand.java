@@ -1,4 +1,4 @@
-package com.mall.model;
+package com.mall.model.pms;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.mall.model;
+package com.mall.model.pms;
 
 
 import java.sql.Timestamp;
@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.mall.model.CmsPrefrenceAreaProductRelation;
+import com.mall.model.CmsSubjectProductRelation;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

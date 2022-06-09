@@ -1,4 +1,4 @@
-package com.mall.model;
+package com.mall.model.oms;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

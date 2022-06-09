@@ -1,3 +1,4 @@
+package com.mall.model.pms;
 //package com.mall.model;
 //
 //import javax.persistence.FetchType;

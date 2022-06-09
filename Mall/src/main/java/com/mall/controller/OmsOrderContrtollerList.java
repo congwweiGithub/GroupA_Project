@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mall.model.OmsOrder;
+import com.mall.model.oms.OmsOrder;
 import com.mall.model.response.CommonPage;
 import com.mall.model.response.CommonResult;
-import com.mall.repository.OmsOrderRepository;
+import com.mall.repository.oms.OmsOrderRepository;
 
 
 @RequestMapping("/order")

@@ -1,4 +1,4 @@
-package com.mall.repository;
+package com.mall.repository.oms;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.mall.model.OmsOrder;
+import com.mall.model.oms.OmsOrder;
 
 
 public interface OmsOrderRepository extends JpaRepository<OmsOrder, Long> {

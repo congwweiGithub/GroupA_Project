@@ -1,4 +1,4 @@
-package com.mall.model;
+package com.mall.model.ums;
 
 import java.io.Serializable;
 import java.util.Date;

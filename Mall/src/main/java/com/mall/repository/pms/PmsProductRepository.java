@@ -1,9 +1,10 @@
-package com.mall.repository;
+package com.mall.repository.pms;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.mall.model.PmsProduct;
+import com.mall.model.pms.PmsProduct;
+
 
 
 @Repository
