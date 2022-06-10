@@ -32,29 +32,19 @@ public class PmsProductCategoryController {
 	@GetMapping("/list/withChildren")
 	public CommonResult list() {
 
-		// TODO
 		PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildrenItem = pmsProductCategoryWithChildrenRepository
 				.findAllById(20l);
-		log.info(pmsProductCategoryWithChildrenItem.toString());
-
-//		List<PmsProductCategoryWithChildrenItem> pmsProductCategoryWithChildrenItem = pmsProductCategoryWithChildrenRepository
-//				.findAll();
 
 		PmsProductCategory pmsProductCategory = pmsProductCategoryRepository.findAllById(20l);
 
-//		List<CommonPmsProductCategory> testList = new ArrayList<>();
-//		CommonPmsProductCategory test = new CommonPmsProductCategory();
-
 		List<PmsProductCategoryWithChildrenItem> testList = new ArrayList<>();
 		log.info("pmsProductCategory的值：+++++++++{}", pmsProductCategory.toString());
-//		BeanUtils.copyProperties(pmsProductCategoryWithChildrenItem, test);
-//		log.info("test的值：+++++++++{}", test.toString());
+		log.info("test的值：+++++++++{}", pmsProductCategoryWithChildrenItem.toString());
 		List<PmsProductCategory> testListChild = new ArrayList<>();
 		testListChild.add(pmsProductCategory);
 		pmsProductCategoryWithChildrenItem.setChildren(testListChild);
 		testList.add(pmsProductCategoryWithChildrenItem);
-//		test.setChildren(testListChild);
-//		testList.add(test);
+
 		return new CommonResult(200, testList, "ok");
 	}
 }

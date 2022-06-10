@@ -21,7 +21,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -149,7 +148,7 @@ public class PmsProductParam {
 	private Integer verifyStatus;
 
 	// 商品重量，默认为克
-	private double weight;
+	private Double weight;
 
 	// JPA oneToMany Match
 	@OneToMany(mappedBy = "pmsProduct")
