@@ -7,12 +7,15 @@ import com.mall.model.pms.PmsProductCategory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+
 public class CommonPmsProductCategory {
 
+	@ToString.Exclude
 	private List<PmsProductCategory> children;
 
 	private Long id;
@@ -29,6 +32,8 @@ public class CommonPmsProductCategory {
 
 	private Integer navStatus;
 
+	private Long parentId;
+
 	private Integer productCount;
 
 	private Integer productUnit;
@@ -36,7 +41,5 @@ public class CommonPmsProductCategory {
 	private Integer showStatus;
 
 	private Integer sort;
-
-	private Long parentId;
 
 }

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
@@ -19,6 +20,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class PmsProductCategoryWithChildrenItem {
+
+	@OneToMany
+	@JoinColumn(name = "pms_product_category_with_children_item_id")
+//	@ToString.Exclude
+	private List<PmsProductCategory> children;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,6 +42,8 @@ public class PmsProductCategoryWithChildrenItem {
 
 	private Integer navStatus;
 
+	private Long parentId;
+
 	private Integer productCount;
 
 	private Integer productUnit;
@@ -44,8 +52,4 @@ public class PmsProductCategoryWithChildrenItem {
 
 	private Integer sort;
 
-	private Long parentId;
-
-	@OneToMany(mappedBy = "item")
-	private List<PmsProductCategory> children;
 }
