@@ -23,7 +23,7 @@ public class PmsProductCategory {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long childrenId;
+	private Long id;
 	
 	private String description;
    

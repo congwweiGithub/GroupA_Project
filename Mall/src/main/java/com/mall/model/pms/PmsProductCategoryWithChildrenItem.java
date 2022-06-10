@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -17,12 +18,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+//@Getter
 @Table(name ="pms_product_category_with_children_item")
 public class PmsProductCategoryWithChildrenItem {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long productCategoryId;
+	private Long id;
 	
 	private String description;
    
