@@ -69,7 +69,10 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
 			
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
 	</dependencies>
 
 	<build>

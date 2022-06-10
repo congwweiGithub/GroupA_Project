@@ -1,4 +1,5 @@
 package com.mall.model.pms;
+<<<<<<< HEAD
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -46,5 +47,9 @@ public class PmsBrand {
 	private Integer showStatus;
 
 	private Integer sort;
+=======
+//TODO
+public class PmsBrand {
+>>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
 
 }

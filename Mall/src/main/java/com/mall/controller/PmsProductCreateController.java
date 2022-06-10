@@ -25,7 +25,11 @@ public class PmsProductCreateController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public CommonResult createProduct(@RequestBody PmsProduct param) {
 		
+<<<<<<< HEAD
 		System.out.println("测试push分支是否好用222222222222222222222222");
+=======
+		System.out.println("222222222222222222222222");
+>>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
 	
 		if (!param.getName().isEmpty() 
 				&& !param.getProductCategoryName().isEmpty()//

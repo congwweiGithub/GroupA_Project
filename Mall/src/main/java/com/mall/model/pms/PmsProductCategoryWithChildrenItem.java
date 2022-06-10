@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+<<<<<<< HEAD
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -25,6 +26,21 @@ public class PmsProductCategoryWithChildrenItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+=======
+import lombok.NoArgsConstructor;
+
+@Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Table(name ="pms_product_category_with_children_item")
+public class PmsProductCategoryWithChildrenItem {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long productCategoryId;
+>>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
 	
 	private String description;
    

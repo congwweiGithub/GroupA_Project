@@ -23,7 +23,11 @@ public class PmsProductCategory {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+<<<<<<< HEAD
 	private Long id;
+=======
+	private Long childrenId;
+>>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
 	
 	private String description;
    

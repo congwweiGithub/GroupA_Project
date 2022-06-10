@@ -22,6 +22,7 @@ public class PmsSkuStock {
 	private Long id;
 
 	//  锁定库存
+<<<<<<< HEAD
 	private Integer lockStock;
 
 	//  预警库存
@@ -48,5 +49,33 @@ public class PmsSkuStock {
 
 	//  库存
 	private Integer stock;
+=======
+	private int lockStock;
+
+	//  预警库存
+	private int lowStock;
+
+	//  展示图片
+	private String pic;
+
+	private double price;
+
+	private Long productId;
+
+	//  单品促销价格
+	private double promotionPrice;
+
+	//  销量
+	private int integer;
+
+	//  sku编码
+	private int skuCode;
+
+	//  商品销售属性，json格式
+	private int spData;
+
+	//  库存
+	private int stock;
+>>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
 
 }
