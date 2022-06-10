@@ -2,7 +2,7 @@ package com.mall.model.response;
 
 import java.util.List;
 
-import com.mall.model.pms.PmsProductCategoryWithChildrenItem;
+import com.mall.model.pms.PmsProductCategory;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class CommonPmsProductCategory {
 
-	private List<PmsProductCategoryWithChildrenItem> children;
+	private List<PmsProductCategory> children;
 
 	private Long id;
 

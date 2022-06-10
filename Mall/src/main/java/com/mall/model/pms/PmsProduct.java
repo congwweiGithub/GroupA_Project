@@ -1,6 +1,6 @@
 package com.mall.model.pms;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -82,14 +82,14 @@ public class PmsProduct {
 	private String note;
 
 	// 市场价
-	private double originalPrice;
+	private Double originalPrice;
 
 	private String pic;
 
 	// 是否为预告商品
 	private Integer previewStatus;
 
-	private double price;
+	private Double price;
 
 	private Long productAttributeCategoryId;
 
@@ -102,16 +102,16 @@ public class PmsProduct {
 	private String productSn;
 
 	// 促销结束时间
-	private Timestamp promotionEndTime;
+	private Date promotionEndTime;
 
 	// 活动限购数量
 	private Integer promotionPerLimit;
 
 	// 促销价格
-	private double promotionPrice;
+	private Double promotionPrice;
 
 	// 促销开始时间
-	private Timestamp promotionStartTime;
+	private Date promotionStartTime;
 
 	// 促销类型
 	private Integer promotionType;
@@ -147,7 +147,7 @@ public class PmsProduct {
 	private Integer verifyStatus;
 
 	// 商品重量，默认为克
-	private double weight;
+	private Double weight;
 
 	// JPA oneToMany Match
 	@OneToMany(mappedBy = "pmsProduct")

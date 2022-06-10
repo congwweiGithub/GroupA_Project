@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 import lombok.Data;
 
 @Entity
@@ -26,7 +27,7 @@ public class PmsMemberPrice {
 	private String memberLevelName;
 
 	// 会员价格
-	private double memberPrice;
+	private Double memberPrice;
 
 	private Long productId;
 

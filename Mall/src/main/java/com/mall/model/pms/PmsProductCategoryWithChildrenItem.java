@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,12 +18,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name = "pms_product_category_with_children_item")
 public class PmsProductCategoryWithChildrenItem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long productCategoryId;
+	private Long id;
 
 	private String description;
 
