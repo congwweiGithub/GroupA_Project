@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-<<<<<<< HEAD
-
 import lombok.Data;
 
 @Entity
@@ -28,30 +26,7 @@ public class PmsMemberPrice {
 	private String memberLevelName;
 
 	// 会员价格
-	private Double memberPrice;
-=======
-import lombok.Data;
-
-@Entity
-@Data
-public class PmsMemberPrice {
-
-	// JPA多对一
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "pms_product_id")
-	private PmsProduct pmsProduct;
-
-	@Id
-	@GeneratedValue
-	private Long id;
-
-	private Long memberLevelId;
-
-	private String memberLevelName;
-
-	//  会员价格
 	private double memberPrice;
->>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
 
 	private Long productId;
 

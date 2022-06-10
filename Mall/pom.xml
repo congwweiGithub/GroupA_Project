@@ -62,17 +62,11 @@
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 
-
-		
 		<dependency>
-   		    <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
-			
-<<<<<<< HEAD
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
 
-=======
->>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
 	</dependencies>
 
 	<build>

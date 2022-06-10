@@ -1,9 +1,7 @@
 package com.mall.model.oms;
-<<<<<<< HEAD
 
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -159,9 +157,5 @@ public class OmsOrder {
 	// JPA oneToMany Match
 	@OneToMany(mappedBy = "omsOrder")
 	private List<OmsOrderOperateHistory> omsOrderOperateHistory;
-=======
-//TODO
-public class OmsOrder {
 
->>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
 }

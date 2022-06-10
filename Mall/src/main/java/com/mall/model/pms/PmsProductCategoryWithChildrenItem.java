@@ -1,17 +1,17 @@
 package com.mall.model.pms;
 
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-<<<<<<< HEAD
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -19,51 +19,35 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-//@Getter
-@Table(name ="pms_product_category_with_children_item")
+@Table(name = "pms_product_category_with_children_item")
 public class PmsProductCategoryWithChildrenItem {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-=======
-import lombok.NoArgsConstructor;
 
-@Entity
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
-@Table(name ="pms_product_category_with_children_item")
-public class PmsProductCategoryWithChildrenItem {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long productCategoryId;
->>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
-	
+
 	private String description;
-   
-	private String icon;	      
-	
+
+	private String icon;
+
 	private String keywords;
-	
+
 	private Integer level;
-	
+
 	private String name;
-	
+
 	private Integer navStatus;
-			
+
 	private Integer productCount;
-	
+
 	private Integer productUnit;
-	
-	private Integer showStatus;	
-	
+
+	private Integer showStatus;
+
 	private Integer sort;
-	
-	private Long  parentId;
-			
+
+	private Long parentId;
+
 	@OneToMany(mappedBy = "item")
 	private List<PmsProductCategory> children;
 }

@@ -24,23 +24,16 @@ public class PmsProductCreateController {
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public CommonResult createProduct(@RequestBody PmsProduct param) {
-		
-<<<<<<< HEAD
-		System.out.println("测试push分支是否好用222222222222222222222222");
-=======
-		System.out.println("222222222222222222222222");
->>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
-	
-		if (!param.getName().isEmpty() 
-				&& !param.getProductCategoryName().isEmpty()//
-				&&!param.getSubTitle().isEmpty()//
-				&&!param.getBrandName().isEmpty()) { 
-						
-			BeanUtils.copyProperties(param, pmsProductRepository);									
-			
+
+		if (!param.getName().isEmpty() && !param.getProductCategoryName().isEmpty()//
+				&& !param.getSubTitle().isEmpty()//
+				&& !param.getBrandName().isEmpty()) {
+
+			BeanUtils.copyProperties(param, pmsProductRepository);
+
 			pmsProductRepository.save(param);
-			logger.info("Product " + param.getName() + "添加成功");			
-		} 
+			logger.info("Product " + param.getName() + "添加成功");
+		}
 		return new CommonResult(200, null, "Succeed");
 	}
 

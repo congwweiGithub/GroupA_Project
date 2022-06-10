@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 import lombok.Data;
 
 @Entity
@@ -21,18 +22,10 @@ public class PmsProductFullReduction {
 	@GeneratedValue
 	private Long id;
 
-<<<<<<< HEAD
 	private Double fullPrice;
 
 	private Long productId;
 
 	private Double reducePrice;
-=======
-	private double fullPrice;
-
-	private Long productId;
-
-	private double reducePrice;
->>>>>>> branch 'GroupA_CongWei' of https://github.com/congwweiGithub/GroupA_Project.git
 
 }
