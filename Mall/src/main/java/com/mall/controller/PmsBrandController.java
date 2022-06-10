@@ -25,6 +25,7 @@ public class PmsBrandController {
 	PmsBrandRepository pmsBrandRepository;
 	PmsBrandRepository pmsBrandParam;
 	PmsBrandService pmsBrandService;
+
 	//private static final Logger logger = LoggerFactory.getLogger(PmsProductController.class);
 
 	// 创建品牌
@@ -41,6 +42,7 @@ public class PmsBrandController {
 	@ResponseBody
 	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
 	public CommonResult brandListAll(@RequestParam() Map<String, Object> map) {
+
 		map.put("", pmsBrandService.FindAllBrands());
 		
 		return new CommonResult(200, map, "ok");
