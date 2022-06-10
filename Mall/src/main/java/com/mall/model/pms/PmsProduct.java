@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import com.mall.model.cms.CmsPrefrenceAreaProductRelation;
 import com.mall.model.cms.CmsSubjectProductRelation;
 
@@ -21,6 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Table(name = "pms_product")
 public class PmsProduct {
 
 	@Id
@@ -128,7 +131,7 @@ public class PmsProduct {
 	// 排序
 	private Integer sort;
 
-	// 库存
+	// 库存")
 	private Integer stock;
 
 	// 副标题

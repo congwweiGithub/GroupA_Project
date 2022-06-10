@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 import com.mall.model.cms.CmsPrefrenceAreaProductRelation;
 import com.mall.model.cms.CmsSubjectProductRelation;
 import com.mall.model.pms.PmsMemberPrice;
@@ -19,6 +20,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @Builder
 @NoArgsConstructor
@@ -147,7 +149,7 @@ public class PmsProductParam {
 	private Integer verifyStatus;
 
 	// 商品重量，默认为克
-	private Double weight;
+	private double weight;
 
 	// JPA oneToMany Match
 	@OneToMany(mappedBy = "pmsProduct")

@@ -39,7 +39,7 @@ public class PmsSkuStock {
 	private Double promotionPrice;
 
 	// 销量
-	private Integer sale;
+	private Integer integer;
 
 	// sku编码
 	private Integer skuCode;

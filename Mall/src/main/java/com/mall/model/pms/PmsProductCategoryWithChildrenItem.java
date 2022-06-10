@@ -1,50 +1,51 @@
-package com.mall.model.param;
+package com.mall.model.pms;
 
+import java.util.List;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+public class PmsProductCategoryWithChildrenItem {
 
-public class PmsBrandParam {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	//专区大图
-	private String bigPic;
-	
-	//品牌故事
-	private String brandStory;
-	
-	//是否为品牌制造商：0->不是；1->是
-	private Integer factoryStatus;
-	
-	//首字母
-	private String firstLetter;
-	
-	//品牌logo
-	private String logo;
-	
+
+	private String description;
+
+	private String icon;
+
+	private String keywords;
+
+	private Integer level;
+
 	private String name;
-	
-	//产品评论数量
-	private Integer productCommentCount;
-	
-	//产品数量
+
+	private Integer navStatus;
+
 	private Integer productCount;
 
+	private Integer productUnit;
+
 	private Integer showStatus;
-	
+
 	private Integer sort;
 
-}
+	private Long parentId;
 
+	@OneToMany(mappedBy = "item")
+	private List<PmsProductCategory> children;
+}
