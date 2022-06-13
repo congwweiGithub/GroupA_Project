@@ -1,9 +1,14 @@
 package com.mall.model.pms;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,7 +38,10 @@ public class PmsProductCategory {
 
 	private Integer navStatus;
 
-	private Long parentId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "parent_id")
+	@JsonBackReference
+	private PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildrenItem;
 
 	private Integer productCount;
 
@@ -42,10 +50,5 @@ public class PmsProductCategory {
 	private Integer showStatus;
 
 	private Integer sort;
-
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "product_category_id")
-//	@ToString.Exclude
-//	private PmsProductCategoryWithChildrenItem item;
 
 }

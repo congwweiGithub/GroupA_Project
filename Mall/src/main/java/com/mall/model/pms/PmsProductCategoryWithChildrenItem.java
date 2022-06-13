@@ -3,11 +3,13 @@ package com.mall.model.pms;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,9 +23,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class PmsProductCategoryWithChildrenItem {
 
-	@OneToMany
-	@JoinColumn(name = "pms_product_category_with_children_item_id")
-//	@ToString.Exclude
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pmsProductCategoryWithChildrenItem")
+	@JsonManagedReference
 	private List<PmsProductCategory> children;
 
 	@Id

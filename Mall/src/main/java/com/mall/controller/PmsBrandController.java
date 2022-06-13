@@ -1,23 +1,35 @@
 package com.mall.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.mall.model.pms.PmsBrand;
 import com.mall.model.response.CommonResult;
+import com.mall.model.response.CommonResultPmsBrand;
 import com.mall.repository.pms.PmsBrandRepository;
+import com.mall.service.PmsBrandService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RequestMapping("/brand")
 @Controller
 public class PmsBrandController {
 
 	@Autowired
 	PmsBrandRepository pmsBrandRepository;
+	@Autowired
+	PmsBrandRepository pmsBrandParam;
+	@Autowired
+	PmsBrandService pmsBrandService;
 
 	// 创建品牌
 	@ResponseBody
@@ -33,22 +45,15 @@ public class PmsBrandController {
 	// get商品品牌下拉栏
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public CommonResult listBrand(HttpServletRequest request) {
-		// logger.info("get brand request {}", request);
+	public CommonResult brandList(@RequestParam(name = "keyword", required = false) String keyword, //
+			@RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum, //
+			@RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize) {
 
-//		Example<PmsBrand> pmsBrandExample = Example.of(PmsBrand);
-//		List<PmsBrand> PmsBrandList = pmsBrandRepository.findAll(pmsBrandExample);
-//		BeanUtils.copyProperties(PmsBrandList, request);
+		log.info("get brand list keyword: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
 
-		// TODO 把数据传到添加商品的品牌选项下拉栏
-		// logger.info("get brand repository {}", pmsBrandRepository);
-		// logger.info("get copied brand request {}", request);
-//			PmsBrand pmsBrand = PmsBrand.builder()//
-//					.brandId(request.getParameter("brandId") == null ? null : Long.valueOf(request.getParameter("brandId")))//
-//					.brandName(request.getParameter("brandName") == null ? null : String.valueOf(request.getParameter("brandName"))).build();
-//			CommonPagePmsProduct cppp = new CommonPagePmsProduct(products, 0, 0, 0l, 0);
+		List<PmsBrand> pmsBrand = pmsBrandService.FindAllBrands();
+		CommonResultPmsBrand commonResultPmsBrand = new CommonResultPmsBrand(pmsBrand, 1, 5, 0l, 0);
+		return new CommonResult(200, commonResultPmsBrand, "ok");
 
-		return new CommonResult(200, request, "ok");
 	}
-
 }
