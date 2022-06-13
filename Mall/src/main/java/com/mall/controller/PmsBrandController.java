@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mall.model.param.PmsBrandParam;
 import com.mall.model.pms.PmsBrand;
 import com.mall.model.response.CommonResult;
 import com.mall.model.response.CommonResultPmsBrand;
@@ -30,9 +31,6 @@ public class PmsBrandController {
 	@Autowired
 	PmsBrandService pmsBrandService;
 
-	// private static final Logger logger =
-	// LoggerFactory.getLogger(PmsProductController.class);
-
 	// 创建品牌
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -47,19 +45,18 @@ public class PmsBrandController {
 	// get商品品牌下拉栏
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public CommonResult brandList(
-			@RequestParam(name = "keyword", required = false) String keyword, //
+	public CommonResult brandList(@RequestParam(name = "keyword", required = false) String keyword, //
 			@RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum, //
-			@RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize){
-		
+			@RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize) {
+
 		log.info("get brand list keyword: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
-		
+
 		List<PmsBrand> pmsBrand = pmsBrandService.FindAllBrands();
 		CommonResultPmsBrand commonResultPmsBrand = new CommonResultPmsBrand(pmsBrand, 1, 5, 0l, 0);
 		return new CommonResult(200, commonResultPmsBrand, "ok");
 
 	}
-	
+
 //		//TODO if 页码的if判断
 ////		if(pageSize * pageNum < products.size()) { 
 ////			products = products.subList(pageNum * pageSize -  pageSize, pageNum * pageSize);
@@ -80,6 +77,6 @@ public class PmsBrandController {
 //		List<PmsBrand> pmsBrand = pmsBrandService.FindAllBrands();
 //		
 //		return new CommonResult(200, pmsBrand, "ok");
-	//}
+	// }
 
 }

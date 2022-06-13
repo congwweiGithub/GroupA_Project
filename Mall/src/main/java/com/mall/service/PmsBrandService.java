@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mall.model.param.PmsBrandParam;
 import com.mall.model.pms.PmsBrand;
 import com.mall.repository.pms.PmsBrandRepository;
 
