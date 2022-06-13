@@ -26,12 +26,14 @@ public class PmsProductCategoryController {
 	public CommonResult list() {
 
 		ObjectMapper pmsProductCategoryJson = new ObjectMapper();
+
+		String pmsProductCategoryString;
 		try {
-			String pmsProductCategoryString = pmsProductCategoryJson
+			pmsProductCategoryString = pmsProductCategoryJson
 					.writeValueAsString(pmsProductCategoryWithChildrenRepository.findAll());
 			log.info("pmsProductCategoryWithChildrenRepository.findAll() 的值: {} ", pmsProductCategoryString);
 		} catch (JsonProcessingException e) {
-			log.error(null);
+			log.info("exception type JsonProcessingException");
 			e.printStackTrace();
 		}
 
