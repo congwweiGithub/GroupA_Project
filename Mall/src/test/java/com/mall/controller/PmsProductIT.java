@@ -22,7 +22,7 @@ import com.mall.model.pms.PmsProduct;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class PmsProductITest {
+public class PmsProductIT {
 
 	@Autowired
 	private MockMvc mockMvc;

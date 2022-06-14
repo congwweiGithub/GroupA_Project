@@ -56,10 +56,3 @@ INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,n
 VALUES ('11','string','string','0','a','logoimg','OPPO','0','0','0','0');
 INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
 VALUES ('12','string','string','0','a','logoimg','小米','0','0','0','0');
-
-TRUNCATE TABLE pms_brand;
-INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
-VALUES ('21','string','string','0','a','logoimg','Apple','0','0','0','0');
-
-INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
-VALUES ('22','string','string','0','a','logoimg','华为','0','0','0','0');
