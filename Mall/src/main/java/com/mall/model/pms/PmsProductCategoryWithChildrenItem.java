@@ -49,7 +49,7 @@ public class PmsProductCategoryWithChildrenItem {
 
 	private Integer productCount;
 
-	private Integer productUnit;
+	private String productUnit;
 
 	private Integer showStatus;
 

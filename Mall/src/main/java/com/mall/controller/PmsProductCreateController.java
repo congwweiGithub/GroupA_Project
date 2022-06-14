@@ -35,7 +35,7 @@ public class PmsProductCreateController {
 			pmsProductRepository.save(param);
 			logger.info("Product " + param.getName() + "添加成功");
 		}
-		return new CommonResult(200, null, "Succeed");
+		return new CommonResult(200, null, "通信成功");
 	}
 
 }
