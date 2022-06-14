@@ -9,7 +9,6 @@ import com.mall.model.pms.PmsBrand;
 
 @Repository
 public interface PmsBrandRepository extends JpaRepository<PmsBrand, Long> {
-
 	List<PmsBrand> findAll();
 
 }

@@ -39,6 +39,7 @@ INSERT INTO ums_menu (id, parent_id, create_time, title, level, sort, name, icon
 TRUNCATE TABLE pms_product_category_with_children_item CASCADE;
 INSERT INTO pms_product_category_with_children_item (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
 VALUES ('20','description','icon','国产','1','手机数码','1','1','1','1','1','1');
+
 INSERT INTO pms_product_category_with_children_item (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
 VALUES ('21','description','icon','国产','1','服装','1','1','1','1','1','1');
 
@@ -56,3 +57,9 @@ VALUES ('11','string','string','0','a','logoimg','OPPO','0','0','0','0');
 INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
 VALUES ('12','string','string','0','a','logoimg','小米','0','0','0','0');
 
+TRUNCATE TABLE pms_brand;
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('21','string','string','0','a','logoimg','Apple','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('22','string','string','0','a','logoimg','华为','0','0','0','0');
