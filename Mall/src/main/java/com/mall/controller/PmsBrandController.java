@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mall.model.param.PmsBrandParam;
 import com.mall.model.pms.PmsBrand;
 import com.mall.model.response.CommonResult;
 import com.mall.model.response.CommonResultPmsBrand;
@@ -56,27 +55,5 @@ public class PmsBrandController {
 		return new CommonResult(200, commonResultPmsBrand, "ok");
 
 	}
-
-//		//TODO if 页码的if判断
-////		if(pageSize * pageNum < products.size()) { 
-////			products = products.subList(pageNum * pageSize -  pageSize, pageNum * pageSize);
-////		} 
-////		if(pageNum * pageSize >= products.size() && pageNum * pageSize - pageSize != 0 && products.size() > pageNum * pageSize - pageSize) {
-////			products = products.subList(pageNum * pageSize -  pageSize, products.size());
-////		}
-//		
-//		CommonResultPmsBrand commonResultPmsBrand = new CommonResultPmsBrand<>((pmsBrandList, pageNum, pageSize, total, totalPage));
-//		return new CommonResult(200, commonResultPmsBrand, "ok");
-//	}
-
-	// TODO
-//	@ResponseBody
-//	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
-//	public CommonResult brandListAll() {
-//		
-//		List<PmsBrand> pmsBrand = pmsBrandService.FindAllBrands();
-//		
-//		return new CommonResult(200, pmsBrand, "ok");
-	// }
 
 }
