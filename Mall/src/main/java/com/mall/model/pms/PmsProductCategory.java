@@ -53,4 +53,13 @@ public class PmsProductCategory {
 
 	private Integer sort;
 
+	@Override
+	public String toString() {
+		return "PmsProductCategory [id=" + id + ", description=" + description + ", icon=" + icon + ", keywords="
+				+ keywords + ", level=" + level + ", name=" + name + ", navStatus=" + navStatus
+				+ ", pmsProductCategoryWithChildrenItem=" + pmsProductCategoryWithChildrenItem.getId()
+				+ ", productCount=" + productCount + ", productUnit=" + productUnit + ", showStatus=" + showStatus
+				+ ", sort=" + sort + "]";
+	}
+
 }

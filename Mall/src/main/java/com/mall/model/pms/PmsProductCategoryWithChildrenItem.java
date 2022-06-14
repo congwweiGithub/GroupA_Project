@@ -55,4 +55,12 @@ public class PmsProductCategoryWithChildrenItem {
 
 	private Integer sort;
 
+	@Override
+	public String toString() {
+		return "PmsProductCategoryWithChildrenItem [children=" + children + ", id=" + id + ", description="
+				+ description + ", icon=" + icon + ", keywords=" + keywords + ", level=" + level + ", name=" + name
+				+ ", navStatus=" + navStatus + ", parentId=" + parentId + ", productCount=" + productCount
+				+ ", productUnit=" + productUnit + ", showStatus=" + showStatus + ", sort=" + sort + "]";
+	}
+
 }

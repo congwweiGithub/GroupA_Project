@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.mall.model.cms.CmsPrefrenceAreaProductRelation;
 import com.mall.model.cms.CmsSubjectProductRelation;
 
@@ -151,24 +152,31 @@ public class PmsProduct {
 
 	// JPA oneToMany Match
 	@OneToMany(mappedBy = "pmsProduct")
+	@JsonManagedReference
 	private List<CmsPrefrenceAreaProductRelation> cmsPrefrenceAreaProductRelation;
 
 	@OneToMany(mappedBy = "pmsProduct")
+	@JsonManagedReference
 	private List<CmsSubjectProductRelation> cmsSubjectProductRelation;
 
 	@OneToMany(mappedBy = "pmsProduct")
+	@JsonManagedReference
 	private List<PmsMemberPrice> pmsMemberPrice;
 
 	@OneToMany(mappedBy = "pmsProduct")
+	@JsonManagedReference
 	private List<PmsProductAttributeValue> pmsProductAttributeValue;
 
 	@OneToMany(mappedBy = "pmsProduct")
+	@JsonManagedReference
 	private List<PmsProductFullReduction> pmsProductFullReduction;
 
 	@OneToMany(mappedBy = "pmsProduct")
+	@JsonManagedReference
 	private List<PmsProductLadder> pmsProductLadder;
 
 	@OneToMany(mappedBy = "pmsProduct")
+	@JsonManagedReference
 	private List<PmsSkuStock> pmsSkuStock;
 
 }

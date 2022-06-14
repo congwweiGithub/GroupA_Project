@@ -32,15 +32,15 @@ public class PmsProductCategoryIT {
 		CommonResult commonResult = CommonResult.builder()//
 				.code(200l)//
 				.data(pmsProductCategoryWithChildrenRepository.findAll())// 随便放点东西
-				.message("OK").build();
+				.message("ok").build();
 
 		String json = mapper.writeValueAsString(commonResult);
 
 		RequestBuilder request = MockMvcRequestBuilders//
 				.get("/productCategory/list/withChildren")//
 				.accept(MediaType.APPLICATION_JSON);
-//		mockMvc.perform(request).andReturn();
-		mockMvc.perform(request).andExpect(content().string(json));
+
+		mockMvc.perform(request).andExpect(content().json(json));
 
 	}
 
