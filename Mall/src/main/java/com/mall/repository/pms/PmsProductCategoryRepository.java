@@ -8,6 +8,6 @@ import com.mall.model.pms.PmsProductCategory;
 @Repository
 public interface PmsProductCategoryRepository extends JpaRepository<PmsProductCategory, Long> {
 
-	PmsProductCategory findAllById(Long id);
+	PmsProductCategory findByName(String name);
 
 }

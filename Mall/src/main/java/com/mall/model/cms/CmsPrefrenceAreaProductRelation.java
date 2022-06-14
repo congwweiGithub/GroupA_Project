@@ -6,17 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mall.model.pms.PmsProduct;
+
 import lombok.Data;
 
 @Entity
 @Data
 public class CmsPrefrenceAreaProductRelation {
-
-	//JPA多对一
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "pms_product_id")
-	private PmsProduct pmsProduct;
 
 	@Id
 	@GeneratedValue
@@ -24,6 +22,10 @@ public class CmsPrefrenceAreaProductRelation {
 
 	private Long prefrenceAreaId;
 
-	private Long productId;
+	// JPA多对一
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "product_id")
+	@JsonBackReference
+	private PmsProduct pmsProduct;
 
 }

@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,10 +34,9 @@ public class PmsProductLadder {
 //	折后价格
 	private Double price;
 
-	private Long productId;
-
 	@ManyToOne
-	@JoinColumn(name = "pms_product_id")
+	@JoinColumn(name = "product_id")
+	@JsonBackReference
 	private PmsProduct pmsProduct;
 
 }

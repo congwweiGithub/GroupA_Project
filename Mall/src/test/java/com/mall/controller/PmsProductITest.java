@@ -3,9 +3,11 @@ package com.mall.controller;
 //import static org.junit.Assert.assertEquals;
 //import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -14,9 +16,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mall.model.pms.PmsProduct;
-
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -28,10 +30,9 @@ public class PmsProductITest {
 	@Test //
 	public void testCreateProduct_Succcess() throws Exception {
 
-//		ObjectMapper responseBody = new ObjectMapper();
-		ObjectMapper requsetBody = new ObjectMapper();		
+		ObjectMapper requsetBody = new ObjectMapper();
 		PmsProduct pmsProduct = PmsProduct.builder()//
-				
+
 				.albumPics("albumPics")//
 				.icon("icon")//
 				.brandId(2l)//
@@ -79,28 +80,17 @@ public class PmsProductITest {
 				.pmsMemberPrice(new ArrayList<>())//
 				.pmsProductAttributeValue(new ArrayList<>())//
 				.pmsProductFullReduction(new ArrayList<>())//
-				//.pmsProductLadder(new ArrayList<>())//
-				.pmsProductLadder(new ArrayList<>())
-				.pmsSkuStock(new ArrayList<>())//				
+				.pmsProductLadder(new ArrayList<>())//
+				.pmsSkuStock(new ArrayList<>())//
 				.build();
 
 		RequestBuilder request = MockMvcRequestBuilders//
 				.post("http://localhost:8080/product/create")//
-				.content(requsetBody.writeValueAsString(pmsProduct))//	
-				.contentType(MediaType.APPLICATION_JSON)
-				.accept(MediaType.APPLICATION_JSON);
+				.content(requsetBody.writeValueAsString(pmsProduct))//
+				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
 
-//		String json = responseBody.writeValueAsString(pmsProduct);
-		
-		mockMvc.perform(request).andExpect(status().isOk());		
-//		assertEquals(json, request.toString());  // 过后再写
-//		mockMvc.perform(request).andExpect(content().string(json));
-
-//		ResultActions resultActions = mockMvc.perform(request);
-//		System.out.println("1111111111111111111111");
-//		System.out.println(resultActions);
-//		System.out.println(resultActions.andReturn().getResponse().getContentAsString());
+		mockMvc.perform(request).andExpect(status().isOk()); // TODO 此处需更改(status().isOk()).
 
 	}
-	
+
 }

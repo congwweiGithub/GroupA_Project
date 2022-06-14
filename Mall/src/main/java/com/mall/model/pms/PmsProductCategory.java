@@ -4,17 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 public class PmsProductCategory {
 
 	@Id
@@ -33,7 +39,10 @@ public class PmsProductCategory {
 
 	private Integer navStatus;
 
-	private Long parentId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "parent_id")
+	@JsonBackReference
+	private PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildrenItem;
 
 	private Integer productCount;
 
@@ -42,5 +51,14 @@ public class PmsProductCategory {
 	private Integer showStatus;
 
 	private Integer sort;
+
+	@Override
+	public String toString() {
+		return "PmsProductCategory [id=" + id + ", description=" + description + ", icon=" + icon + ", keywords="
+				+ keywords + ", level=" + level + ", name=" + name + ", navStatus=" + navStatus
+				+ ", pmsProductCategoryWithChildrenItem=" + pmsProductCategoryWithChildrenItem.getId()
+				+ ", productCount=" + productCount + ", productUnit=" + productUnit + ", showStatus=" + showStatus
+				+ ", sort=" + sort + "]";
+	}
 
 }

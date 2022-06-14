@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.mall.model.pms.PmsBrand;
 
 @Repository
-public interface PmsBrandRepository extends JpaRepository<PmsBrand,Long>{
-	
+public interface PmsBrandRepository extends JpaRepository<PmsBrand, Long> {
 	List<PmsBrand> findAll();
 
 }

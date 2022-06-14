@@ -1,6 +1,7 @@
 package com.mall.controller;
 
 import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,5 +56,4 @@ public class PmsBrandController {
 		return new CommonResult(200, commonResultPmsBrand, "ok");
 
 	}
-
 }

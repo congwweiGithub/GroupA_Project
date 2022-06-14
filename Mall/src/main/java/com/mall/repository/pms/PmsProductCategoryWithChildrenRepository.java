@@ -8,7 +8,7 @@ import com.mall.model.pms.PmsProductCategoryWithChildrenItem;
 @Repository
 public interface PmsProductCategoryWithChildrenRepository
 		extends JpaRepository<PmsProductCategoryWithChildrenItem, Long> {
-
-	PmsProductCategoryWithChildrenItem findAllById(Long id);
+  
+	PmsProductCategoryWithChildrenItem findByName(String name);
 
 }
