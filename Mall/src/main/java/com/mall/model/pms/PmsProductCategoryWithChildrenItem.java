@@ -25,7 +25,7 @@ import lombok.Setter;
 @Setter
 public class PmsProductCategoryWithChildrenItem {
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pmsProductCategoryWithChildrenItem")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "parent")
 	@JsonManagedReference
 	private List<PmsProductCategory> children;
 

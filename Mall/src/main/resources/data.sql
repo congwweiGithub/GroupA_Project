@@ -38,16 +38,131 @@ INSERT INTO ums_menu (id, parent_id, create_time, title, level, sort, name, icon
 
 TRUNCATE TABLE pms_product_category_with_children_item CASCADE;
 INSERT INTO pms_product_category_with_children_item (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
-VALUES ('20','description','icon','国产','1','手机数码','1','1','1','1','1','1');
+VALUES ('20','description','icon','国产','0','手机数码','1','1','1','1','1','1');
 
 INSERT INTO pms_product_category_with_children_item (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
-VALUES ('21','description','icon','国产','1','服装','1','1','1','1','1','1');
+VALUES ('21','description','icon','国产','0','服装','1','1','1','1','1','1');
+
+INSERT INTO pms_product_category_with_children_item (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('22','description','icon','国产','0','家居','1','1','1','1','1','1');
+
+INSERT INTO pms_product_category_with_children_item (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('23','description','icon','国产','0','家具','1','1','1','1','1','1');
+
+INSERT INTO pms_product_category_with_children_item (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('24','description','icon','国产','0','家电','1','1','1','1','1','1');
+
+INSERT INTO pms_product_category_with_children_item (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('25','description','icon','国产','0','美妆','1','1','1','1','1','1');
 
 TRUNCATE TABLE pms_product_category;
 INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
-VALUES ('20','description','icon','国产','1','手机','1','20','1','1','1','1');
+VALUES ('10','description','icon','国产','1','手机','1','20','1','1','1','1');
+
 INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
-VALUES ('21','description','icon','国产','1','夹克','1','21','1','1','1','1');
+VALUES ('11','description','icon','国产','1','台式电脑','1','20','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('12','description','icon','国产','1','笔记本电脑','1','20','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('13','description','icon','国产','1','平板电脑','1','20','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('14','description','icon','国产','1','数码相机','1','20','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('15','description','icon','国产','1','手机配件','1','20','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('20','description','icon','国产','1','夹克衫','1','21','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('21','description','icon','国产','1','Polo衫','1','21','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('22','description','icon','国产','1','短袖T恤','1','21','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('23','description','icon','国产','1','长袖T恤','1','21','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('24','description','icon','国产','1','运动短裤','1','21','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('25','description','icon','国产','1','运动长裤','1','21','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('30','description','icon','国产','1','睡衣','1','22','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('31','description','icon','国产','1','毛毯','1','22','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('32','description','icon','国产','1','夏凉被','1','22','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('33','description','icon','国产','1','羽绒被','1','22','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('34','description','icon','国产','1','棉被','1','22','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('35','description','icon','国产','1','窗帘','1','22','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('40','description','icon','国产','1','沙发','1','23','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('41','description','icon','国产','1','落地桌','1','23','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('42','description','icon','国产','1','折叠桌','1','23','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('43','description','icon','国产','1','电竞椅','1','23','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('44','description','icon','国产','1','折叠椅','1','23','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('45','description','icon','国产','1','手办展柜','1','23','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('50','description','icon','国产','1','电视','1','24','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('51','description','icon','国产','1','冰箱','1','24','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('52','description','icon','国产','1','空调','1','24','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('53','description','icon','国产','1','电饭煲','1','24','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('54','description','icon','国产','1','压力锅','1','24','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('55','description','icon','国产','1','空气炸锅','1','24','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('60','description','icon','国产','1','乳液','1','25','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('61','description','icon','国产','1','口红','1','25','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('62','description','icon','国产','1','面霜','1','25','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('63','description','icon','国产','1','粉底液','1','25','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('64','description','icon','国产','1','卸妆水','1','25','1','1','1','1');
+
+INSERT INTO pms_product_category (id,description,icon,keywords,level,name,nav_status,parent_id,product_count,product_unit,show_status,sort) 
+VALUES ('65','description','icon','国产','1','眼影','1','25','1','1','1','1');
 
 TRUNCATE TABLE pms_brand;
 INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mall.model.pms.PmsProductCategory;
-import com.mall.model.pms.PmsProductCategoryWithChildrenItem;
 import com.mall.model.response.CommonResult;
 import com.mall.repository.pms.PmsProductCategoryRepository;
 import com.mall.repository.pms.PmsProductCategoryWithChildrenRepository;
@@ -35,11 +34,11 @@ public class PmsProductCategoryController {
 	public CommonResult getProductCategoryWithChildren() {
 		ObjectMapper pmsProductCategoryJson = new ObjectMapper();
 
-		String pmsProductCategoryString;
+		String pmsProductCategory;
 		try {
-			pmsProductCategoryString = pmsProductCategoryJson
+			pmsProductCategory = pmsProductCategoryJson
 					.writeValueAsString(pmsProductCategoryWithChildrenRepository.findAll());
-			log.info("pmsProductCategoryWithChildrenRepository.findAll() 的值: {} ", pmsProductCategoryString);
+			log.info("pmsProductCategoryWithChildrenRepository.findAll() 的值: {} ", pmsProductCategory);
 		} catch (JsonProcessingException e) {
 			log.info("exception type JsonProcessingException");
 			e.printStackTrace();
@@ -50,12 +49,12 @@ public class PmsProductCategoryController {
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public CommonResult createProductCategory(@RequestBody PmsProductCategoryWithChildrenItem paramWithChildren,
-			PmsProductCategory param) {
-		BeanUtils.copyProperties(paramWithChildren, pmsProductCategoryWithChildrenRepository);
-		pmsProductCategoryWithChildrenRepository.save(paramWithChildren);
+	public CommonResult createProductCategory(@RequestBody PmsProductCategory param) {
+
 		BeanUtils.copyProperties(param, pmsProductCategoryRepository);
+		pmsProductCategoryRepository.save(param);
 		log.info("ProductCategory " + param.getName() + "添加成功");
+
 		return new CommonResult(200, null, "通信成功");
 	}
 

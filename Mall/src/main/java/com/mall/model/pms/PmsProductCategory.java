@@ -43,11 +43,11 @@ public class PmsProductCategory {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "parent_id")
 	@JsonBackReference
-	private PmsProductCategoryWithChildrenItem pmsProductCategoryWithChildrenItem;
+	private PmsProductCategoryWithChildrenItem parent;
 
 	private Integer productCount;
 
-	private Integer productUnit;
+	private String productUnit;
 
 	private Integer showStatus;
 
@@ -57,9 +57,14 @@ public class PmsProductCategory {
 	public String toString() {
 		return "PmsProductCategory [id=" + id + ", description=" + description + ", icon=" + icon + ", keywords="
 				+ keywords + ", level=" + level + ", name=" + name + ", navStatus=" + navStatus
-				+ ", pmsProductCategoryWithChildrenItem=" + pmsProductCategoryWithChildrenItem.getId()
-				+ ", productCount=" + productCount + ", productUnit=" + productUnit + ", showStatus=" + showStatus
-				+ ", sort=" + sort + "]";
+				+ ", pmsProductCategoryWithChildrenItem=" + parent.getId() + ", productCount=" + productCount
+				+ ", productUnit=" + productUnit + ", showStatus=" + showStatus + ", sort=" + sort + "]";
 	}
+
+//	public Long getParentId() {
+//
+//		return parent.getId();
+//
+//	}
 
 }
