@@ -46,7 +46,7 @@ public class PmsProductITest {
 				.feightTemplateId(2l)//
 				.giftGrowth(1)//
 				.giftPoint(1)//
-				.keyWords("keyWords")//
+				.keywords("keyWords")//
 				.lowStock(1)//
 				.name("name")//
 				.newStatus(1)//

@@ -70,7 +70,7 @@ public class PmsProductParam {
 	private Integer giftPoint;
 
 	// 关键字
-	private String keyWords;
+	private String keywords;
 
 	// 库存预警值
 	private Integer lowStock;

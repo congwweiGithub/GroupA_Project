@@ -17,5 +17,7 @@ public class CommonResultPmsBrand {
 	private Integer pageSize;
 	private Long total;
 	private Integer totalPage;
+	
+	
 
 }

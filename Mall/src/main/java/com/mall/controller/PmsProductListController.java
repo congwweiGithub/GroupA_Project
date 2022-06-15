@@ -29,7 +29,7 @@ public class PmsProductListController {
 
 		PmsProduct pmsProduct = PmsProduct.builder()//
 				.brandId(request.getParameter("brandId") == null ? null : Long.valueOf(request.getParameter("brandId")))//
-				.keyWords(request.getParameter("keyword"))//
+				.keywords(request.getParameter("keyword"))//
 				.productCategoryId(request.getParameter("productCategoryId") == null ? null
 						: Long.valueOf(request.getParameter("productCategoryId")))//
 				.publishStatus(request.getParameter("publishStatus") == null ? null
