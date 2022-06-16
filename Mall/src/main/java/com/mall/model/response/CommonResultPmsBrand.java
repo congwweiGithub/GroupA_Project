@@ -6,10 +6,12 @@ import com.mall.model.pms.PmsBrand;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@SuperBuilder
 public class CommonResultPmsBrand {
 
 	private List<PmsBrand> list;

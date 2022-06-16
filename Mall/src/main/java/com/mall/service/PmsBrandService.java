@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mall.model.pms.PmsBrand;
+import com.mall.model.response.CommonResultPmsBrand;
 import com.mall.repository.pms.PmsBrandRepository;
 
 @Service
@@ -18,8 +19,19 @@ public class PmsBrandService {
 		return pmsBrandRepository.findAll();
 	}
 
-	public List<PmsBrand> findRequiredBrands(Integer pageNum, Integer pageSize) {
+	public CommonResultPmsBrand findRequiredBrands(Integer pageNum, Integer pageSize) {
 
-		return pmsBrandRepository.findRequiredBrands((pageNum - 1) * pageSize, pageSize);
+		Long total = pmsBrandRepository.count();
+		Integer totalPage = (int) (total / pageSize + 1);
+
+		CommonResultPmsBrand commonResultPmsBrand = CommonResultPmsBrand.builder()//
+				.list(pmsBrandRepository.findRequiredBrands((pageNum - 1) * pageSize, pageSize))//
+				.pageNum(pageNum)//
+				.pageSize(pageSize)//
+				.total(total)//
+				.totalPage(totalPage)//
+				.build();
+
+		return commonResultPmsBrand;
 	}
 }
