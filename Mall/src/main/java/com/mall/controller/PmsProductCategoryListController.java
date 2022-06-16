@@ -2,6 +2,9 @@ package com.mall.controller;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +31,9 @@ public class PmsProductCategoryListController {
 
 	@Autowired
 	private PmsProductCategoryWithChildrenRepository pmsProductCategoryWithChildrenRepository;
+
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	@ResponseBody
 	@GetMapping("/{id}")
@@ -58,15 +64,27 @@ public class PmsProductCategoryListController {
 			Integer totalPage = (Integer) (result > 0 ? // 总页数 如果取模大于0说明总个数和每页显示个数整除后需要加一页
 					total / pageSize + 1 : total / pageSize);
 
+			Integer maxCount = pageSize * pageNum; // 每页中显示的最大序号
+			Integer minCount = pageSize * (pageNum - 1);// 每页中的最小序号
+			if (maxCount > pmsProductCategoryWithChildrenItem.size()) {
+				maxCount = pmsProductCategoryWithChildrenItem.size();
+			}
+			pmsProductCategoryWithChildrenItem = pmsProductCategoryWithChildrenItem.subList(minCount, maxCount);
+
 			CommonPage<PmsProductCategoryWithChildrenItem> commonPageCategoryWithChildrenItem = new CommonPage<PmsProductCategoryWithChildrenItem>(
 					pmsProductCategoryWithChildrenItem, pageNum, pageSize, (long) total, totalPage);
 			return new CommonResult(200, commonPageCategoryWithChildrenItem, "通信成功");
 		}
 		List<PmsProductCategory> pmsProductCategory = pmsProductCategoryRepository.findByParentId(parentId);
-		Integer total = pmsProductCategory.size();// 总个数
+		Integer total = pmsProductCategory.size();
 		Integer result = total % pageSize;
-		Integer totalPage = (Integer) (result > 0 ? // 总页数 如果取模大于0说明总个数和每页显示个数整除后需要加一页
-				total / pageSize + 1 : total / pageSize);
+		Integer totalPage = (Integer) (result > 0 ? total / pageSize + 1 : total / pageSize);
+		Integer maxCount = pageSize * pageNum;
+		Integer minCount = pageSize * (pageNum - 1);
+		if (maxCount > pmsProductCategory.size()) {
+			maxCount = pmsProductCategory.size();
+		}
+		pmsProductCategory = pmsProductCategory.subList(minCount, maxCount);
 
 		CommonPage<PmsProductCategory> commonPageCategory = new CommonPage<PmsProductCategory>(pmsProductCategory,
 				pageNum, pageSize, (long) total, totalPage);
