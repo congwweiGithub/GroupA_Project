@@ -167,7 +167,78 @@ VALUES ('65','description','icon','国产','1','眼影','1','25','1','1','1','1'
 TRUNCATE TABLE pms_brand;
 INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
 VALUES ('10','string','string','0','a','logoimg','华为','0','0','0','0');
+
 INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
 VALUES ('11','string','string','0','a','logoimg','OPPO','0','0','0','0');
+
 INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
 VALUES ('12','string','string','0','a','logoimg','小米','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('13','string','string','0','a','logoimg','中兴','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('14','string','string','0','a','logoimg','魅族','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('15','string','string','0','a','logoimg','黑莓','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('16','string','string','0','a','logoimg','苹果','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('17','string','string','0','a','logoimg','Vivo','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('18','string','string','0','a','logoimg','海尔','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('19','string','string','0','a','logoimg','美的','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('20','string','string','0','a','logoimg','荣事达','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('21','string','string','0','a','logoimg','康佳','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('22','string','string','0','a','logoimg','长虹','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('23','string','string','0','a','logoimg','创维','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('24','string','string','0','a','logoimg','海信','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('25','string','string','0','a','logoimg','TCL','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('26','string','string','0','a','logoimg','容声','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('27','string','string','0','a','logoimg','大力','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('28','string','string','0','a','logoimg','格力','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('29','string','string','0','a','logoimg','万事达','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('30','string','string','0','a','logoimg','小天鹅','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('31','string','string','0','a','logoimg','纽曼','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('32','string','string','0','a','logoimg','澳柯玛','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('33','string','string','0','a','logoimg','史密斯','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('34','string','string','0','a','logoimg','松下','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('35','string','string','0','a','logoimg','飞利浦','0','0','0','0');
