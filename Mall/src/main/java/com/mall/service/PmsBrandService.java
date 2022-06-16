@@ -19,6 +19,7 @@ public class PmsBrandService {
 	}
 
 	public List<PmsBrand> findRequiredBrands(Integer pageNum, Integer pageSize) {
-		return pmsBrandRepository.findRequiredBrands(pageNum, pageSize);
+
+		return pmsBrandRepository.findRequiredBrands((pageNum - 1) * pageSize, pageSize);
 	}
 }

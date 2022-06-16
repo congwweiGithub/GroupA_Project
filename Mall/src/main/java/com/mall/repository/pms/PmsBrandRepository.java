@@ -13,7 +13,7 @@ public interface PmsBrandRepository extends JpaRepository<PmsBrand, Long> {
 
 	List<PmsBrand> findAll();
 
-	@Query(value = "SELECT * FROM pms_brand ORDER BY pms_brand.id LIMIT ?2 ;", nativeQuery = true)
-	List<PmsBrand> findRequiredBrands(Integer pageNum, Integer pageSize);
+	@Query(value = "SELECT * FROM pms_brand ORDER BY pms_brand.id LIMIT ?2 OFFSET ?1 ;", nativeQuery = true)
+	List<PmsBrand> findRequiredBrands(Integer startFrom, Integer pageSize);
 
 }
