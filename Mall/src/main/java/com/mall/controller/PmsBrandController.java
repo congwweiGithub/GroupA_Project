@@ -30,8 +30,6 @@ public class PmsBrandController {
 	PmsBrandRepository pmsBrandParam;
 	@Autowired
 	PmsBrandService pmsBrandService;
-//	@Autowired
-//	CommonResultPmsBrand commonResultPmsBrand;
 
 	// 创建品牌
 	@ResponseBody
@@ -40,6 +38,7 @@ public class PmsBrandController {
 
 		BeanUtils.copyProperties(param, pmsBrandRepository);
 		pmsBrandRepository.save(param);
+		
 		return new CommonResult(200, null, "Succeed");
 
 	}
@@ -53,8 +52,8 @@ public class PmsBrandController {
 
 		log.info("get brand list keyword: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
 		
-		List<PmsBrand> pmsBrand = pmsBrandService.findAllBrands();
-		Integer total = pmsBrand.size();//总个数
+		List<PmsBrand> pmsBrand =  pmsBrandService.findRequiredBrands(pageNum, pageSize);
+		Integer total = (int) pmsBrandRepository.count();//总个数
 		Integer result = total % pageSize;
 		//总页数
 		Integer totalPage = (Integer) (result > 0 ? //如果取模大于0说明总个数和每页显示个数整除后需要加一页
@@ -66,9 +65,9 @@ public class PmsBrandController {
 //			pmsBrand = pmsBrandService.findByKeyword(keyword);
 //		}
 		
-		
-
 		CommonResultPmsBrand commonResultPmsBrand = new CommonResultPmsBrand(pmsBrand, pageNum, pageSize, (long)total, totalPage);
+		log.info("calculated page info: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);		
+		
 		return new CommonResult(200, commonResultPmsBrand, "ok");
 
 	}
