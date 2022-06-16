@@ -14,8 +14,11 @@ public class PmsBrandService {
 	@Autowired
 	PmsBrandRepository pmsBrandRepository;
 
-	public List<PmsBrand> FindAllBrands() {
+	public List<PmsBrand> findAllBrands() {
 		return pmsBrandRepository.findAll();
 	}
 
+	public List<PmsBrand> findRequiredBrands(Integer pageNum, Integer pageSize) {
+		return pmsBrandRepository.findRequiredBrands(pageNum, pageSize);
+	}
 }
