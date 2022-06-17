@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mall.model.param.PmsProductCategoryParam;
 import com.mall.model.pms.PmsProductCategory;
+import com.mall.model.pms.PmsProductCategoryWithChildrenItem;
 import com.mall.model.response.CommonResult;
 import com.mall.repository.pms.PmsProductCategoryRepository;
 import com.mall.repository.pms.PmsProductCategoryWithChildrenRepository;
@@ -49,11 +51,25 @@ public class PmsProductCategoryController {
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public CommonResult createProductCategory(@RequestBody PmsProductCategory param) {
+	public CommonResult createProductCategory(@RequestBody PmsProductCategoryParam param) {
 
-		BeanUtils.copyProperties(param, pmsProductCategoryRepository);
+		log.info("商品分类信息: {}", param);
 
-		pmsProductCategoryRepository.savePmsProductCategory(null);
+		PmsProductCategory category = new PmsProductCategory();
+
+		BeanUtils.copyProperties(param, category);
+
+		Long parentId = param.getParentId();
+		if (parentId != 0) {
+			PmsProductCategoryWithChildrenItem parent = pmsProductCategoryWithChildrenRepository
+					.findById(param.getParentId()).get();
+			category.setParent(parent);
+			category.setLevel(1);
+		} else {
+			category.setLevel(0);
+		}
+
+		pmsProductCategoryRepository.save(category);
 
 		log.info("ProductCategory " + param.getName() + "添加成功");
 
