@@ -21,7 +21,6 @@ public class PmsBrandService {
 
 	public CommonResultPmsBrand findRequiredBrands(Integer pageNum, Integer pageSize) {
 
-<<<<<<< Upstream, based on origin/GroupA_CongWei
 		long pmsBrandCount = pmsBrandRepository.count();
 		Long totalCount = pmsBrandCount;// 总个数
 		Integer total = totalCount.intValue();
@@ -40,19 +39,5 @@ public class PmsBrandService {
 
 		return commonResultPmsBrand;
 
-=======
-		Long total = pmsBrandRepository.count();
-		Integer totalPage = (int) (total / pageSize + 1);
-
-		CommonResultPmsBrand commonResultPmsBrand = CommonResultPmsBrand.builder()//
-				.list(pmsBrandRepository.findRequiredBrands((pageNum - 1) * pageSize, pageSize))//
-				.pageNum(pageNum)//
-				.pageSize(pageSize)//
-				.total(total)//
-				.totalPage(totalPage)//
-				.build();
-
-		return commonResultPmsBrand;
->>>>>>> b08c1d3 返回总页数和总条数
 	}
 }
