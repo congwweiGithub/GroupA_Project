@@ -52,7 +52,9 @@ public class PmsProductCategoryController {
 	public CommonResult createProductCategory(@RequestBody PmsProductCategory param) {
 
 		BeanUtils.copyProperties(param, pmsProductCategoryRepository);
-		pmsProductCategoryRepository.save(param);
+
+		pmsProductCategoryRepository.savePmsProductCategory(null);
+
 		log.info("ProductCategory " + param.getName() + "添加成功");
 
 		return new CommonResult(200, null, "通信成功");

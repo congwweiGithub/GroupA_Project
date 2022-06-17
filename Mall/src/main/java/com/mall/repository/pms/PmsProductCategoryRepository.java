@@ -16,4 +16,6 @@ public interface PmsProductCategoryRepository extends JpaRepository<PmsProductCa
 	@Query(value = "SELECT * FROM pms_product_category WHERE parent_id = :parent_id", nativeQuery = true)
 	List<PmsProductCategory> findByParentId(@Param(value = "parent_id") Long parentId);
 
+	@Query(value = "UPDATE pms_product_category SET parent_id = 25 WHERE ID = 1", nativeQuery = true)
+	PmsProductCategory savePmsProductCategory(@Param(value = "parent_id") Long parentId);
 }
