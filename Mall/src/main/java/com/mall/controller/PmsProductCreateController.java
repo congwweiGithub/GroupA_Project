@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mall.model.param.PmsProductParam;
 import com.mall.model.pms.PmsProduct;
 import com.mall.model.response.CommonResult;
 import com.mall.repository.pms.PmsProductRepository;
@@ -24,15 +25,16 @@ public class PmsProductCreateController {
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public CommonResult createProduct(@RequestBody PmsProduct param) {
+	public CommonResult createProduct(@RequestBody PmsProductParam param) {
 
 		if (!param.getName().isEmpty() && !param.getProductCategoryName().isEmpty()//
 				&& !param.getSubTitle().isEmpty()//
 				&& !param.getBrandName().isEmpty()) {
 
-			BeanUtils.copyProperties(param, pmsProductRepository);
+			PmsProduct pmsProduct = new PmsProduct();
+			BeanUtils.copyProperties(param, pmsProduct);
 
-			pmsProductRepository.save(param);
+			pmsProductRepository.save(pmsProduct);
 			logger.info("Product " + param.getName() + "添加成功");
 		}
 		return new CommonResult(200, null, "通信成功");
