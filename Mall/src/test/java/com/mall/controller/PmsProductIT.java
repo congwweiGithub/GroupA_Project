@@ -1,8 +1,8 @@
 package com.mall.controller;
 
-//import static org.junit.Assert.assertEquals;
-//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mall.model.pms.PmsProduct;
+import com.mall.repository.pms.PmsProductRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -27,13 +28,15 @@ public class PmsProductIT {
 	@Autowired
 	private MockMvc mockMvc;
 
+	@Autowired
+	private PmsProductRepository pmsProductRepository;
+
 	@Test //
 	public void testCreateProduct_Succcess() throws Exception {
 
-		ObjectMapper requsetBody = new ObjectMapper();
+		ObjectMapper mapper = new ObjectMapper();
 		PmsProduct pmsProduct = PmsProduct.builder()//
-
-				.albumPics("albumPics")//
+				.id(1l).albumPics("albumPics")//
 				.icon("icon")//
 				.brandId(2l)//
 				.brandName("brandName")//
@@ -83,14 +86,21 @@ public class PmsProductIT {
 				.pmsProductLadder(new ArrayList<>())//
 				.pmsSkuStock(new ArrayList<>())//
 				.build();
-
+		String json = mapper.writeValueAsString(pmsProduct);
 		RequestBuilder request = MockMvcRequestBuilders//
 				.post("http://localhost:8080/product/create")//
-				.content(requsetBody.writeValueAsString(pmsProduct))//
-				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
+				.accept(MediaType.APPLICATION_JSON)//
+				.contentType(MediaType.APPLICATION_JSON)//
+				.content(json.getBytes())//
+				.accept(MediaType.APPLICATION_JSON);
 
-		mockMvc.perform(request).andExpect(status().isOk()); // TODO 此处需更改(status().isOk()).
+		mockMvc.perform(request)//
+				.andExpect(jsonPath("$.code", is(200)))//
+				.andExpect(jsonPath("$.message", is("通信成功"))); // TODO
 
+		PmsProduct product = pmsProductRepository.findById(1l).get();
+
+		assertEquals(pmsProduct, product);
 	}
 
 }
