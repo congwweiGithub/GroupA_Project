@@ -14,6 +14,7 @@ import com.mall.model.param.PmsProductParam;
 import com.mall.model.pms.PmsProduct;
 import com.mall.model.response.CommonResult;
 import com.mall.repository.pms.PmsProductRepository;
+import com.mall.service.PmsProductService;
 
 @RequestMapping("/product")
 @Controller
@@ -21,23 +22,28 @@ public class PmsProductCreateController {
 
 	@Autowired
 	private PmsProductRepository pmsProductRepository;
+
+	@Autowired
+	private PmsProductService pmsProductService;
+
 	private static final Logger logger = LoggerFactory.getLogger(PmsProductCreateController.class);
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public CommonResult createProduct(@RequestBody PmsProductParam param) {
 
-		if (!param.getName().isEmpty() && !param.getProductCategoryName().isEmpty()//
-				&& !param.getSubTitle().isEmpty()//
-				&& !param.getBrandName().isEmpty()) {
+		if (pmsProductService.productExsited(param.getName()) == 0) {
 
 			PmsProduct pmsProduct = new PmsProduct();
 			BeanUtils.copyProperties(param, pmsProduct);
 
 			pmsProductRepository.save(pmsProduct);
-			logger.info("Product " + param.getName() + "添加成功");
-		}
-		return new CommonResult(200, null, "通信成功");
-	}
+			logger.info("Product {} 添加成功.", param.getName());
 
+			return new CommonResult(200, null, "通信成功");
+		} else {
+			logger.warn("Product {} 添加失败.", param.getName());
+			return new CommonResult(201, null, "通信失败");
+		}
+	}
 }
