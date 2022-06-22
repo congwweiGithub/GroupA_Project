@@ -4,9 +4,11 @@ import java.util.List;
 
 import com.mall.model.pms.PmsBrand;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
