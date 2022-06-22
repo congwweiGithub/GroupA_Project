@@ -43,13 +43,26 @@ public class PmsBrandController {
 	// get商品品牌下拉栏
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
+//	public CommonResult brandList(@RequestParam(name = "keyword", required = false) String keyword, //
+//			@RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum, //
+//			@RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize) {
+//
+//		log.info("get brand list keyword: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
+//
+//		CommonResultPmsBrand commonResultPmsBrand = pmsBrandService.findRequiredBrands(pageNum, pageSize);
+//
+//		log.info("calculated page info: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
+//
+//		return new CommonResult(200, commonResultPmsBrand, "ok");
+//	}
+
 	public CommonResult brandList(@RequestParam(name = "keyword", required = false) String keyword, //
 			@RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum, //
 			@RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize) {
 
 		log.info("get brand list keyword: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
 
-		CommonResultPmsBrand commonResultPmsBrand = pmsBrandService.findRequiredBrands(pageNum, pageSize);
+		CommonResultPmsBrand commonResultPmsBrand = pmsBrandService.findRequiredBrands(pageNum, pageSize, keyword);
 
 		log.info("calculated page info: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
 

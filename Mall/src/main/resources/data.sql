@@ -241,4 +241,13 @@ INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,n
 VALUES ('34','string','string','0','a','logoimg','松下','0','0','0','0');
 
 INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
-VALUES ('35','string','string','0','a','logoimg','飞利浦','0','0','0','0');
+VALUES ('35','string','string','0','a','logoimg','海飞丝','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('36','string','string','0','a','logoimg','海蓝之谜','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('37','string','string','0','a','logoimg','海伦凯勒','0','0','0','0');
+
+INSERT INTO pms_brand (id,big_pic,brand_story,factory_status,first_letter,logo,name,product_comment_count,product_count,show_status,sort)
+VALUES ('38','string','string','0','a','logoimg','海澜之家','0','0','0','0');

@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -110,6 +111,13 @@ public class PmsProductIT {
 
 	@Test //
 	public void testCreateProduct_Failed() throws Exception {
+
+		PmsProductParam saveParam = new PmsProductParam();
+		PmsProduct pmsProduct = new PmsProduct();
+		BeanUtils.copyProperties(saveParam, pmsProduct);
+		pmsProduct.setName("小米手机");
+		pmsProductRepository.save(pmsProduct);
+
 		ObjectMapper mapper = new ObjectMapper();
 		PmsProductParam param = PmsProductParam.builder()//
 				.id(1l).albumPics("albumPics")//
@@ -172,7 +180,7 @@ public class PmsProductIT {
 
 		mockMvc.perform(request)//
 				.andExpect(jsonPath("$.code", is(201)))//
-				.andExpect(jsonPath("$.message", is("通信失败"))); // TODO
+				.andExpect(jsonPath("$.message", is("通信失败")));
 
 	}
 

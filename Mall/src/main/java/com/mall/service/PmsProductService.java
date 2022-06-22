@@ -19,31 +19,30 @@ public class PmsProductService {
 	 * 
 	 * @param param
 	 * @param name
-	 * @return: true:商品不存在，保存商品，false：商品存在，不保存商品
+	 * @return: true:商品存在，false：商品不存在 //****需更改
 	 */
-	public boolean productIsNotExsited(String name) {
+	public boolean productIsExsiting(String name) {// ****责任单一原则
+
 		// 方法1：
 //		for (PmsProduct product : pmsProductRepository.findAll()) {
 //			if (product.getName().equals(name)) {
-//				return false;
+//				return true;
 //			}
 //		} 
-//		return true;
+//		return false;
 
 		// 方法2：
 		if (pmsProductRepository.findByName(name).isEmpty()) {
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	public void createProuduct(PmsProductParam param) {
 
-		if (productIsNotExsited(param.getName())) {
-			PmsProduct pmsProduct = new PmsProduct();
-			BeanUtils.copyProperties(param, pmsProduct);
-			pmsProductRepository.save(pmsProduct);
-		}
+		PmsProduct pmsProduct = new PmsProduct();
+		BeanUtils.copyProperties(param, pmsProduct);
+		pmsProductRepository.save(pmsProduct);
 
 	}
 }

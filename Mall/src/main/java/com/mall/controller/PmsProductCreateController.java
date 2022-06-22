@@ -26,7 +26,7 @@ public class PmsProductCreateController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public CommonResult createProduct(@RequestBody PmsProductParam param) {
 
-		if (pmsProductService.productIsNotExsited(param.getName())) {
+		if (!pmsProductService.productIsExsiting(param.getName())) {
 			pmsProductService.createProuduct(param);
 			logger.info("Product {} 添加成功.", param.getName());
 			return new CommonResult(200, null, "通信成功");
