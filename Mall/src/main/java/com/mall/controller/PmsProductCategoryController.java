@@ -58,22 +58,29 @@ public class PmsProductCategoryController {
 		PmsProductCategory category = new PmsProductCategory();
 
 		BeanUtils.copyProperties(param, category);
-
 		Long parentId = param.getParentId();
-		if (parentId != 0) {
-			PmsProductCategoryWithChildrenItem parent = pmsProductCategoryWithChildrenRepository
-					.findById(param.getParentId()).get();
-			category.setParent(parent);
-			category.setLevel(1);
+
+		if (pmsProductCategoryRepository.findByName(category.getName()).isEmpty()) {
+
+			if (parentId != 0) {
+				PmsProductCategoryWithChildrenItem parent = pmsProductCategoryWithChildrenRepository
+						.findById(param.getParentId()).get();
+				category.setParent(parent);
+				category.setLevel(1);
+			} else {
+				category.setLevel(0);
+			}
+
+			pmsProductCategoryRepository.save(category);
+
+			log.info("ProductCategory " + param.getName() + "添加成功");
+
+			return new CommonResult(200, null, "通信成功");
 		} else {
-			category.setLevel(0);
+			log.info("ProductCategory " + param.getName() + "添加失败");
+
+			return new CommonResult(201, null, "通信失败");
 		}
 
-		pmsProductCategoryRepository.save(category);
-
-		log.info("ProductCategory " + param.getName() + "添加成功");
-
-		return new CommonResult(200, null, "通信成功");
 	}
-
 }

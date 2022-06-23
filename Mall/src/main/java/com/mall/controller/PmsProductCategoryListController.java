@@ -36,7 +36,7 @@ public class PmsProductCategoryListController {
 	private EntityManager entityManager;
 
 	@ResponseBody
-	@GetMapping("/{id}")
+	@GetMapping("/{id}") // 这个方法现在实现的功能中暂时没用到。
 	public CommonResult getProductCategoryListById(@PathVariable Long id) {
 
 		log.info("get productCategory list Id:{}", id);

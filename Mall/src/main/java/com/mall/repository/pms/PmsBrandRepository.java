@@ -20,11 +20,4 @@ public interface PmsBrandRepository extends JpaRepository<PmsBrand, Long> {
 	// 方法2：
 	Page<PmsBrand> findByNameLike(Pageable pageable, String keyWord);
 
-	// TODO 方法3：
-//	Page<PmsBrand> findTop5ByNameLike(Pageable pageable, String keyWord);//只返回5条满足条件的结果
-
-//	Page<PmsBrand> findTop10ByName(String keyword, Pageable pageable);//只返回10条满足条件的结果，及时pageSize是5，仍会在页面返回全部结果（>5）
-
-//	Page<PmsBrand> findTop15ByName(String keyword, Pageable pageable);
-
 }

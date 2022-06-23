@@ -55,7 +55,7 @@ public class PmsProductIT {
 				.giftPoint(1)//
 				.keyWords("keyWords")//
 				.lowStock(1)//
-				.name("小米手机")//
+				.name("魅族手机")//
 				.newStatus(1)//
 				.note("note")//
 				.originalPrice(1.00)//

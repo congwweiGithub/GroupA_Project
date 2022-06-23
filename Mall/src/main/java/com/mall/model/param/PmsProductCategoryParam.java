@@ -1,13 +1,17 @@
 package com.mall.model.param;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 public class PmsProductCategoryParam {
+
+	private Long id;
 
 	private String description;
 
