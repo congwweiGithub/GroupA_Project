@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mall.model.pms.PmsBrand;
-import com.mall.model.response.CommonResultPmsBrand;
+import com.mall.model.response.CommonPage;
 import com.mall.repository.pms.PmsBrandRepository;
 
 @Service
@@ -44,9 +44,9 @@ public class PmsBrandService {
 //
 //	}
 
-	public CommonResultPmsBrand findRequiredBrands(Integer pageNum, Integer pageSize, String keyword) {
+	public CommonPage<PmsBrand> findRequiredBrands(Integer pageNum, Integer pageSize, String keyword) {
 
-		CommonResultPmsBrand commonResultPmsBrand;
+		CommonPage<PmsBrand> commonPage;
 		Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
 		List<PmsBrand> brandsList;
 		Page<PmsBrand> brands;
@@ -57,15 +57,10 @@ public class PmsBrandService {
 			brands = pmsBrandRepository.findByNameLike(pageable, ("%" + keyword + "%"));
 		}
 		brandsList = brands.getContent();
-		commonResultPmsBrand = CommonResultPmsBrand.builder()//
-				.list(brandsList)//
-				.pageNum(pageNum)//
-				.pageSize(pageSize)//
-				.total(brands.getTotalElements())//
-				.totalPage(brands.getTotalPages())//
-				.build();
 
-		return commonResultPmsBrand;
+		commonPage = new CommonPage<PmsBrand>(brandsList, pageNum, pageSize, brands.getTotalElements(),
+				brands.getTotalPages());
+		return commonPage;
 	}
 
 }
