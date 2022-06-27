@@ -11,8 +11,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PmsProductCategoryParam {
 
-	private Long id;
-
 	private String description;
 
 	private String icon;

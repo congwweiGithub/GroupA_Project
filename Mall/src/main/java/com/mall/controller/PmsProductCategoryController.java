@@ -34,13 +34,12 @@ public class PmsProductCategoryController {
 	@ResponseBody
 	@GetMapping("/list/withChildren")
 	public CommonResult getProductCategoryWithChildren() {
-		ObjectMapper pmsProductCategoryJson = new ObjectMapper();
+		ObjectMapper mapper = new ObjectMapper();
 
 		String pmsProductCategory;
 		try {
-			pmsProductCategory = pmsProductCategoryJson
-					.writeValueAsString(pmsProductCategoryWithChildrenRepository.findAll());
-			log.info("pmsProductCategoryWithChildrenRepository.findAll() 的值: {} ", pmsProductCategory);
+			pmsProductCategory = mapper.writeValueAsString(pmsProductCategoryWithChildrenRepository.findAll());
+			log.info("查询结果: {} ", pmsProductCategory);
 		} catch (JsonProcessingException e) {
 			log.info("exception type JsonProcessingException");
 			e.printStackTrace();

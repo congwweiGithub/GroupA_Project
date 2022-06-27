@@ -102,11 +102,20 @@ public class PmsProductIT {
 				.andExpect(jsonPath("$.code", is(200)))//
 				.andExpect(jsonPath("$.message", is("通信成功"))); // TODO
 
-		List<PmsProduct> product = pmsProductRepository.findByName("小米手机");
+		// 检验数据是否存入数据库
+		List<PmsProduct> expectedProductList = new ArrayList<>();
+		PmsProduct expectedProduct = new PmsProduct();
+
+		expectedProductList.add(expectedProduct);
+		BeanUtils.copyProperties(param, expectedProduct);
+		ObjectMapper mapper1 = new ObjectMapper();
+		String expected = mapper1.writeValueAsString(expectedProductList);
+
+		List<PmsProduct> product = pmsProductRepository.findByName("魅族手机");
 
 		ObjectMapper mapper2 = new ObjectMapper();
-		String json2 = mapper2.writeValueAsString(product);
-		assertEquals("[" + json1 + "]", json2);
+		String actual = mapper2.writeValueAsString(product);
+		assertEquals(expected, actual);
 	}
 
 	@Test //
