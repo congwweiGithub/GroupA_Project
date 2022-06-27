@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mall.model.param.PmsProductCategoryParam;
 import com.mall.model.pms.PmsProductCategory;
 import com.mall.model.pms.PmsProductCategoryWithChildrenItem;
@@ -34,16 +32,6 @@ public class PmsProductCategoryController {
 	@ResponseBody
 	@GetMapping("/list/withChildren")
 	public CommonResult getProductCategoryWithChildren() {
-		ObjectMapper mapper = new ObjectMapper();
-
-		String pmsProductCategory;
-		try {
-			pmsProductCategory = mapper.writeValueAsString(pmsProductCategoryWithChildrenRepository.findAll());
-			log.info("查询结果: {} ", pmsProductCategory);
-		} catch (JsonProcessingException e) {
-			log.info("exception type JsonProcessingException");
-			e.printStackTrace();
-		}
 
 		return new CommonResult(200, pmsProductCategoryWithChildrenRepository.findAll(), "ok");
 	}

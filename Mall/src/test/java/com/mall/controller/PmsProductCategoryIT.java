@@ -63,7 +63,8 @@ public class PmsProductCategoryIT {
 	}
 
 	@Test
-	public void testCreateProductCategory_Succcess() throws Exception {
+
+	public void testCreateProductCategory_succcess_parentIdIsNot0() throws Exception {
 		ObjectMapper mapper = new ObjectMapper();
 		PmsProductCategoryParam param = PmsProductCategoryParam.builder().description("description")//
 				.description(null)//
@@ -92,7 +93,7 @@ public class PmsProductCategoryIT {
 		// 按期望值新建一个PmsProductCategory对象
 		List<PmsProductCategory> expectedCategoryList = new ArrayList<>();
 		PmsProductCategory expectedCategory = new PmsProductCategory();
-		expectedCategory.setId(1l);
+		expectedCategory.setId(3l); // 此处手动设置id值，与parentIdis0存在顺序关系，感觉有问题。
 		expectedCategory.setLevel(1);
 		expectedCategoryList.add(expectedCategory);
 		BeanUtils.copyProperties(param, expectedCategory);
@@ -102,6 +103,55 @@ public class PmsProductCategoryIT {
 
 		// 从数据库抽取待检测的数据
 		List<PmsProductCategory> actualCategoryList = pmsProductCategoryRepository.findByName("电子书");
+		ObjectMapper mapper2 = new ObjectMapper();
+		String actual = mapper2.writeValueAsString(actualCategoryList);
+		log.info("添加请求信息 :{}", actual);
+
+		// 比较期待值与从db中抽取值是否一致
+		assertEquals(expected, actual);
+
+	}
+
+	@Test
+	public void testCreateProductCategory_succcess_parentIdIs0() throws Exception {
+		ObjectMapper mapper = new ObjectMapper();
+		PmsProductCategoryParam param = PmsProductCategoryParam.builder().description("description")//
+				.description(null)//
+				.icon(null)//
+				.keywords(null)//
+				.name("保健品")//
+				.navStatus(null)//
+				.parentId(0l)//
+				.productUnit(null)//
+				.showStatus(null)//
+				.sort(null)//
+				.build();
+
+		String json = mapper.writeValueAsString(param);
+		RequestBuilder request = MockMvcRequestBuilders//
+				.post("/productCategory/create")//
+				.contentType(MediaType.APPLICATION_JSON)//
+				.content(json.getBytes())//
+				.accept(MediaType.APPLICATION_JSON);
+
+		mockMvc.perform(request).andExpect(jsonPath("$.code", is(200)))//
+				.andExpect(jsonPath("$.message", is("通信成功")));
+		log.info("添加请求信息 :{}", json);
+
+		// 检验请求参数是否成功存入数据库
+		// 按期望值新建一个PmsProductCategory对象
+		List<PmsProductCategory> expectedCategoryList = new ArrayList<>();
+		PmsProductCategory expectedCategory = new PmsProductCategory();
+		expectedCategory.setId(2l); // 此处手动设置id值，与parentIdis1存在顺序关系，感觉有问题。
+		expectedCategory.setLevel(0);
+		expectedCategoryList.add(expectedCategory);
+		BeanUtils.copyProperties(param, expectedCategory);
+		ObjectMapper mapper1 = new ObjectMapper();
+		String expected = mapper1.writeValueAsString(expectedCategoryList);
+		log.info("添加请求信息 :{}", expected);
+
+		// 从数据库抽取待检测的数据
+		List<PmsProductCategory> actualCategoryList = pmsProductCategoryRepository.findByName("保健品");
 		ObjectMapper mapper2 = new ObjectMapper();
 		String actual = mapper2.writeValueAsString(actualCategoryList);
 		log.info("添加请求信息 :{}", actual);

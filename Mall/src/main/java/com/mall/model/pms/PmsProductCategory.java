@@ -61,10 +61,5 @@ public class PmsProductCategory {
 				+ ", productUnit=" + productUnit + ", showStatus=" + showStatus + ", sort=" + sort + "]";
 	}
 
-//	public Long getParentId() {
-//
-//		return parent.getId();
-//
-//	}
 
 }
