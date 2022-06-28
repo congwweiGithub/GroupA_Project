@@ -14,9 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mall.model.param.PmsProductCategoryParam;
@@ -27,9 +29,10 @@ import com.mall.repository.pms.PmsProductCategoryWithChildrenRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest
 @AutoConfigureMockMvc
 @Slf4j
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD) // 每个测试方法运行前会重启一次数据库并初始化数据库（可用于方法和类中）
 public class PmsProductCategoryIT {
 
 	@Autowired
@@ -42,10 +45,11 @@ public class PmsProductCategoryIT {
 	PmsProductCategoryRepository pmsProductCategoryRepository;
 
 	@Test // 通过
-	public void testGetPmsProductCategory() throws Exception {
+	public void testGetProductListCategoryWithChildren_succcess() throws Exception {
 
 		// 常规操作需要先在test方法中手动创建一条数据存入db，然后再在用get的结果与创建数据的对象进行比较；
 		// 由于在data.sql文件中手写了多条商品分类信息，暂用.findAll（）方法从数据库中调取数据与get结果进行比较。
+		// 最好测试下数据库为空的情况
 		ObjectMapper mapper = new ObjectMapper();
 		CommonResult commonResult = CommonResult.builder()//
 				.code(200l)//
@@ -63,6 +67,7 @@ public class PmsProductCategoryIT {
 	}
 
 	@Test
+	@Transactional
 
 	public void testCreateProductCategory_succcess_parentIdIsNot0() throws Exception {
 		ObjectMapper mapper = new ObjectMapper();
@@ -93,7 +98,7 @@ public class PmsProductCategoryIT {
 		// 按期望值新建一个PmsProductCategory对象
 		List<PmsProductCategory> expectedCategoryList = new ArrayList<>();
 		PmsProductCategory expectedCategory = new PmsProductCategory();
-		expectedCategory.setId(3l); // 此处手动设置id值，与parentIdis0存在顺序关系，感觉有问题。
+		expectedCategory.setId(1l); // 此处手动设置id值，与parentIdis0存在顺序关系，感觉有问题。
 		expectedCategory.setLevel(1);
 		expectedCategoryList.add(expectedCategory);
 		BeanUtils.copyProperties(param, expectedCategory);
@@ -108,11 +113,13 @@ public class PmsProductCategoryIT {
 		log.info("添加请求信息 :{}", actual);
 
 		// 比较期待值与从db中抽取值是否一致
-		assertEquals(expected, actual);
+		assertEquals(expected, actual);// assertisnotnull; 然后再比较一些重要的内容，不必比较全部
 
 	}
 
 	@Test
+	@Transactional
+
 	public void testCreateProductCategory_succcess_parentIdIs0() throws Exception {
 		ObjectMapper mapper = new ObjectMapper();
 		PmsProductCategoryParam param = PmsProductCategoryParam.builder().description("description")//
@@ -142,7 +149,7 @@ public class PmsProductCategoryIT {
 		// 按期望值新建一个PmsProductCategory对象
 		List<PmsProductCategory> expectedCategoryList = new ArrayList<>();
 		PmsProductCategory expectedCategory = new PmsProductCategory();
-		expectedCategory.setId(2l); // 此处手动设置id值，与parentIdis1存在顺序关系，感觉有问题。
+		expectedCategory.setId(1l); // 此处手动设置id值，与parentIdis1存在顺序关系，感觉有问题。
 		expectedCategory.setLevel(0);
 		expectedCategoryList.add(expectedCategory);
 		BeanUtils.copyProperties(param, expectedCategory);
@@ -162,7 +169,8 @@ public class PmsProductCategoryIT {
 	}
 
 	@Test
-	public void testCreateProductCategory_Failed() throws Exception {
+//	@Transactional // 运行测试方法后不保留测试时产生的变化，可用于junit，与springboot test一起使用可能存在问题
+	public void testCreateProductCategory_failed() throws Exception {
 
 		PmsProductCategoryParam saveParam = new PmsProductCategoryParam();
 		PmsProductCategory pmsProductCategory = new PmsProductCategory();
@@ -194,4 +202,5 @@ public class PmsProductCategoryIT {
 				.andExpect(jsonPath("$.message", is("通信失败")));
 
 	}
+	// 添加parentId is0 的失败情况；
 }

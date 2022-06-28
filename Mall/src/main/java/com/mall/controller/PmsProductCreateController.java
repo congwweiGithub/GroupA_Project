@@ -29,11 +29,11 @@ public class PmsProductCreateController {
 		if (!pmsProductService.productIsExsiting(param.getName())) {
 			pmsProductService.createProuduct(param);
 			logger.info("Product {} 添加成功.", param.getName());
-			return new CommonResult(200, null, "通信成功");
+			return new CommonResult(200, null, "OK");
 
 		} else {
 			logger.warn("Product {} 添加失败.", param.getName());
-			return new CommonResult(201, null, "通信失败");
+			return new CommonResult(201, null, "Created");
 		}
 
 	}

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -26,6 +27,7 @@ import com.mall.repository.pms.PmsProductRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class PmsProductIT {
 
 	@Autowired
@@ -100,7 +102,7 @@ public class PmsProductIT {
 
 		mockMvc.perform(request)//
 				.andExpect(jsonPath("$.code", is(200)))//
-				.andExpect(jsonPath("$.message", is("通信成功"))); // TODO
+				.andExpect(jsonPath("$.message", is("OK"))); // TODO
 
 		// 检验数据是否存入数据库
 		List<PmsProduct> expectedProductList = new ArrayList<>();
@@ -189,8 +191,13 @@ public class PmsProductIT {
 
 		mockMvc.perform(request)//
 				.andExpect(jsonPath("$.code", is(201)))//
-				.andExpect(jsonPath("$.message", is("通信失败")));
+				.andExpect(jsonPath("$.message", is("Created")));
 
 	}
 
+//	@Before
+//
+//	public void deleteTestData() throws Exception {
+//
+//	}
 }
