@@ -43,7 +43,7 @@ public class PmsProductCategoryListController {
 
 		List<PmsProductCategory> pmsProductCategory = pmsProductCategoryRepository.findByParentId(id);
 
-		return new CommonResult(200, pmsProductCategory, "通信成功");
+		return new CommonResult(200, pmsProductCategory, "OK");
 
 	}
 
@@ -73,7 +73,7 @@ public class PmsProductCategoryListController {
 
 			CommonPage<PmsProductCategoryWithChildrenItem> commonPageCategoryWithChildrenItem = new CommonPage<PmsProductCategoryWithChildrenItem>(
 					pmsProductCategoryWithChildrenItem, pageNum, pageSize, (long) total, totalPage);
-			return new CommonResult(200, commonPageCategoryWithChildrenItem, "通信成功");
+			return new CommonResult(200, commonPageCategoryWithChildrenItem, "OK");
 		}
 		List<PmsProductCategory> pmsProductCategory = pmsProductCategoryRepository.findByParentId(parentId);
 		Integer total = pmsProductCategory.size();
@@ -88,7 +88,7 @@ public class PmsProductCategoryListController {
 
 		CommonPage<PmsProductCategory> commonPageCategory = new CommonPage<PmsProductCategory>(pmsProductCategory,
 				pageNum, pageSize, (long) total, totalPage);
-		return new CommonResult(200, commonPageCategory, "通信成功");
+		return new CommonResult(200, commonPageCategory, "OK");
 
 	}
 

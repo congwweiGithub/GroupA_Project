@@ -1,13 +1,13 @@
 package com.mall.controller;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
@@ -37,7 +37,7 @@ public class PmsProductIT {
 	private PmsProductRepository pmsProductRepository;
 
 	@Test //
-	public void testCreateProduct_Succcess() throws Exception {
+	public void testCreateProduct_succcess() throws Exception {
 
 		ObjectMapper mapper = new ObjectMapper();
 		PmsProductParam param = PmsProductParam.builder()//
@@ -102,26 +102,16 @@ public class PmsProductIT {
 
 		mockMvc.perform(request)//
 				.andExpect(jsonPath("$.code", is(200)))//
-				.andExpect(jsonPath("$.message", is("OK"))); // TODO
+				.andExpect(jsonPath("$.message", is("OK")));//
 
-		// 检验数据是否存入数据库
-		List<PmsProduct> expectedProductList = new ArrayList<>();
-		PmsProduct expectedProduct = new PmsProduct();
+		PmsProduct product = pmsProductRepository.findByName("魅族手机");
+		assertNotNull(product);
+		assertEquals(1l, product.getId());
 
-		expectedProductList.add(expectedProduct);
-		BeanUtils.copyProperties(param, expectedProduct);
-		ObjectMapper mapper1 = new ObjectMapper();
-		String expected = mapper1.writeValueAsString(expectedProductList);
-
-		List<PmsProduct> product = pmsProductRepository.findByName("魅族手机");
-
-		ObjectMapper mapper2 = new ObjectMapper();
-		String actual = mapper2.writeValueAsString(product);
-		assertEquals(expected, actual);
 	}
 
 	@Test //
-	public void testCreateProduct_Failed() throws Exception {
+	public void testCreateProduct_failed() throws Exception {
 
 		PmsProductParam saveParam = new PmsProductParam();
 		PmsProduct pmsProduct = new PmsProduct();
@@ -195,9 +185,4 @@ public class PmsProductIT {
 
 	}
 
-//	@Before
-//
-//	public void deleteTestData() throws Exception {
-//
-//	}
 }

@@ -50,10 +50,10 @@ public class PmsBrandController {
 
 		log.info("get brand list keyword: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
 
-		CommonPage<PmsBrand> commonResultPmsBrand = pmsBrandService.findRequiredBrands(pageNum, pageSize, keyword);
+		CommonPage<PmsBrand> commonPage = pmsBrandService.findRequiredBrands(pageNum, pageSize, keyword);
 
 		log.info("calculated page info: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
 
-		return new CommonResult(200, commonResultPmsBrand, "ok");
+		return new CommonResult(200, commonPage, "ok");
 	}
 }

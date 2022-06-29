@@ -33,7 +33,7 @@ public class PmsProductCategoryController {
 	@GetMapping("/list/withChildren")
 	public CommonResult getProductCategoryWithChildren() {
 
-		return new CommonResult(200, pmsProductCategoryWithChildrenRepository.findAll(), "ok");
+		return new CommonResult(200, pmsProductCategoryWithChildrenRepository.findAll(), "OK");
 	}
 
 	@ResponseBody
@@ -43,30 +43,32 @@ public class PmsProductCategoryController {
 		log.info("商品分类信息: {}", param);
 
 		PmsProductCategory category = new PmsProductCategory();
-
+		PmsProductCategoryWithChildrenItem categoryWithChildren = new PmsProductCategoryWithChildrenItem();
 		BeanUtils.copyProperties(param, category);
+		BeanUtils.copyProperties(param, categoryWithChildren);
 		Long parentId = param.getParentId();
 
-		if (pmsProductCategoryRepository.findByName(category.getName()).isEmpty()) {
+		if (pmsProductCategoryRepository.findByName(category.getName()) == null
+				&& pmsProductCategoryWithChildrenRepository.findByName(categoryWithChildren.getName()) == null) {
 
 			if (parentId != 0) {
 				PmsProductCategoryWithChildrenItem parent = pmsProductCategoryWithChildrenRepository
 						.findById(param.getParentId()).get();
 				category.setParent(parent);
 				category.setLevel(1);
+				pmsProductCategoryRepository.save(category);
 			} else {
-				category.setLevel(0);
+				categoryWithChildren.setLevel(0);
+				pmsProductCategoryWithChildrenRepository.save(categoryWithChildren);
 			}
-
-			pmsProductCategoryRepository.save(category);
 
 			log.info("ProductCategory " + param.getName() + "添加成功");
 
-			return new CommonResult(200, null, "通信成功");
+			return new CommonResult(200, null, "OK");
 		} else {
 			log.info("ProductCategory " + param.getName() + "添加失败");
 
-			return new CommonResult(201, null, "通信失败");
+			return new CommonResult(201, null, "Created");
 		}
 
 	}

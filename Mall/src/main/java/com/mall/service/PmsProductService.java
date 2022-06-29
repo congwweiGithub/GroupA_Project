@@ -32,7 +32,10 @@ public class PmsProductService {
 //		return false;
 
 		// 方法2：
-		if (pmsProductRepository.findByName(name).isEmpty()) {
+
+		PmsProduct pmsProduct = pmsProductRepository.findByName(name);
+
+		if (pmsProduct == null) {
 			return false;
 		}
 		return true;
