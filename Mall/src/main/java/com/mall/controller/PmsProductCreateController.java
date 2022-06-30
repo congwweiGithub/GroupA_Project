@@ -1,7 +1,5 @@
 package com.mall.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,14 +11,15 @@ import com.mall.model.param.PmsProductParam;
 import com.mall.model.response.CommonResult;
 import com.mall.service.PmsProductService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RequestMapping("/product")
 @Controller
+@Slf4j
 public class PmsProductCreateController {
 
 	@Autowired
 	private PmsProductService pmsProductService;
-
-	private static final Logger logger = LoggerFactory.getLogger(PmsProductCreateController.class);
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -28,11 +27,11 @@ public class PmsProductCreateController {
 
 		if (!pmsProductService.productIsExsiting(param.getName())) {
 			pmsProductService.createProuduct(param);
-			logger.info("Product {} 添加成功.", param.getName());
+			log.info("Product {} 添加成功.", param.getName());
 			return new CommonResult(200, null, "OK");
 
 		} else {
-			logger.warn("Product {} 添加失败.", param.getName());
+			log.warn("Product {} 添加失败.", param.getName());
 			return new CommonResult(201, null, "Created");
 		}
 

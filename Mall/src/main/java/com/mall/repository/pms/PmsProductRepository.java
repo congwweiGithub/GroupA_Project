@@ -13,5 +13,5 @@ public interface PmsProductRepository extends JpaRepository<PmsProduct, Long> {
 
 	PmsProduct findByName(String name);
 
-	List<PmsProduct> findByKeyWordsContaining(String keyWords);
+	List<PmsProduct> findByKeyWordsContaining(String keyword);
 }

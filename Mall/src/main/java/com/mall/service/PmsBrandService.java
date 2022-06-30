@@ -22,24 +22,6 @@ public class PmsBrandService {
 		return pmsBrandRepository.findAll();
 	}
 
-//	public CommonPage<PmsBrand> findRequiredBrands(Integer pageNum, Integer pageSize) {
-//
-//		long pmsBrandCount = pmsBrandRepository.count();
-//		Long totalCount = pmsBrandCount;// 总个数
-//		Integer total = totalCount.intValue();
-//		Integer result = total % pageSize;
-//		// 总页数
-//		Integer totalPage = (Integer) (result > 0 ? // 如果取模大于0说明总个数和每页显示个数整除后需要加一页
-//				total / pageSize + 1 : total / pageSize);
-//
-//		CommonPage<PmsBrand> commonPage = new CommonPage<PmsBrand>(
-//				pmsBrandRepository.findRequiredBrands((pageNum - 1) * pageSize, pageSize), pageNum, pageSize,
-//				(long) total, totalPage);
-//
-//		return commonPage;
-//
-//	}
-
 	public CommonPage<PmsBrand> findRequiredBrands(Integer pageNum, Integer pageSize, String keyword) {
 
 		CommonPage<PmsBrand> commonPage;

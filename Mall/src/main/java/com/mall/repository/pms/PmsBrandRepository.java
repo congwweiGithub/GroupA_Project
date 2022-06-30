@@ -18,6 +18,6 @@ public interface PmsBrandRepository extends JpaRepository<PmsBrand, Long> {
 	List<PmsBrand> findRequiredBrands(Integer startFrom, Integer pageSize);
 
 	// 方法2：
-	Page<PmsBrand> findByNameLike(Pageable pageable, String keyWord);
+	Page<PmsBrand> findByNameLike(Pageable pageable, String keyword);
 
 }
