@@ -1,6 +1,8 @@
 
 package com.mall.model.oms;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -24,17 +26,17 @@ public class OmsOrder {
 	private String billReceiverEmail;
 	private String billReceiverPhone;
 	private Integer billType;
-	private String commentTime;
+	private Date commentTime;
 	private Integer confirmStatus;
-	private Number couponAmount;
+	private Integer couponAmount;
 	private Long couponId;
-	private String createTime;
+	private Date createTime;
 	private Integer deleteStatus;
 	private String deliveryCompany;
 	private String deliverySn;
 	private String deliveryTime;
-	private Number discountAmount;
-	private Number freightAmount;
+	private Integer discountAmount;
+	private Integer freightAmount;
 	private Integer growth;
 	private Integer integration;
 	private Long memberId;
@@ -43,10 +45,10 @@ public class OmsOrder {
 	private String note;
 	private String orderSn;
 	private Integer orderType;
-	private Number payAmount;
+	private Integer payAmount;
 	private Integer payType;
 	private String payTime;
-	private Number promotionAmount;
+	private Integer promotionAmount;
 	private String promotionInfo;
 	private String receiveTime;
 	private String receiverCity;
@@ -58,6 +60,6 @@ public class OmsOrder {
 	private String receiverRegion;
 	private Integer sourceType;
 	private Integer status;
-	private Number totalAmount;
+	private Integer totalAmount;
 	private Integer useIntegration;
 }
