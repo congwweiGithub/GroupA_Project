@@ -1,7 +1,5 @@
 package com.mall.controller;
 
-import java.util.List;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mall.model.pms.PmsBrand;
+import com.mall.model.response.CommonPage;
 import com.mall.model.response.CommonResult;
-import com.mall.model.response.CommonResultPmsBrand;
 import com.mall.repository.pms.PmsBrandRepository;
 import com.mall.service.PmsBrandService;
 
@@ -45,15 +43,17 @@ public class PmsBrandController {
 	// get商品品牌下拉栏
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
+
 	public CommonResult brandList(@RequestParam(name = "keyword", required = false) String keyword, //
 			@RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum, //
 			@RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize) {
 
 		log.info("get brand list keyword: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
 
-		List<PmsBrand> pmsBrand = pmsBrandService.FindAllBrands();
-		CommonResultPmsBrand commonResultPmsBrand = new CommonResultPmsBrand(pmsBrand, 1, 5, 0l, 0);
-		return new CommonResult(200, commonResultPmsBrand, "ok");
+		CommonPage<PmsBrand> commonPage = pmsBrandService.findRequiredBrands(pageNum, pageSize, keyword);
 
+		log.info("calculated page info: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
+
+		return new CommonResult(200, commonPage, "ok");
 	}
 }
