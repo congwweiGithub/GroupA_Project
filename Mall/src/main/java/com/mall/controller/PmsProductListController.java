@@ -15,7 +15,7 @@ import com.mall.service.PmsProductService;
 @RequestMapping("/product")
 @Controller
 public class PmsProductListController {
-	
+
 	@Autowired
 	private PmsProductService pmsProductService;
 
