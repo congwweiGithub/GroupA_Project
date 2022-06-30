@@ -7,7 +7,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -26,7 +25,7 @@ import lombok.Setter;
 @Setter
 public class PmsProductCategoryWithChildrenItem {
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pmsProductCategoryWithChildrenItem")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "parent")
 	@JsonManagedReference
 	private List<PmsProductCategory> children;
 
@@ -50,7 +49,7 @@ public class PmsProductCategoryWithChildrenItem {
 
 	private Integer productCount;
 
-	private Integer productUnit;
+	private String productUnit;
 
 	private Integer showStatus;
 

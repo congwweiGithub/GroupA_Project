@@ -1,8 +1,5 @@
 package com.mall.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,32 +7,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mall.model.pms.PmsProduct;
+import com.mall.model.param.PmsProductParam;
 import com.mall.model.response.CommonResult;
-import com.mall.repository.pms.PmsProductRepository;
+import com.mall.service.PmsProductService;
+
+import lombok.extern.slf4j.Slf4j;
 
 @RequestMapping("/product")
 @Controller
+@Slf4j
 public class PmsProductCreateController {
 
 	@Autowired
-	private PmsProductRepository pmsProductRepository;
-	private static final Logger logger = LoggerFactory.getLogger(PmsProductCreateController.class);
+	private PmsProductService pmsProductService;
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public CommonResult createProduct(@RequestBody PmsProduct param) {
+	public CommonResult createProduct(@RequestBody PmsProductParam param) {
 
-		if (!param.getName().isEmpty() && !param.getProductCategoryName().isEmpty()//
-				&& !param.getSubTitle().isEmpty()//
-				&& !param.getBrandName().isEmpty()) {
+		if (!pmsProductService.productIsExsiting(param.getName())) {
+			pmsProductService.createProuduct(param);
+			log.info("Product {} 添加成功.", param.getName());
+			return new CommonResult(200, null, "OK");
 
-			BeanUtils.copyProperties(param, pmsProductRepository);
-
-			pmsProductRepository.save(param);
-			logger.info("Product " + param.getName() + "添加成功");
+		} else {
+			log.warn("Product {} 添加失败.", param.getName());
+			return new CommonResult(201, null, "Created");
 		}
-		return new CommonResult(200, null, "Succeed");
-	}
 
+	}
 }
