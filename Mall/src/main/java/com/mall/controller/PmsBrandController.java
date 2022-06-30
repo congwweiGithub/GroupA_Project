@@ -36,7 +36,7 @@ public class PmsBrandController {
 
 		BeanUtils.copyProperties(param, pmsBrandRepository);
 		pmsBrandRepository.save(param);
-		
+
 		return new CommonResult(200, null, "Succeed");
 
 	}
@@ -48,10 +48,10 @@ public class PmsBrandController {
 			@RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum, //
 			@RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize) {
 		log.info("让我看看都有啥 keyword: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
-		
+
 		CommonResultPmsBrand commonResultPmsBrand = pmsBrandService.findRequiredBrands(pageNum, pageSize, keyword);
-		log.info("calculated page info: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);		
-		
+		log.info("calculated page info: {}, pagenum:{}, pageSize:{}", keyword, pageNum, pageSize);
+
 		return new CommonResult(200, commonResultPmsBrand, "ok");
 
 	}

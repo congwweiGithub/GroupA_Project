@@ -2,12 +2,19 @@ package com.mall.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import javax.annotation.Resource;
+
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import com.mall.model.response.CommonResultPmsBrand;
+
+@SpringBootTest
 class PmsBrandServiceTest {
 
 	@BeforeAll
@@ -25,9 +32,16 @@ class PmsBrandServiceTest {
 	@AfterEach
 	void tearDown() throws Exception {
 	}
+	
+	@Resource
+	CommonResultPmsBrand commonResultPmsBrand;
+	PmsBrandService pmsBrandService;
 
 	@Test
-	void findRequiredBrandTest() {
+	void testFindRequiredBrand() {
+		commonResultPmsBrand = pmsBrandService.findRequiredBrands(null, null, null);
+		Assert.
+		
 		fail("Not yet implemented");
 	}
 

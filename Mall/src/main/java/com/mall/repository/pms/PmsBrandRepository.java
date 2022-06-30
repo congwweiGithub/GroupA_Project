@@ -10,5 +10,5 @@ import com.mall.model.pms.PmsBrand;
 @Repository
 public interface PmsBrandRepository extends JpaRepository<PmsBrand, Long> {
 	Page<PmsBrand> findByNameLike(String keyword, Pageable pageable);
-	
+
 }

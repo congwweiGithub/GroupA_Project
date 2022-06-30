@@ -21,7 +21,7 @@ public class PmsBrand {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Basic
 	private String bigPic;
 	// 专区大图

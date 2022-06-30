@@ -39,6 +39,8 @@ public class PmsBrandControllerTest {
 	//@DisplayName("PostCreateBrandJSON")
 	public void createBrandTest() throws Exception {
 		
+		List<String> list = new ArrayList<String>();
+		
 		mockMvc.perform(MockMvcRequestBuilders.post("/create")//
 				.header("", "")//
 				.param("", ""))//
