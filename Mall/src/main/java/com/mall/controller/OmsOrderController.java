@@ -32,21 +32,6 @@ public class OmsOrderController {
 			@RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize, //
 			@RequestParam(name = "receiverKeyword", required = false) String receiverKeyword) {
 
-//		OmsOrder order;
-//		if (receiverKeyword == null) {
-//			order = OmsOrder.builder().createTime(createTime).orderSn(orderSn)//
-//					.orderType(orderType).sourceType(sourceType).status(status).build();
-//		} else if (receiverKeyword.matches("[0-9]{10,}")) {
-//			order = OmsOrder.builder().createTime(createTime).orderSn(orderSn)//
-//					.orderType(orderType).sourceType(sourceType).status(status)//
-//					.receiverPhone(receiverKeyword).build();
-//		} else {
-//			order = OmsOrder.builder().createTime(createTime).orderSn(orderSn)//
-//					.orderType(orderType).sourceType(sourceType).status(status)//
-//					.receiverName(receiverKeyword).build();
-//		}
-//		Example<OmsOrder> example = Example.of(order);
-
 		CommonPage<OmsOrder> commonPage = omsOrderService.findByOrderSn(pageNum, pageSize, orderSn);
 		return new CommonResult(200, commonPage, "ok");
 	}
