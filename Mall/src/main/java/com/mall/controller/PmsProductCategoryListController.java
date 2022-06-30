@@ -40,7 +40,6 @@ public class PmsProductCategoryListController {
 	public CommonResult getProductCategoryListById(@PathVariable Long id) {
 
 		log.info("get productCategory list Id:{}", id);
-
 		List<PmsProductCategory> pmsProductCategory = pmsProductCategoryRepository.findByParentId(id);
 
 		return new CommonResult(200, pmsProductCategory, "OK");
@@ -53,7 +52,7 @@ public class PmsProductCategoryListController {
 			@RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum, //
 			@RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize, //
 			@PathVariable Long parentId) {
-		log.info("get productCategory list pagenum: {}, pageSize:{}, parentId:{}", pageNum, pageSize, parentId);
+		log.info("返回 productCategory 主列表 pagenum: {}, pageSize:{}, parentId:{}", pageNum, pageSize, parentId);
 
 		if (parentId == 0) {
 
@@ -88,6 +87,8 @@ public class PmsProductCategoryListController {
 
 		CommonPage<PmsProductCategory> commonPageCategory = new CommonPage<PmsProductCategory>(pmsProductCategory,
 				pageNum, pageSize, (long) total, totalPage);
+
+		log.info("通过parentId查询商品分类成功 parentId:{}", parentId);
 		return new CommonResult(200, commonPageCategory, "OK");
 
 	}

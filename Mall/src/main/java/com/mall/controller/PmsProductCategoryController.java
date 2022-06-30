@@ -33,14 +33,13 @@ public class PmsProductCategoryController {
 	@GetMapping("/list/withChildren")
 	public CommonResult getProductCategoryWithChildren() {
 
+		log.info("查询一级分类及其子分类成功");
 		return new CommonResult(200, pmsProductCategoryWithChildrenRepository.findAll(), "OK");
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public CommonResult createProductCategory(@RequestBody PmsProductCategoryParam param) {
-
-		log.info("商品分类信息: {}", param);
 
 		PmsProductCategory category = new PmsProductCategory();
 		PmsProductCategoryWithChildrenItem categoryWithChildren = new PmsProductCategoryWithChildrenItem();
@@ -62,11 +61,11 @@ public class PmsProductCategoryController {
 				pmsProductCategoryWithChildrenRepository.save(categoryWithChildren);
 			}
 
-			log.info("ProductCategory " + param.getName() + "添加成功");
+			log.info("ProductCategory 添加成功 name：{}", param.getName());
 
 			return new CommonResult(200, null, "OK");
 		} else {
-			log.info("ProductCategory " + param.getName() + "添加失败");
+			log.info("ProductCategory 添加失败 name：{}", param.getName());
 
 			return new CommonResult(201, null, "Created");
 		}

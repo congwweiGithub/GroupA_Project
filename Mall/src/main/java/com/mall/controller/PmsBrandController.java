@@ -36,6 +36,7 @@ public class PmsBrandController {
 
 		BeanUtils.copyProperties(param, pmsBrandRepository);
 		pmsBrandRepository.save(param);
+		log.info("品牌创建成功 name{}：", param.getName());
 		return new CommonResult(200, null, "Succeed");
 
 	}

@@ -70,6 +70,7 @@ public class PmsProductListController {
 		}
 		// TODO 式样尚不明确 暂时设定为0
 		CommonPage<PmsProduct> commonPage = new CommonPage<>(products, 0, 0, 0l, 0);
+
 		return new CommonResult(200, commonPage, "ok");
 	}
 }
